@@ -217,7 +217,7 @@ var HomePage = (function () {
             .then(function (user) {
             console.log(user);
         });
-        this.fcm.subscribeToTopic('marketing');
+        this.fcm.subscribeToTopic('news');
         this.fcm.getToken().then(function (token) {
             console.log(token);
             // backend.registerToken(token);
@@ -241,10 +241,11 @@ var HomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"G:\projects\github\push-notif-mobile\src\pages\home\home.html"*/`<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Push notification for A.C\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  test\n</ion-content>\n`/*ion-inline-end:"G:\projects\github\push-notif-mobile\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_fcm__["a" /* FCM */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_fcm__["a" /* FCM */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_fcm__["a" /* FCM */]])
     ], HomePage);
     return HomePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
