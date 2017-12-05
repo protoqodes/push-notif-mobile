@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "622837720310",
+    "firebase_url": "https://fcm-angeles.firebaseio.com",
+    "project_id": "fcm-angeles",
+    "storage_bucket": "fcm-angeles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622837720310:android:484724f5f212602f",
+        "android_client_info": {
+          "package_name": "push.notif.angeles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622837720310-jvfpkgqi6isnnitnvo38mnitklaulgi6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaOr-KCK3l-5EObvfTf8grCihiB9Se0Z4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
