@@ -50,14 +50,16 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
+      "cordova-plugin-fcm": {},
       "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
-      "cordova-plugin-ionic-webview": {},
-      "phonegap-plugin-push": {
-        "FCM_VERSION": "11.0.1"
-      }
-    }
+      "cordova-plugin-ionic-webview": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }
