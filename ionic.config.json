@@ -2,5 +2,7 @@
   "name": "push-notif-mobile",
   "app_id": "",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
