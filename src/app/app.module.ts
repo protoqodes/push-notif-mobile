@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
+import { FCM } from '@ionic-native/fcm'
 //pages
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
@@ -34,6 +35,7 @@ import { ApiService } from '../shared/api.service';
     StatusBar,
     SplashScreen,
     ApiService,
+    FCM,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
