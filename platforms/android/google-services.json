@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "622837720310",
-    "firebase_url": "https://fcm-angeles.firebaseio.com",
-    "project_id": "fcm-angeles",
-    "storage_bucket": "fcm-angeles.appspot.com"
+    "project_number": "134945683401",
+    "firebase_url": "https://pushnotification-1092d.firebaseio.com",
+    "project_id": "pushnotification-1092d",
+    "storage_bucket": "pushnotification-1092d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:622837720310:android:484724f5f212602f",
+        "mobilesdk_app_id": "1:134945683401:android:764d2cb7da3280eb",
         "android_client_info": {
-          "package_name": "push.notif.angeles"
+          "package_name": "io.ionic.starter"
         }
       },
       "oauth_client": [
         {
-          "client_id": "622837720310-jvfpkgqi6isnnitnvo38mnitklaulgi6.apps.googleusercontent.com",
+          "client_id": "134945683401-88nmb0c3rebhv2mu29kbgm6ge3jdrrao.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAaOr-KCK3l-5EObvfTf8grCihiB9Se0Z4"
+          "current_key": "AIzaSyDwRT2rOPEE68GwiYJNeAAjR37GAeEKEmM"
         }
       ],
       "services": {

@@ -53,6 +53,8 @@
 		26EEDD8CC15E4B2A94B4CC7E /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F86B4AB3561C4CBA91F5D1B8 /* CDVSplashScreen.m */; };
 		2A4E0B536EE4410EBFEA1183 /* CDVViewController+SplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9E83F2AF4049C6A16C0514 /* CDVViewController+SplashScreen.m */; };
 		57A8B31A3DEA470DA43A2D89 /* IonicKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5EC53866DD4C5496DC331F /* IonicKeyboard.m */; };
+		7F9CB871C0BA44C2AFA27D94 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = BBCA9DEB6AD24FFAB1AF4C13 /* AppDelegate+notification.m */; };
+		9668FE0C763A44C3B43C7504 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BCCFDA76A14813B7AFE468 /* PushPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,10 @@
 		DD8D08E4C0FF4DCE8531E3E7 /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		3D5EC53866DD4C5496DC331F /* IonicKeyboard.m */ = {isa = PBXFileReference; name = "IonicKeyboard.m"; path = "ionic-plugin-keyboard/IonicKeyboard.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		8FC07BB3435E45CDB714D0DE /* IonicKeyboard.h */ = {isa = PBXFileReference; name = "IonicKeyboard.h"; path = "ionic-plugin-keyboard/IonicKeyboard.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		BBCA9DEB6AD24FFAB1AF4C13 /* AppDelegate+notification.m */ = {isa = PBXFileReference; name = "AppDelegate+notification.m"; path = "phonegap-plugin-push/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F7BCCFDA76A14813B7AFE468 /* PushPlugin.m */ = {isa = PBXFileReference; name = "PushPlugin.m"; path = "phonegap-plugin-push/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		3012EF7E55D84B1782C0ADE1 /* AppDelegate+notification.h */ = {isa = PBXFileReference; name = "AppDelegate+notification.h"; path = "phonegap-plugin-push/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		C6EF472E8E53447BA2796112 /* PushPlugin.h */ = {isa = PBXFileReference; name = "PushPlugin.h"; path = "phonegap-plugin-push/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +340,10 @@
 				DD8D08E4C0FF4DCE8531E3E7 /* CDVViewController+SplashScreen.h */,
 				3D5EC53866DD4C5496DC331F /* IonicKeyboard.m */,
 				8FC07BB3435E45CDB714D0DE /* IonicKeyboard.h */,
+				BBCA9DEB6AD24FFAB1AF4C13 /* AppDelegate+notification.m */,
+				F7BCCFDA76A14813B7AFE468 /* PushPlugin.m */,
+				3012EF7E55D84B1782C0ADE1 /* AppDelegate+notification.h */,
+				C6EF472E8E53447BA2796112 /* PushPlugin.h */,
 			);
 			name = Plugins;
 			path = "test 1/Plugins";
@@ -469,6 +479,8 @@
 				26EEDD8CC15E4B2A94B4CC7E /* CDVSplashScreen.m in Sources */,
 				2A4E0B536EE4410EBFEA1183 /* CDVViewController+SplashScreen.m in Sources */,
 				57A8B31A3DEA470DA43A2D89 /* IonicKeyboard.m in Sources */,
+				7F9CB871C0BA44C2AFA27D94 /* AppDelegate+notification.m in Sources */,
+				9668FE0C763A44C3B43C7504 /* PushPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
