@@ -9,14 +9,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-fcm.FCMPlugin",
-    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
-    "pluginId": "cordova-plugin-fcm",
-    "clobbers": [
-      "FCMPlugin"
-    ]
-  },
-  {
     "id": "cordova-plugin-ionic-webview.ios-wkwebview-exec",
     "file": "plugins/cordova-plugin-ionic-webview/src/www/ios/ios-wkwebview-exec.js",
     "pluginId": "cordova-plugin-ionic-webview",
@@ -48,18 +40,26 @@ module.exports = [
     "clobbers": [
       "PushNotification"
     ]
+  },
+  {
+    "id": "cordova-plugin-fcm.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
   "cordova-plugin-device": "1.1.4",
-  "cordova-plugin-fcm": "2.1.2",
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-splashscreen": "4.0.3",
   "cordova-plugin-whitelist": "1.3.1",
   "ionic-plugin-keyboard": "2.2.1",
-  "phonegap-plugin-push": "2.1.2"
+  "phonegap-plugin-push": "2.1.2",
+  "cordova-plugin-fcm": "2.1.2"
 };
 // BOTTOM OF METADATA
 });
