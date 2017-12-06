@@ -43,13 +43,13 @@ export class LoginPage {
         getPass = this.posts.password,
         baseUrl = Config.baseUrl;
     this.api.Users.login(getUser,getPass)
-    .then(user =>{  
+    .then(user =>{
       this.storeUser(user);
     })
     .catch(error => {
       console.log(error)
     })
-   
+
   }
   storeUser(user){
     this.storage.set('user', user);
@@ -59,4 +59,3 @@ export class LoginPage {
     });
   }
 }
-

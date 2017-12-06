@@ -1,3 +1,99 @@
 page-home {
+  //main: ../main.scss
+  // -----------------------------------------------------------------------------
+  // This file contains styles that are specific to the posts page.
+  // -----------------------------------------------------------------------------
+
+  .heading-holder {
+    padding: 10px;
+    margin: 0 -15px;
+    margin-bottom: 30px;
+
+    font-size: 19px;
+    color: #fff;
+    text-align: center;
+
+    background: #42b66d;
+
+    h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  .holder {
+    .col-12 {
+      width: 100%;
+    }
+
+    .post-holder {
+        position: relative;
+        overflow: hidden;
+
+        padding: 25px 15px 0;
+        margin-bottom: 30px;
+
+        text-align: center;
+
+        background: #fff;
+        border: 5px #42b66d solid;
+
+        -webkit-box-shadow: 0 0 15px 2px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 0 15px 2px rgba(0,0,0,0.3);
+        box-shadow: 0 0 15px 2px rgba(0,0,0,0.3);
+
+        img {
+          width: 80px;
+          height: auto;
+        }
+
+        h6 {
+          padding: 10px;
+          margin: 20px -15px;
+
+          font-size: 19px;
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+
+          background: #42b66d;
+        }
+
+        p {
+          margin-top: 10px;
+          margin-left: 0;
+
+          font-size: 14px;
+          line-height: 20px;
+          text-indent: 25px;
+        }
+
+        ul {
+          display: flex;
+          justify-content: space-around;
+
+          padding-left: 0;
+
+          li {
+            display: inline;
+            list-style: none;
+
+            a {
+              font-size: 14px;
+              color: #42b66d;
+              text-decoration: none;
+            }
+          }
+
+          @media screen and (max-width: 575px) {
+            display: block;
+
+            li {
+              display: block;
+              padding: 2px;
+            }
+          }
+        }
+      }
+  }
 
 }

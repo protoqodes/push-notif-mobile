@@ -1,11 +1,15 @@
 
 <ion-content padding>
- 
- 
-  <form class="form-login">
-    <label><input type="email" name="username" placeholder="Email or Mobile number" [(ngModel)]="posts.username" /></label>
-    <label><input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" [(ngModel)]="posts.password" /></label>
-    <button class="btn-green" type="submit" (click)="logMeIn()">Log In</button>
-  </form>
-  <a class="description forgot-pass" (click)="goReset()">Forgot your password?</a>
+  <div class="login-holder">
+    <div class="logo-holder">
+      <img class="ac-logo" src="../../assets/imgs/logo.png">
+    </div>
+
+    <form class="form-login">
+      <label><input type="email" name="username" placeholder="Email or Mobile number" [(ngModel)]="posts.username" /></label>
+      <label><input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" [(ngModel)]="posts.password" /></label>
+      <button class="btn-green" type="submit" (click)="logMeIn()">Log In</button>
+    </form>
+    <a class="description forgot-pass" (click)="goReset()">Forgot your password?</a>
+  </div>
 </ion-content>
