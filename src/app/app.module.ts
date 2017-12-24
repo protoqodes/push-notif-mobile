@@ -9,6 +9,9 @@ import { MyApp } from './app.component';
 //pages
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
+import { UserAddPage } from '../pages/users/users-add/user-add';
+import { UserListPage } from '../pages/users/users-list/user-list';
+import { UserEditPage } from '../pages/users/users-edit/user-edit';
 // shared
 import { ApiService } from '../shared/api.service';
 
@@ -16,7 +19,10 @@ import { ApiService } from '../shared/api.service';
   declarations: [
     MyApp,
     LoginPage,
-    HomePage
+    HomePage,
+    UserAddPage,
+    UserListPage,
+    UserEditPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,10 @@ import { ApiService } from '../shared/api.service';
   entryComponents: [
     MyApp,
     LoginPage,
-    HomePage
+    HomePage,
+    UserAddPage,
+    UserListPage,
+    UserEditPage
   ],
   providers: [
     StatusBar,
