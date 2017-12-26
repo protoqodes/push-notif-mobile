@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding *ngIf="hasData">
   <div class="holder">
     <div class="container">
       <div class="row">
@@ -14,39 +14,21 @@
           <div class="heading-holder">
             <h4>RECENT POSTS</h4>
           </div>
-          <div class="post-holder">
+          <div class="post-holder" *ngFor="let post of posts">
             <div class="post-header">
               <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />
-              <h6>Post Title</h6>
+              <h6>{{post.title}}</h6>
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              {{post.description}}
             </p>
+            <img width="100" src="{{post.img}}" alt="">
             <ul>
               <li><a href="#" class="date">NOVEMBER 24, 2017</a></li>
               <li><a href="#" class="website">www.angelescity.gov.ph</a></li>
               <li><a href="#" class="social">@LungsodngAngeles</a></li>
             </ul>
           </div>
-
-          <div class="post-holder">
-            <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />
-            <h6>Untitled</h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-              in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <ul>
-              <li><a href="#" class="date">NOVEMBER 24, 2017</a></li>
-              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>
-              <li><a href="#" class="social">@LungsodngAngeles</a></li>
-            </ul>
-          </div>
-
-           <button ion-button icon-only (click)="ListUser()">
-            <ion-icon name="add"></ion-icon>
-          </button>
       </div>
       </div>
     </div>

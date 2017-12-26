@@ -1,0 +1,24 @@
+user-add {
+  .scroll-content {
+    background-color: #52bc7a;
+
+    .row {
+      ion-item {
+        padding: 0 16px !important;
+
+        .item-input-has-focus {
+          color: #52bc7a !important;
+
+            ion-label {
+              color: #42b66d;
+            }
+        }
+      }
+    }
+  }
+
+  ion-label {
+    color: #42b66d;
+
+  }
+}

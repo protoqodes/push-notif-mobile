@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import  Config  from '../../../shared/config';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../../shared/api.service';
+
 @Component({
   selector: 'user-add',
   templateUrl: 'user-add.html'
@@ -24,7 +25,7 @@ export class UserAddPage {
 
 
   ionViewWillEnter(){
- 
+
   }
 
   addUser(){

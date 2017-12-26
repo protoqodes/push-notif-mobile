@@ -7,6 +7,10 @@ import { Http }  from '@angular/http';
 import * as $ from "jquery";
 // Pages
 import { HomePage } from '../home/home';
+// import { UserAddPage } from '../users/users-add/user-add';
+// import { UserListPage } from '../users/users-list/user-list';
+// import { UserEditPage } from '../users/users-edit/user-edit';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'login.html'

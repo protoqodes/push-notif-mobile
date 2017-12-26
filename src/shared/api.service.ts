@@ -43,7 +43,15 @@ export class ApiService {
                        return response.json();
                 }).toPromise();
           },
-          edit: (user_id: string ,first_name: string,last_name : string,mobile : string, email: string, username : string , password: string) => {
+          edit: (
+            user_id: string,
+            first_name: string,
+            last_name : string,
+            mobile : string,
+            email: string,
+            username : string,
+            password: string,
+            is_active :any) => {
                 return this.http.post(Config.baseUrl + "/users/edit/"+ user_id,
                      {
                         first_name : first_name,
@@ -51,7 +59,8 @@ export class ApiService {
                           mobile : mobile,
                           email: email,
                           username: username,
-                          password: password
+                          password: password,
+                          is_active : is_active
                     })
                       .map(response => {
                        return response.json();
@@ -68,6 +77,13 @@ export class ApiService {
 
           }
 
-
 	 }
+    Posts = {
+      list: () => {
+            return this.http.get(Config.baseUrl + "/posts/list")
+                  .map(response => {
+                   return response.json();
+            }).toPromise();
+        }
+   }
 }
