@@ -1,9 +1,27 @@
-page-home {
-  //main: ../main.scss
-  // -----------------------------------------------------------------------------
-  // This file contains styles that are specific to the posts page.
-  // -----------------------------------------------------------------------------
+/* header */
+.toolbar,
+.toolbar-background-md,
+.toolbar-background-ios {
+    border-color: transparent;
+    background: #42b66d;
+}
 
+.toolbar-title-md,
+.toolbar-title-ios {
+    font-size: 16px;
+    color: #fff;
+}
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default,
+.bar-button-default-ios,
+.bar-button-clear-ios-default,
+.bar-button-ios-default {
+    color: #fff;
+}
+
+page-home {
   .heading-holder {
     padding: 10px;
     margin: 0 -15px;
@@ -29,7 +47,7 @@ page-home {
         position: relative;
         overflow: hidden;
 
-        padding: 25px 15px 0;
+        padding: 25px 0 0;
         margin-bottom: 30px;
 
         text-align: center;
@@ -59,6 +77,7 @@ page-home {
         }
 
         p {
+          padding: 0 10px;
           margin-top: 10px;
           margin-left: 0;
 
@@ -92,6 +111,64 @@ page-home {
               padding: 2px;
             }
           }
+        }
+
+        .comment {
+          border-top: 1px solid #42b66d;
+
+          .form-group {
+            .form-control {
+              padding: 5px 10px;
+              margin: 10px 0;
+
+              border: 1px solid #fff;
+            }
+
+            input::-webkit-input-placeholder {
+                color: #42b66d;
+                letter-spacing: 1.5px;
+            }
+            input::-moz-placeholder {
+                color: #42b66d;
+                letter-spacing: 1.5px;
+            }
+            input:-ms-input-placeholder {
+                color: #42b66d;
+                letter-spacing: 1.5px;
+            }
+            input:-moz-placeholder {
+                color: #42b66d;
+                letter-spacing: 1.5px;
+            }
+          }
+        }
+      }
+
+      .btn-green {
+        padding: 5px;
+
+        font-size: 12px;
+        color: #fff;
+
+        background: #42b66d;
+        border: 2px solid #42b66d;
+        border-radius: 12px;
+
+        -webkit-transition: 0.2s ease-in-out;
+        -moz-transition: 0.2s ease-in-out;
+        -o-transition: 0.2s ease-in-out;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          color: #42b66d;
+
+          background: #fff;
+          border-color: #fff;
+
+          outline: none;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
         }
       }
   }

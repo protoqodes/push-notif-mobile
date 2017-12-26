@@ -1,0 +1,38 @@
+/* header */
+.toolbar,
+.toolbar-background-md,
+.toolbar-background-ios {
+    border-color: transparent;
+    background: #42b66d;
+}
+
+.toolbar-title-md,
+.toolbar-title-ios {
+    font-size: 16px;
+    color: #fff;
+}
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default,
+.bar-button-default-ios,
+.bar-button-clear-ios-default,
+.bar-button-ios-default {
+    color: #fff;
+}
+
+user-list {
+  .scroll-content {
+    ion-label {
+      color: #42b66d;
+    }
+
+    .list-ios {
+        margin: -1px 0 0;
+    }
+
+    .list-ios .item-block .item-inner {
+      border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
