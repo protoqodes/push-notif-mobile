@@ -12,7 +12,7 @@ import { FCM } from '@ionic-native/fcm';
 export class HomePage {
   posts : string[];
   comments : string[];
-  user_comment : String;
+  user_comment : Array<Object>;
   public users: Array<Object>;
   hasData : boolean = false;
   constructor(
@@ -32,6 +32,8 @@ export class HomePage {
       this.posts = posts.results
       this.hasData = true
     })
+
+
 
     // if(this.posts){
     //     this.posts.forEach(value =>{
@@ -63,7 +65,7 @@ export class HomePage {
     // })
 
     // this.fcm.unsubscribeFromTopic('marketing');
-  }
+  } 
 
    doRefresh(refresher) {
     console.log('Begin async operation', refresher);
@@ -75,10 +77,10 @@ export class HomePage {
   }
 
   postComment(post){
-    console.log(this.user_comment)
-    // console.log(this.users._id)
+    // console.log(this.user_comment)
+    console.log(post);
 
-    this.api.Comments.add(this.users['_id'],post._id,this.user_comment)
+    this.api.Comments.add(this.users['_id'],post._id,post.field)
     .then(comments =>{
         console.log(comments);
         console.log('added');

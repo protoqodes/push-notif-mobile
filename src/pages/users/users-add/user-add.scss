@@ -1,0 +1,64 @@
+/* header */
+.toolbar,
+.toolbar-background-md,
+.toolbar-background-ios {
+    border-color: transparent;
+    background: #42b66d;
+}
+
+.toolbar-title-md,
+.toolbar-title-ios {
+    font-size: 16px;
+    color: #fff;
+}
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default,
+.bar-button-default-ios,
+.bar-button-clear-ios-default,
+.bar-button-ios-default {
+    color: #fff;
+}
+
+user-add {
+  .scroll-content {
+    // background-color: #52bc7a;
+    background: url("../../assets/imgs/bg-generic.jpg");
+    background-position: center;
+    background-size: cover;
+
+    .row {
+      padding-bottom: 40px;
+
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 12px;
+
+      ion-item {
+        padding: 0 16px !important;
+
+        .item-input-has-focus {
+          color: #52bc7a !important;
+
+            ion-label {
+              color: #42b66d;
+            }
+        }
+      }
+    }
+  }
+
+  ion-label {
+    color: #42b66d;
+  }
+
+  .item-ios, .item-md {
+    background: none;
+  }
+
+  .item-ios.item-block .item-inner {
+    padding-right: 0 !important;
+
+    border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
+  }
+}

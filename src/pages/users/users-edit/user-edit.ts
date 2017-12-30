@@ -48,7 +48,7 @@ export class UserEditPage {
   updateUser(){
      
   //   this.is_active = 0;
-    this.api.Users.edit(this._id,this.first_name,this.last_name,this.mobile,this.email,this.username,this.password,this.is_active)
+    this.api.Users.edit(this._id,this.first_name,this.last_name,this.mobile,this.email,this.username,this.password)
     .then(post =>{
         console.log(post);
         console.log('update');

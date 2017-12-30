@@ -37,15 +37,20 @@
               <li><a href="#" class="social">@LungsodngAngeles</a></li>
             </ul>
             <ion-item>
-               <ion-label color="primary" floating>Comment</ion-label>
-               <ion-textarea  clearInput [(ngModel)]="user_comment"></ion-textarea>
+               <form class="comment" >
+               <div class="form-group">
+                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Write a comment">
+                 <!-- <input type="submit" value="POST" > -->
+               </div>
+                 <button ion-button round (click)='postComment(post)' class="btn btn-green">Post</button>
+
+             </form>
             </ion-item>
-             <button ion-button round (click)='postComment(post)'>Round Button</button>
-              <ion-item *ngFor="let comment of post.comment_docs | slice:0:3;">
+              <ion-item *ngFor="let comment of post.comment_docs">
                   <div>{{ comment.description }}</div>
 
               </ion-item>
-              <div *ngIf="post.comment_docs.length > 3"> See more...</div>
+              
           </div>
       </div>
 

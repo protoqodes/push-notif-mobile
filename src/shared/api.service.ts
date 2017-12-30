@@ -43,15 +43,7 @@ export class ApiService {
                        return response.json();
                 }).toPromise();
           },
-          edit: (
-            user_id: string,
-            first_name: string,
-            last_name : string,
-            mobile : string,
-            email: string,
-            username : string,
-            password: string,
-            is_active :any) => {
+          edit: (user_id: string ,first_name: string,last_name : string,mobile : string, email: string, username : string , password: string) => {
                 return this.http.post(Config.baseUrl + "/users/edit/"+ user_id,
                      {
                         first_name : first_name,
@@ -59,8 +51,7 @@ export class ApiService {
                           mobile : mobile,
                           email: email,
                           username: username,
-                          password: password,
-                          is_active : is_active
+                          password: password
                     })
                       .map(response => {
                        return response.json();
@@ -77,35 +68,37 @@ export class ApiService {
 
           }
 
-	 }
-    Posts = {
-      list: () => {
-            return this.http.get(Config.baseUrl + "/posts/list")
-                  .map(response => {
-                   return response.json();
-            }).toPromise();
-        }
-   }
 
-    Comments = {
-      list: () => {
-            return this.http.get(Config.baseUrl + "/comments/list")
-                  .map(response => {
-                   return response.json();
-            }).toPromise();
+	 }
+
+	  Posts = {
+       list: () => {
+             return this.http.get(Config.baseUrl + "/posts/list")
+                   .map(response => {
+                    return response.json();
+             }).toPromise();
+         }
+    }
+ 
+     Comments = {
+       list: () => {
+             return this.http.get(Config.baseUrl + "/comments/list")
+                   .map(response => {
+                    return response.json();
+             }).toPromise();
         },
-      add : (user_id : any , post_id : String, description : String) => {
-              return this.http.post(Config.baseUrl + "/comments/add",
-                   {
-                    user_id : user_id,
-                    post_id : post_id,
-                    description : description
-                  })
+       add : (user_id : any , post_id : String, description : String) => {
+               return this.http.post(Config.baseUrl + "/comments/add",
+                    {
+                     user_id : user_id,
+                     post_id : post_id,
+                     description : description
+                   })
                     .map(response => {
-                     return response.json();
-              }).toPromise();
-          },
-   }
+                      return response.json();
+               }).toPromise();
+           },
+    }
 
 
 }

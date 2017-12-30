@@ -206,9 +206,9 @@ var HomePage = (function () {
         }, 2000);
     };
     HomePage.prototype.postComment = function (post) {
-        console.log(this.user_comment);
-        // console.log(this.users._id)
-        this.api.Comments.add(this.users['_id'], post._id, this.user_comment)
+        // console.log(this.user_comment)
+        console.log(post);
+        this.api.Comments.add(this.users['_id'], post._id, post.field)
             .then(function (comments) {
             console.log(comments);
             console.log('added');
@@ -216,13 +216,12 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\home\home.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding *ngIf="hasData">\n\n  <div class="holder">\n\n    <div class="container">\n\n      <div class="row">\n\n        <div class="col-12">\n\n          <div class="heading-holder">\n\n            <h4>RECENT POSTS</h4>\n\n          </div>\n\n           <ion-refresher (ionRefresh)="doRefresh($event)">\n\n            <ion-refresher-content\n\n              pullingIcon="arrow-dropdown"\n\n              pullingText="Pull to refresh"\n\n              refreshingSpinner="circles"\n\n              refreshingText="Refreshing...">\n\n            </ion-refresher-content>\n\n          </ion-refresher>\n\n          <div class="post-holder" *ngFor="let post of posts">\n\n            <div class="post-header">\n\n              <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />\n\n              <h6>{{post.title}}</h6>\n\n            </div>\n\n            <p>\n\n              {{post.description}}\n\n            </p>\n\n            <img width="100" src="{{post.img}}" alt="">\n\n            <ul>\n\n              <li><a href="#" class="date">NOVEMBER 24, 2017</a></li>\n\n              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>\n\n              <li><a href="#" class="social">@LungsodngAngeles</a></li>\n\n            </ul>\n\n            <ion-item>\n\n               <ion-label color="primary" floating>Comment</ion-label>\n\n               <ion-textarea  clearInput [(ngModel)]="user_comment"></ion-textarea>\n\n            </ion-item>\n\n             <button ion-button round (click)=\'postComment(post)\'>Round Button</button>\n\n              <ion-item *ngFor="let comment of post.comment_docs | slice:0:3;">\n\n                  <div>{{ comment.description }}</div>\n\n\n\n              </ion-item>\n\n              <div *ngIf="post.comment_docs.length > 3"> See more...</div>\n\n          </div>\n\n      </div>\n\n\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\home\home.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding *ngIf="hasData">\n\n  <div class="holder">\n\n    <div class="container">\n\n      <div class="row">\n\n        <div class="col-12">\n\n          <div class="heading-holder">\n\n            <h4>RECENT POSTS</h4>\n\n          </div>\n\n           <ion-refresher (ionRefresh)="doRefresh($event)">\n\n            <ion-refresher-content\n\n              pullingIcon="arrow-dropdown"\n\n              pullingText="Pull to refresh"\n\n              refreshingSpinner="circles"\n\n              refreshingText="Refreshing...">\n\n            </ion-refresher-content>\n\n          </ion-refresher>\n\n          <div class="post-holder" *ngFor="let post of posts">\n\n            <div class="post-header">\n\n              <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />\n\n              <h6>{{post.title}}</h6>\n\n            </div>\n\n            <p>\n\n              {{post.description}}\n\n            </p>\n\n            <img width="100" src="{{post.img}}" alt="">\n\n            <ul>\n\n              <li><a href="#" class="date">NOVEMBER 24, 2017</a></li>\n\n              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>\n\n              <li><a href="#" class="social">@LungsodngAngeles</a></li>\n\n            </ul>\n\n            <ion-item>\n\n               <form class="comment" >\n\n               <div class="form-group">\n\n                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Write a comment">\n\n                 <!-- <input type="submit" value="POST" > -->\n\n               </div>\n\n                 <button ion-button round (click)=\'postComment(post)\' class="btn btn-green">Post</button>\n\n\n\n             </form>\n\n            </ion-item>\n\n              <ion-item *ngFor="let comment of post.comment_docs">\n\n                  <div>{{ comment.description }}</div>\n\n\n\n              </ion-item>\n\n              \n\n          </div>\n\n      </div>\n\n\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _c || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -325,7 +324,7 @@ var UserEditPage = (function () {
     };
     UserEditPage.prototype.updateUser = function () {
         //   this.is_active = 0;
-        this.api.Users.edit(this._id, this.first_name, this.last_name, this.mobile, this.email, this.username, this.password, this.is_active)
+        this.api.Users.edit(this._id, this.first_name, this.last_name, this.mobile, this.email, this.username, this.password)
             .then(function (post) {
             console.log(post);
             console.log('update');
@@ -557,15 +556,14 @@ var ApiService = (function () {
                     return response.json();
                 }).toPromise();
             },
-            edit: function (user_id, first_name, last_name, mobile, email, username, password, is_active) {
+            edit: function (user_id, first_name, last_name, mobile, email, username, password) {
                 return _this.http.post(__WEBPACK_IMPORTED_MODULE_2__shared_config__["a" /* default */].baseUrl + "/users/edit/" + user_id, {
                     first_name: first_name,
                     last_name: last_name,
                     mobile: mobile,
                     email: email,
                     username: username,
-                    password: password,
-                    is_active: is_active
+                    password: password
                 })
                     .map(function (response) {
                     return response.json();
@@ -686,7 +684,7 @@ var UserListPage = (function () {
     };
     UserListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'user-list',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\users-list\user-list.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <button ion-button menuToggle icon-only>\n\n      <ion-icon name=\'menu\'></ion-icon>\n\n    </button>\n\n    <ion-title text-center>\n\n      Users\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addUser()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n<ion-list>\n\n      <ion-item-sliding *ngFor="let user of users">\n\n        <ion-item>\n\n          <ion-avatar item-start>\n\n            \n\n          </ion-avatar>\n\n          <h2>{{ user.first_name }} {{ user.last_name }}</h2>\n\n          <ion-note item-end></ion-note>\n\n        </ion-item>\n\n        <ion-item-options>\n\n          <button ion-button color="secondary" icon-only (click)="editUser(user._id)">\n\n            <ion-icon name="create"></ion-icon>\n\n          </button>\n\n          <button ion-button color="danger" icon-only (click)="removeUser(user._id)">\n\n            <ion-icon name="trash"></ion-icon>\n\n          </button>\n\n        </ion-item-options>\n\n      </ion-item-sliding>\n\n    </ion-list>\n\n</ion-content>`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\users-list\user-list.html"*/
+            selector: 'user-list',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\users-list\user-list.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <button ion-button menuToggle icon-only>\n\n      <ion-icon name=\'menu\'></ion-icon>\n\n    </button>\n\n    <ion-title text-center>\n\n      Users\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="addUser()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let user of users">\n\n      <ion-item>\n\n        <ion-avatar item-start>\n\n          <img src="../../assets/imgs/emoji.png"/>\n\n        </ion-avatar>\n\n        <h2>{{ user.first_name }} {{ user.last_name }}</h2>\n\n        <ion-note item-end></ion-note>\n\n      </ion-item>\n\n      <ion-item-options>\n\n        <button ion-button color="secondary" icon-only (click)="editUser(user._id)">\n\n          <ion-icon name="create"></ion-icon>\n\n        </button>\n\n        <button ion-button color="danger" icon-only (click)="removeUser(user._id)">\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\users-list\user-list.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
