@@ -4,6 +4,9 @@ import { ApiService } from '../../shared/api.service';
 import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 import { Http }  from '@angular/http';
+import { UserRegisterPage } from '../../pages/users/register/user-register';
+import { VerifyTokenPage } from '../../pages/users/verify-token/verify-token';
+
 import * as $ from "jquery";
 // Pages
 import { HomePage } from '../home/home';
@@ -52,10 +55,39 @@ export class LoginPage {
 
   }
   storeUser(user){
-    this.storage.set('user', user);
-    this.navCtrl.push(HomePage, {}, {
+    
+    console.log(user); 
+
+    if(user.user.is_active === 0){
+        this.goVerify(user)
+    }else{
+       this.storage.set('user', user);
+        this.navCtrl.push(HomePage, {}, {
+          animate: true,
+          direction: 'forward'
+        });
+
+    }
+
+   
+  }
+
+  goRegister(){
+    this.navCtrl.push(UserRegisterPage, {}, {
       animate: true,
       direction: 'forward'
     });
+
   }
+
+  goVerify(user){
+    // console.log(user);
+    this.navCtrl.push(VerifyTokenPage, {user_id:user.user._id, user: user}, {
+      animate: true,
+      direction: 'forward'
+    });
+    
+  }
+
+
 }

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="main">
+    <ion-title text-center>
+     Register
+    </ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button (click)='addUser()'>Add</button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->
+    <ion-item>
+      <ion-label color="main" floating>First Name</ion-label>
+      <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="main" floating>Last Name</ion-label>
+      <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>
+    </ion-item>
+      <ion-item>
+      <ion-input type="text" value="+63"  [(ngModel)]="selected_number" text-left></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="main" floating>Phone</ion-label>
+      <ion-input type="text" [(ngModel)]="mobile" maxlength="10" text-left></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label color="main" floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label color="main" floating>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="username" text-left></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label color="main" floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" text-left></ion-input>
+    </ion-item>
+  </ion-row><br>
+
+  <button ion-button round full (click)='addUser()'>Register</button>
+</ion-content>

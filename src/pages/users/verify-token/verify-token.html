@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="main">
+    <ion-title text-center>
+     Verify
+    </ion-title>
+    <ion-buttons end>
+      <!-- <button ion-button (click)='addUser()'>Add</button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-item>
+      <ion-label color="main" floating>Verify with This</ion-label>
+      <ion-input type="text" [(ngModel)]="verify_token" text-left></ion-input>
+    </ion-item>
+  </ion-row>
+  <button ion-button round full (click)='verifyUser()'>Verify</button>
+  <button ion-button round full (click)='backLogin()'>Back to Login</button>
+</ion-content>

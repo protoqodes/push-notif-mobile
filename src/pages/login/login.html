@@ -10,6 +10,8 @@
       <label><input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" [(ngModel)]="posts.password" /></label>
       <button class="btn-green" type="submit" (click)="logMeIn()">Log In</button>
     </form>
+    <a class="description forgot-pass" (click)="goRegister()">Register</a>
+    <br/>
     <a class="description forgot-pass" (click)="goReset()">Forgot your password?</a>
   </div>
 </ion-content>

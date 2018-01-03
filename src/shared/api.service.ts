@@ -100,5 +100,33 @@ export class ApiService {
            },
     }
 
+    MobileToken = {
+       add : (user_id : any , generate_token : String, username : String , password : String) => {
+               return this.http.post(Config.baseUrl + "/verify_token/add_user",
+                    {
+                     user_id : user_id,
+                     generate_token : generate_token,
+                     username: username,
+                     password: password
+                   })
+                    .map(response => {
+                      return response.json();
+               }).toPromise();
+           },
+       activate_user:(user_id: string,generate_token : string) => {
+                return this.http.post(Config.baseUrl + "/verify_token/activated_user/"+ user_id,
+                     {
+                        user_id: user_id,
+                        generate_token: generate_token
+                    })
+                      .map(response => {
+                       return response.json();
+                }).toPromise();
+
+          }
+
+
+    }
+
 
 }
