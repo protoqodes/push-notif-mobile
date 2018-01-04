@@ -193,6 +193,7 @@ var LoginPage = (function () {
         var getUser = this.posts.username, getPass = this.posts.password, baseUrl = __WEBPACK_IMPORTED_MODULE_3__shared_config__["a" /* default */].baseUrl;
         this.api.Users.login(getUser, getPass)
             .then(function (user) {
+            console.log(user);
             _this.storeUser(user);
         })
             .catch(function (error) {

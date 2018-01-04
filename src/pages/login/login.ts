@@ -47,6 +47,7 @@ export class LoginPage {
         baseUrl = Config.baseUrl;
     this.api.Users.login(getUser,getPass)
     .then(user =>{
+      console.log(user); 
       this.storeUser(user);
     })
     .catch(error => {
