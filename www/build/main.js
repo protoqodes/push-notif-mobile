@@ -245,7 +245,7 @@ var LoginPage = (function () {
 
 "use strict";
 var config = {
-    baseUrl: 'http://localhost:5015/api',
+    baseUrl: 'http://localhost:5016/api',
 };
 /* harmony default export */ __webpack_exports__["a"] = (config);
 //# sourceMappingURL=config.js.map
