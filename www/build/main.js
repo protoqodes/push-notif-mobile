@@ -297,8 +297,7 @@ var UserRegisterPage = (function () {
         if (!this.validateField(field)) {
             return;
         }
-        console.log();
-        var mobile = this.selected_number + "" + this.mobile;
+        var mobile = this.mobile.toString();
         this.api.Users.add(this.first_name, this.last_name, mobile, this.email, this.username, this.password, this.is_active)
             .then(function (post) {
             console.log(post);
@@ -312,7 +311,7 @@ var UserRegisterPage = (function () {
         });
     };
     UserRegisterPage.prototype.validateField = function (field) {
-        if (parseInt(field.mobile.charAt(0)) !== 9 || field.mobile.length !== 10) {
+        if (parseInt(field.mobile.charAt(3)) !== 9 || field.mobile.length !== 13) {
             var toast = this.toastCtrl.create({
                 message: "Is not valid in PHIL Phone Number  ",
                 duration: 2000
@@ -324,7 +323,7 @@ var UserRegisterPage = (function () {
     };
     UserRegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'user-register',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Register\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <!-- <button ion-button (click)=\'addUser()\'>Add</button> -->\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->\n\n    <ion-item>\n\n      <ion-label color="main" floating>First Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Last Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>\n\n    </ion-item>\n\n      <ion-item>\n\n      <ion-input type="text" value="+63"  [(ngModel)]="selected_number" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" [(ngModel)]="mobile" maxlength="10" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Username</ion-label>\n\n      <ion-input type="text" [(ngModel)]="username" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password" text-left></ion-input>\n\n    </ion-item>\n\n  </ion-row><br>\n\n\n\n  <button ion-button round full (click)=\'addUser()\'>Register</button>\n\n</ion-content>`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/
+            selector: 'user-register',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Register\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <!-- <button ion-button (click)=\'addUser()\'>Add</button> -->\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->\n\n    <ion-item>\n\n      <ion-label color="main" floating>First Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Last Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>\n\n    </ion-item>\n\n      <ion-item>\n\n       <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" value="+63"  [(ngModel)]="mobile" maxlength="13" text-left></ion-input>\n\n    </ion-item>\n\n  <!--   <ion-item>\n\n      <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" [(ngModel)]="mobile" maxlength="10" text-left></ion-input>\n\n    </ion-item> -->\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Username</ion-label>\n\n      <ion-input type="text" [(ngModel)]="username" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password" text-left></ion-input>\n\n    </ion-item>\n\n  </ion-row><br>\n\n\n\n  <button ion-button round full (click)=\'addUser()\'>Register</button>\n\n</ion-content>`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],

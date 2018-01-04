@@ -42,9 +42,8 @@ export class UserRegisterPage {
     if(!this.validateField(field)){
         return 
     }
-     console.log();
     
-     var mobile = this.selected_number + "" + this.mobile
+     var mobile = this.mobile.toString();
 
       this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
       .then(post =>{
@@ -65,8 +64,7 @@ export class UserRegisterPage {
 
   validateField(field){
     
-
-    if(parseInt(field.mobile.charAt(0)) !== 9 || field.mobile.length !== 10 ){
+    if(parseInt(field.mobile.charAt(3)) !== 9 || field.mobile.length !== 13 ){
        let toast = this.toastCtrl.create({
           message: "Is not valid in PHIL Phone Number  ",
           duration: 2000

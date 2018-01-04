@@ -21,12 +21,13 @@
       <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>
     </ion-item>
       <ion-item>
-      <ion-input type="text" value="+63"  [(ngModel)]="selected_number" text-left></ion-input>
+       <ion-label color="main" floating>Phone</ion-label>
+      <ion-input type="text" value="+63"  [(ngModel)]="mobile" maxlength="13" text-left></ion-input>
     </ion-item>
-    <ion-item>
+  <!--   <ion-item>
       <ion-label color="main" floating>Phone</ion-label>
       <ion-input type="text" [(ngModel)]="mobile" maxlength="10" text-left></ion-input>
-    </ion-item>
+    </ion-item> -->
      <ion-item>
       <ion-label color="main" floating>Email</ion-label>
       <ion-input type="email" [(ngModel)]="email" text-left></ion-input>
