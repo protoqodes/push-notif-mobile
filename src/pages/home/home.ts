@@ -4,7 +4,7 @@ import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 
 import { ApiService } from '../../shared/api.service';
-import { FCM } from '@ionic-native/fcm';
+// import { FCM } from '@ionic-native/fcm';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
