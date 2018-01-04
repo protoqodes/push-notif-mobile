@@ -38,7 +38,6 @@
     "jquery": "^3.2.1",
     "moment": "^2.20.1",
     "ng-socket-io": "^0.2.4",
-    "phonegap-plugin-push": "^2.1.2",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.18"
@@ -51,7 +50,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "phonegap-plugin-push": {},
       "ionic-plugin-keyboard": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
