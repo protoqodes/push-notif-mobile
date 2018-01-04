@@ -4,6 +4,7 @@ import  Config  from '../../../shared/config';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../../shared/api.service';
 import { UtilService } from '../../../providers/utils.service';
+import { HomePage } from '../../../pages/home/home';
 
 
 @Component({
@@ -53,6 +54,15 @@ export class UserRegisterPage {
             var generateToken = UtilService.generateRandomToken();
             this.api.MobileToken.add(post._id,generateToken,post.username,post.password).then(mobile_token => {
                 console.log(mobile_token)
+                if(mobile_token){
+                   this.storage.set('user', post);
+                   console.log(this.storage)
+                    this.navCtrl.push(HomePage, {}, {
+                    animate: true,
+                    direction: 'forward'
+                  });
+                }
+
             });
           }
           console.log('added');
