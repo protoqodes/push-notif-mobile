@@ -12,6 +12,7 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { UserAddPage } from '../pages/users/users-add/user-add';
 import { UserRegisterPage } from '../pages/users/register/user-register';
+import { ForgotPassPage } from '../pages/users/forgot-pass/forgot-pass';
 import { UserListPage } from '../pages/users/users-list/user-list';
 import { UserEditPage } from '../pages/users/users-edit/user-edit';
 import { VerifyTokenPage } from '../pages/users/verify-token/verify-token';
@@ -31,7 +32,8 @@ import { UtilService } from '../providers/utils.service';
     UserListPage,
     UserEditPage,
     UserRegisterPage,
-    VerifyTokenPage
+    VerifyTokenPage,
+    ForgotPassPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { UtilService } from '../providers/utils.service';
     UserListPage,
     UserEditPage,
     UserRegisterPage,
-    VerifyTokenPage
+    VerifyTokenPage,
+    ForgotPassPage
   ],
   providers: [
     StatusBar,

@@ -36,12 +36,12 @@ export class VerifyTokenPage {
 
   verifyUser(){
 
-   
+
     // if(!this.validateField(field)){
-    //     return 
+    //     return
     // }
 
-   
+
      // this.mobile = this.selected_number + "" + this.mobile
 
       this.api.MobileToken.activate_user(this._id,this.verify_token)
@@ -68,16 +68,16 @@ export class VerifyTokenPage {
             toast.present();
 
         }
-        
-         
+
+
       });
-    
+
 
   }
-  backLogin(){
-     this.navCtrl.pop();
-    
-  }
+  // backLogin(){
+  //    this.navCtrl.pop();
+  //
+  // }
 
 
 }
