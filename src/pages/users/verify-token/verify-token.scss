@@ -12,6 +12,10 @@
     color: #fff;
 }
 
+.title-md {
+    text-align: unset !important;
+}
+
 .bar-button-default-md,
 .bar-button-clear-md-default,
 .bar-button-md-default,
@@ -21,12 +25,9 @@
     color: #fff;
 }
 
-user-add {
+verify-token {
   .scroll-content {
-    // background-color: #52bc7a;
-    background: url("../../assets/imgs/bg-generic.jpg");
-    background-position: center;
-    background-size: cover;
+    background-color: #fff;
 
     .row {
       padding-bottom: 40px;
@@ -45,6 +46,12 @@ user-add {
             }
         }
       }
+    }
+
+    .button-ios,
+    .button-md {
+      margin: 0px 0 10px !important;
+      background-color: #42b66d !important;
     }
   }
 
