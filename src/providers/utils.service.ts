@@ -8,7 +8,7 @@ export class UtilService {
 	static generateRandomToken(){
 
 		let text: String = "";
-	    let possible: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	    let possible: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	    for(let i = 0; i < 5; i++) {
 	        text += String(possible).charAt(Math.floor(Math.random() * possible.length));
 	    }

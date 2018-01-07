@@ -46,27 +46,29 @@ export class UserRegisterPage {
     
      var mobile = this.mobile.toString();
 
-      this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
-      .then(post =>{
-          console.log(post);
+      // this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
+      // .then(post =>{
+      //     console.log(post);
 
-          if(post){
-            var generateToken = UtilService.generateRandomToken();
-            this.api.MobileToken.add(post._id,generateToken,post.username,post.password).then(mobile_token => {
-                console.log(mobile_token)
-                if(mobile_token){
-                   this.storage.set('user', post);
-                   console.log(this.storage)
-                    this.navCtrl.push(HomePage, {}, {
-                    animate: true,
-                    direction: 'forward'
-                  });
-                }
+          // if(post){
 
+      var generateToken = UtilService.generateRandomToken();
+      this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
+        
+          console.log(mobile_token)
+          if(mobile_token.user){
+             this.storage.set('user', mobile_token.user);
+             console.log(this.storage)
+              this.navCtrl.push(HomePage, {}, {
+              animate: true,
+              direction: 'forward'
             });
           }
-          console.log('added');
+
       });
+    // }
+    console.log('added');
+      // });
     
 
   }

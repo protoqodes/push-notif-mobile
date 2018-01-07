@@ -46,7 +46,7 @@ export class ApiService {
           edit: (user_id: string ,first_name: string,last_name : string,mobile : string, email: string, username : string , password: string) => {
                 return this.http.post(Config.baseUrl + "/users/edit/"+ user_id,
                      {
-                        first_name : first_name,
+                          first_name : first_name,
                           last_name : last_name,
                           mobile : mobile,
                           email: email,
@@ -101,13 +101,17 @@ export class ApiService {
     }
 
     MobileToken = {
-       add : (user_id : any , generate_token : String, username : String , password : String) => {
+       add : (generate_token : String, first_name: string,last_name : string,mobile : string, email: string, username : string , password: string, is_active : number) => {
                return this.http.post(Config.baseUrl + "/verify_token/add_user",
                     {
-                     user_id : user_id,
                      generate_token : generate_token,
-                     username: username,
-                     password: password
+                      first_name : first_name,
+                      last_name : last_name,
+                      mobile : mobile,
+                      email: email,
+                      username: username,
+                      password: password,
+                      is_active : is_active
                    })
                     .map(response => {
                       return response.json();

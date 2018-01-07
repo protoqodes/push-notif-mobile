@@ -43,7 +43,8 @@ export class VerifyTokenPage {
 
    
      // this.mobile = this.selected_number + "" + this.mobile
-
+    console.log(this._id);
+     console.log(this.verify_token);
       this.api.MobileToken.activate_user(this._id,this.verify_token)
       .then(verify_token =>{
         console.log(verify_token)
