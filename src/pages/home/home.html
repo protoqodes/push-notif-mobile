@@ -37,20 +37,19 @@
               <li><a href="#" class="social">@LungsodngAngeles</a></li>
             </ul>
             <ion-item>
-               <form class="comment" >
-               <div class="form-group">
-                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Write a comment">
-                 <!-- <input type="submit" value="POST" > -->
-               </div>
+               <form class="comment">
+                 <div class="form-group">
+                   <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Write a comment">
+                   <!-- <input type="submit" value="POST" > -->
+                 </div>
                  <button ion-button round (click)='postComment(post)' class="btn btn-green">Post</button>
-
-             </form>
+               </form>
             </ion-item>
-              <ion-item *ngFor="let comment of post.comment_docs">
+              <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">
                   <div>{{ comment.description }}</div>
 
               </ion-item>
-              
+
           </div>
       </div>
 

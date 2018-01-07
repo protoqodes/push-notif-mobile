@@ -21,10 +21,10 @@
     color: #fff;
 }
 
-user-add {
+user-register {
   .scroll-content {
     // background-color: #52bc7a;
-    background: url("../../assets/imgs/bg-generic.jpg");
+    // background: url("../../assets/imgs/bg-generic.jpg");
     background-position: center;
     background-size: cover;
 
@@ -45,6 +45,11 @@ user-add {
             }
         }
       }
+    }
+
+    .button-ios,
+    .button-md {
+      background-color: #42b66d !important;
     }
   }
 

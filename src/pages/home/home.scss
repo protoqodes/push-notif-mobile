@@ -114,12 +114,19 @@ page-home {
         }
 
         .comment {
+          display: flex;
+          align-items: center;
+
           border-top: 1px solid #42b66d;
 
           .form-group {
+            width: 80%;
+
             .form-control {
               padding: 5px 10px;
               margin: 10px 0;
+
+              font-size: 13px;
 
               border: 1px solid #fff;
             }
@@ -141,6 +148,10 @@ page-home {
                 letter-spacing: 1.5px;
             }
           }
+        }
+
+        .comment-content {
+          font-size: 12px !important;
         }
       }
 

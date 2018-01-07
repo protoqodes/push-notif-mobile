@@ -47,7 +47,7 @@ export class LoginPage {
         baseUrl = Config.baseUrl;
     this.api.Users.login(getUser,getPass)
     .then(user =>{
-      console.log(user); 
+      console.log(user);
       this.storeUser(user);
     })
     .catch(error => {
@@ -56,8 +56,8 @@ export class LoginPage {
 
   }
   storeUser(user){
-    
-    console.log(user); 
+
+    console.log(user);
 
     if(user.user.is_active === 0){
         this.goVerify(user)
@@ -70,7 +70,7 @@ export class LoginPage {
 
     }
 
-   
+
   }
 
   goRegister(){
@@ -87,7 +87,7 @@ export class LoginPage {
       animate: true,
       direction: 'forward'
     });
-    
+
   }
 
 
