@@ -4,7 +4,8 @@ import  Config  from '../../../shared/config';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../../shared/api.service';
 import { UtilService } from '../../../providers/utils.service';
-import { HomePage } from '../../../pages/home/home';
+// import { HomePage } from '../../../pages/home/home';
+import { VerifyTokenPage } from '../../../pages/users/verify-token/verify-token';
 
 
 @Component({
@@ -57,9 +58,9 @@ export class UserRegisterPage {
         
           console.log(mobile_token)
           if(mobile_token.user){
-             this.storage.set('user', mobile_token.user);
-             console.log(this.storage)
-              this.navCtrl.push(HomePage, {}, {
+             // this.storage.set('user', mobile_token.user);
+             // console.log(this.storage)
+             this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
               animate: true,
               direction: 'forward'
             });

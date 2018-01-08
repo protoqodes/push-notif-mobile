@@ -31,6 +31,7 @@ export class LoginPage {
 
   }
   ionViewWillEnter(){
+    // this.storage.clear();
     this.storage.get('user')
     .then(user => {
       if(user){
