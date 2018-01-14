@@ -15,12 +15,15 @@ import { UserRegisterPage } from '../pages/users/register/user-register';
 import { UserListPage } from '../pages/users/users-list/user-list';
 import { UserEditPage } from '../pages/users/users-edit/user-edit';
 import { VerifyTokenPage } from '../pages/users/verify-token/verify-token';
+import { PostViewPage } from '../pages/post/view-post/view-post'
 
 // shared
 import { ApiService } from '../shared/api.service';
 
 //providers
-import { UtilService } from '../providers/utils.service';
+// import { UtilService } from '../providers/utils.service';
+// import { SocketService } from '../providers/socket.service';
+import {SocketService, UtilService} from "../providers";
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { UtilService } from '../providers/utils.service';
     UserListPage,
     UserEditPage,
     UserRegisterPage,
-    VerifyTokenPage
+    VerifyTokenPage,
+    PostViewPage
   ],
   imports: [
     BrowserModule,
@@ -48,13 +52,15 @@ import { UtilService } from '../providers/utils.service';
     UserListPage,
     UserEditPage,
     UserRegisterPage,
-    VerifyTokenPage
+    VerifyTokenPage,
+    PostViewPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ApiService,
     UtilService,
+    SocketService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

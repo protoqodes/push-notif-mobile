@@ -3,7 +3,8 @@ import { NavController,ToastController, NavParams } from 'ionic-angular';
 import  Config  from '../../../shared/config';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../../shared/api.service';
-import { UtilService } from '../../../providers/utils.service';
+import {SocketService, UtilService} from "../../../providers";
+// import { UtilService } from '../../../providers/utils.service';
 import { LoginPage } from '../../../pages/login/login';
 import { HomePage } from '../../../pages/home/home';
 

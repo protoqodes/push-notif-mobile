@@ -31,7 +31,7 @@ export class SocketService {
    //    this.socketObserverPopUp = observerPopup;
    //  });
 
-   //  this.init();
+    this.init();
 
   }
 

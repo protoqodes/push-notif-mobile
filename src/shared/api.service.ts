@@ -72,12 +72,26 @@ export class ApiService {
 	 }
 
 	  Posts = {
-       list: () => {
-             return this.http.get(Config.baseUrl + "/posts/list")
-                   .map(response => {
+
+       list: (page: string, pageSize: string , title: string ,description : string ,date_filter: string) => {
+             return this.http.post(Config.baseUrl + "/posts/list",
+             {
+                page: page,
+                pageSize : pageSize,
+                title: title,
+                description : description,
+                date_filter : date_filter
+             })
+              .map(response => {
                     return response.json();
              }).toPromise();
-         }
+         },
+         view: (post_id : string) => {
+          return this.http.get(Config.baseUrl + "/posts/view/" + post_id)
+                  .map(response => {
+                   return response.json();
+            }).toPromise();
+        },
     }
  
      Comments = {

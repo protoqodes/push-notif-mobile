@@ -4,6 +4,9 @@ import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 
 import { ApiService } from '../../shared/api.service';
+import {SocketService, UtilService} from "../../providers";
+import {PostViewPage} from '../post/view-post/view-post'
+
 // import { FCM } from '@ionic-native/fcm';
 @Component({
   selector: 'page-home',
@@ -12,29 +15,43 @@ import { ApiService } from '../../shared/api.service';
 export class HomePage {
   posts : string[];
   comments : string[];
+  page: string;
+  pageSize: string;
+  title: string;
+  description: string;
+  date_filter : string = new Date().toISOString();
   user_comment : Array<Object>;
   public users: Array<Object>;
   hasData : boolean = false;
   constructor(
   	public navCtrl: NavController,
   	private storage : Storage,
+    public socketService: SocketService,
     // private fcm: FCM
     private api : ApiService
   	) {
   }
+
+
   ionViewWillEnter(){
   	this.storage.get('user')
   	.then(user => {
   		this.users = <Array<Object>> user;
   	})
-    this.api.Posts.list().then(posts =>{
+    this.page = "1";
+    this.pageSize = "10";
+    this.title = "";
+    this.description = "";
+    // this.date_filter = new Date(this.date_filter);
+
+    this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
       console.log(posts)
       this.posts = posts.results
       this.hasData = true
     })
 
-
-
+    
+     // SocketService.connect();
     // if(this.posts){
     //     this.posts.forEach(value =>{
     //         console.log(value);
@@ -67,13 +84,32 @@ export class HomePage {
     // this.fcm.unsubscribeFromTopic('marketing');
   } 
 
-   doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
+  filterPost(){
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
+    this.date_filter = new Date(this.date_filter).toString();
+    // console.log(this);
+    console.log(this.date_filter);
+    this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
+      console.log(posts)
+      this.posts = posts.results
+      this.hasData = true
+    })
+
+  }
+
+  selectedPost(post){
+    this.navCtrl.push(PostViewPage, {
+        _id: post._id
+      });
+  }
+   doRefresh(refresher) {
+    // console.log('Begin async operation', refresher);
+
+    // setTimeout(() => {
+    //   console.log('Async operation has ended');
+    //   refresher.complete();
+    // }, 2000);
+// console.log(socketService.connect());
   }
 
   postComment(post){
@@ -86,5 +122,11 @@ export class HomePage {
         console.log('added');
     });
 
+  }
+
+  logoutBtn(){
+    this.storage.clear();
+    console.log(this.storage);
+     this.navCtrl.pop();
   }
 }

@@ -2,7 +2,9 @@
   <ion-navbar>
     <ion-title>
       Push notification for A.C
+
     </ion-title>
+
   </ion-navbar>
 </ion-header>
 
@@ -14,6 +16,17 @@
           <div class="heading-holder">
             <h4>RECENT POSTS</h4>
           </div>
+          <ion-item>
+            <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
+          </ion-item>
+           <ion-item>
+            <ion-input type="text" [(ngModel)]="description" placeholder="Description"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Date</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date_filter"></ion-datetime>
+          </ion-item>
+          <button ion-button (click)='filterPost()'>Filter</button>
            <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content
               pullingIcon="arrow-dropdown"
@@ -22,7 +35,7 @@
               refreshingText="Refreshing...">
             </ion-refresher-content>
           </ion-refresher>
-          <div class="post-holder" *ngFor="let post of posts">
+          <div class="post-holder" (click)='selectedPost(post)' *ngFor="let post of posts">
             <div class="post-header">
               <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />
               <h6>{{post.title}}</h6>
@@ -56,4 +69,5 @@
       </div>
     </div>
   </div>
+       <button ion-button (click)='logoutBtn()'>Log out</button>
 </ion-content>
