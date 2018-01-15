@@ -25,7 +25,8 @@ export class ApiService {
                     email: email,
                     username: username,
                     password: password,
-                    is_active : is_active
+                    is_active : is_active,
+                    permission: '0'
                   })
                     .map(response => {
                      return response.json();
