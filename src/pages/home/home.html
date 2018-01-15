@@ -45,7 +45,7 @@
             </p>
             <img width="100" src="{{post.img}}" alt="">
             <ul>
-              <li><a href="#" class="date">NOVEMBER 24, 2017</a></li>
+              <li><a href="#" class="date">{{ post.created_at | date: format : timezone }}</a></li>
               <li><a href="#" class="website">www.angelescity.gov.ph</a></li>
               <li><a href="#" class="social">@LungsodngAngeles</a></li>
             </ul>

@@ -19,7 +19,8 @@ export class HomePage {
   pageSize: string;
   title: string;
   description: string;
-  date_filter : string = new Date().toISOString();
+  // date_filter : string = new Date().toISOString();
+   date_filter : string;
   user_comment : Array<Object>;
   public users: Array<Object>;
   hasData : boolean = false;
