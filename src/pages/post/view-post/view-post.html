@@ -1,28 +1,25 @@
-      <div class="post-holder">
-            <div class="post-header">
-              <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />
-              <h6>{{title}}</h6>
-            </div>
-            <p>
-              {{description}}
-            </p>
-            <img width="100" src="{{img}}" alt="">
-            <ul>
-              <li><a href="#" class="date">NOVEMBER 24, 2017</a></li>
-              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>
-              <li><a href="#" class="social">@LungsodngAngeles</a></li>
-            </ul>
-            <ion-item>
-               <form class="comment">
-                 <div class="form-group">
-                   <input class="form-control" type="text" clearInput name="post-comment" [(ngModel)]="text_field" placeholder="Write a comment">
-                   <!-- <input type="submit" value="POST" > -->
-                 </div>
-                 <button ion-button round (click)='postComment()' class="btn btn-green">Post</button>
-               </form>
-            </ion-item>
-              <ion-item class="comment-content" *ngFor="let comment of comment_docs">
-                  <div>{{ comment.description }}</div>
-
-              </ion-item>
-    </div>
+<div class="post-holder">
+  <div class="post-header">
+    <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />
+    <span>
+      <h6>{{title}}</h6>
+      <a href="#" class="date">@LungsodngAngeles  &bull; {{ created_at | date: format : timezone }}</a>
+    </span>
+  </div>
+  <p>
+    {{description}}
+  </p>
+  <img class="post-image" src="{{img}}" alt="" [hidden]="!img">
+  <ion-item>
+     <form class="comment">
+       <div class="form-group">
+         <input class="form-control" type="text" clearInput name="post-comment" [(ngModel)]="text_field" placeholder="Write a comment">
+         <!-- <input type="submit" value="POST" > -->
+       </div>
+       <button ion-button round (click)='postComment()' class="btn btn-green">Post</button>
+     </form>
+  </ion-item>
+  <ion-item class="comment-content" *ngFor="let comment of comment_docs">
+    <div>{{ comment.description }}</div>
+  </ion-item>
+</div>

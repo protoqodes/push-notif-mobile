@@ -1,5 +1,6 @@
 page-home {
     .scroll-content {
+      padding: 0 !important;
       overflow: none;
 
       background: url("../../assets/imgs/bg-dashboard.jpg");
@@ -8,21 +9,23 @@ page-home {
     }
 
     .login-holder {
-      margin: 9vh 0;
-
       text-align: center;
 
       .logo-holder {
-        padding: 10px;
+        padding: 50px 0 ;
 
         text-align: center;
 
+        background: #05512a;
+        padding: 11vh 0;
+
         .ac-logo {
-          width: 170px;
+          width: 120px;
         }
       }
 
       form {
+        margin: 7vh 0;
         img,
         input,
         .btn-green {
@@ -40,30 +43,30 @@ page-home {
             margin-top: 10px;
             width: 90%;
 
-            color: #42b66d;
+            color: #05512a;
             letter-spacing: 1.5px;
 
-            background: #f8f8f8;
+            background: transparent;
             border: 0;
             border-top-left-radius: 6px;
             border-top-right-radius: 6px;
-            border-bottom: 3px solid #42b66d;
+            border-bottom: 3px solid #05512a;
         }
 
         input::-webkit-input-placeholder {
-            color: #42b66d;
+            color: #05512a;
             letter-spacing: 1.5px;
         }
         input::-moz-placeholder {
-            color: #42b66d;
+            color: #05512a;
             letter-spacing: 1.5px;
         }
         input:-ms-input-placeholder {
-            color: #42b66d;
+            color: #05512a;
             letter-spacing: 1.5px;
         }
         input:-moz-placeholder {
-            color: #42b66d;
+            color: #05512a;
             letter-spacing: 1.5px;
         }
 
@@ -87,9 +90,9 @@ page-home {
         font-size: 19px;
         color: #fff;
 
-        background: #42b66d;
-        border: 2px solid #42b66d;
-        border-radius: 5px;
+        background: #05512a;
+        border: 2px solid #05512a;
+        border-radius: 0;
 
         -webkit-transition: 0.2s ease-in-out;
         -moz-transition: 0.2s ease-in-out;
@@ -97,7 +100,7 @@ page-home {
         transition: 0.2s ease-in-out;
 
         &:hover {
-          color: #42b66d;
+          color: #05512a;
 
           background: #fff;
           border-color: #fff;
@@ -110,7 +113,7 @@ page-home {
       }
 
       .forgot-pass {
-        color: #42b66d;
+        color: #12404d;
 
         cursor: pointer;
       }

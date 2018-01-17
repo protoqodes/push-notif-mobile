@@ -25683,7 +25683,7 @@ ion-navbar.toolbar {
 .toolbar-background-md,
 .toolbar-background-ios {
   border-color: transparent;
-  background: #42b66d;
+  background: #12404d;
 }
 
 .toolbar-title-md,
@@ -25701,6 +25701,30 @@ ion-navbar.toolbar {
   color: #fff;
 }
 
+.toolbar-content {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.logout-btn {
+  cursor: pointer;
+}
+
+.logout-btn img {
+  margin: 5px 10px;
+  width: 22px;
+}
+
+.back-button.show-back-button {
+  display: none !important;
+}
+
+page-home .scroll-content {
+  padding: 16px 0 !important;
+}
+
 page-home .heading-holder {
   padding: 10px;
   margin: 0 -15px;
@@ -25708,7 +25732,7 @@ page-home .heading-holder {
   font-size: 19px;
   color: #fff;
   text-align: center;
-  background: #42b66d;
+  background: #12404d;
 }
 
 page-home .heading-holder h4 {
@@ -25719,40 +25743,103 @@ page-home .holder .col-12 {
   width: 100%;
 }
 
+page-home .holder .filter-holder {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+page-home .holder .filter-holder input {
+  padding: 10px;
+  width: 50%;
+  border: 1px solid transparent;
+}
+
+page-home .holder .filter-holder input:nth-child(2) {
+  border-left: 1px solid #d4d4d4;
+}
+
+page-home .holder .filter-btn {
+  display: block;
+  padding: 7px;
+  width: 100%;
+  font-size: 14px;
+  color: #fff;
+  background: #05512a;
+  border: 2px solid #05512a;
+  border-radius: 0;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+page-home .holder .filter-btn:hover {
+  color: #05512a;
+  background: #fff;
+  border-color: #fff;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 page-home .holder .post-holder {
   position: relative;
   overflow: hidden;
-  padding: 25px 0 0;
+  padding: 10px 5px 0;
   margin-bottom: 30px;
-  text-align: center;
   background: #fff;
-  border: 5px #42b66d solid;
-  -webkit-box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
+  box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
 }
 
-page-home .holder .post-holder img {
-  width: 80px;
-  height: auto;
+page-home .holder .post-holder .post-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-page-home .holder .post-holder h6 {
-  padding: 10px;
-  margin: 20px -15px;
-  font-size: 19px;
-  font-weight: bold;
-  color: #fff;
-  text-align: center;
-  background: #42b66d;
+page-home .holder .post-holder .post-header img {
+  margin-right: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+page-home .holder .post-holder .post-header span h6 {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1;
+  color: #12404d;
+  text-align: left;
+}
+
+page-home .holder .post-holder .post-header span .date {
+  font-size: 11px;
+  color: #c1c1c1;
+  text-decoration: none;
+}
+
+page-home .holder .post-holder .post-image {
+  width: 100%;
+  min-height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 page-home .holder .post-holder p {
   padding: 0 10px;
   margin-top: 10px;
   margin-left: 0;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 13px;
+  line-height: 1.5;
   text-indent: 25px;
+  letter-spacing: .5px;
 }
 
 page-home .holder .post-holder ul {
@@ -25773,7 +25860,7 @@ page-home .holder .post-holder ul li {
 
 page-home .holder .post-holder ul li a {
   font-size: 14px;
-  color: #42b66d;
+  color: #12404d;
   text-decoration: none;
 }
 
@@ -25796,7 +25883,9 @@ page-home .holder .post-holder .comment {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-top: 1px solid #42b66d;
+  margin-left: -10px;
+  margin-right: -10px;
+  background: #12404d;
 }
 
 page-home .holder .post-holder .comment .form-group {
@@ -25805,28 +25894,30 @@ page-home .holder .post-holder .comment .form-group {
 
 page-home .holder .post-holder .comment .form-group .form-control {
   padding: 5px 10px;
-  margin: 10px 0;
+  margin: 10px 0 10px 10px;
   font-size: 13px;
-  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  border: 1px solid transparent;
 }
 
 page-home .holder .post-holder .comment .form-group input::-webkit-input-placeholder {
-  color: #42b66d;
+  color: #fff;
   letter-spacing: 1.5px;
 }
 
 page-home .holder .post-holder .comment .form-group input::-moz-placeholder {
-  color: #42b66d;
+  color: #fff;
   letter-spacing: 1.5px;
 }
 
 page-home .holder .post-holder .comment .form-group input:-ms-input-placeholder {
-  color: #42b66d;
+  color: #fff;
   letter-spacing: 1.5px;
 }
 
 page-home .holder .post-holder .comment .form-group input:-moz-placeholder {
-  color: #42b66d;
+  color: #fff;
   letter-spacing: 1.5px;
 }
 
@@ -25838,15 +25929,17 @@ page-home .holder .btn-green {
   padding: 5px;
   font-size: 12px;
   color: #fff;
-  background: #42b66d;
-  border: 2px solid #42b66d;
-  border-radius: 12px;
+  background: #12404d;
+  border: 2px solid #12404d;
+  border-radius: 5px;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 page-home .holder .btn-green:hover {
-  color: #42b66d;
+  color: #12404d;
   background: #fff;
   border-color: #fff;
   outline: none;
@@ -25855,6 +25948,7 @@ page-home .holder .btn-green:hover {
 }
 
 page-home .scroll-content {
+  padding: 0 !important;
   overflow: none;
   background: url("../../assets/imgs/bg-dashboard.jpg");
   background-position: center;
@@ -25862,17 +25956,22 @@ page-home .scroll-content {
 }
 
 page-home .login-holder {
-  margin: 9vh 0;
   text-align: center;
 }
 
 page-home .login-holder .logo-holder {
-  padding: 10px;
+  padding: 50px 0;
   text-align: center;
+  background: #05512a;
+  padding: 11vh 0;
 }
 
 page-home .login-holder .logo-holder .ac-logo {
-  width: 170px;
+  width: 120px;
+}
+
+page-home .login-holder form {
+  margin: 7vh 0;
 }
 
 page-home .login-holder form img,
@@ -25891,32 +25990,32 @@ page-home .login-holder form input {
   padding: 12px;
   margin-top: 10px;
   width: 90%;
-  color: #42b66d;
+  color: #05512a;
   letter-spacing: 1.5px;
-  background: #f8f8f8;
+  background: transparent;
   border: 0;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  border-bottom: 3px solid #42b66d;
+  border-bottom: 3px solid #05512a;
 }
 
 page-home .login-holder form input::-webkit-input-placeholder {
-  color: #42b66d;
+  color: #05512a;
   letter-spacing: 1.5px;
 }
 
 page-home .login-holder form input::-moz-placeholder {
-  color: #42b66d;
+  color: #05512a;
   letter-spacing: 1.5px;
 }
 
 page-home .login-holder form input:-ms-input-placeholder {
-  color: #42b66d;
+  color: #05512a;
   letter-spacing: 1.5px;
 }
 
 page-home .login-holder form input:-moz-placeholder {
-  color: #42b66d;
+  color: #05512a;
   letter-spacing: 1.5px;
 }
 
@@ -25937,15 +26036,15 @@ page-home .login-holder .btn-green {
   padding: 10px;
   font-size: 19px;
   color: #fff;
-  background: #42b66d;
-  border: 2px solid #42b66d;
-  border-radius: 5px;
+  background: #05512a;
+  border: 2px solid #05512a;
+  border-radius: 0;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
 }
 
 page-home .login-holder .btn-green:hover {
-  color: #42b66d;
+  color: #05512a;
   background: #fff;
   border-color: #fff;
   outline: none;
@@ -25954,7 +26053,7 @@ page-home .login-holder .btn-green:hover {
 }
 
 page-home .login-holder .forgot-pass {
-  color: #42b66d;
+  color: #12404d;
   cursor: pointer;
 }
 
@@ -25963,7 +26062,191 @@ page-home .login-holder .forgot-pass {
 .toolbar-background-md,
 .toolbar-background-ios {
   border-color: transparent;
-  background: #42b66d;
+  background: #12404d;
+}
+
+.toolbar-title-md,
+.toolbar-title-ios {
+  font-size: 16px;
+  color: #fff;
+}
+
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default,
+.bar-button-default-ios,
+.bar-button-clear-ios-default,
+.bar-button-ios-default {
+  color: #fff;
+}
+
+.toolbar-content {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.logout-btn img {
+  margin: 5px 10px;
+  width: 22px;
+}
+
+.back-button.show-back-button {
+  display: none !important;
+}
+
+view-post {
+  background: #fff;
+}
+
+view-post .scroll-content {
+  padding: 16px 0 !important;
+}
+
+view-post .post-holder {
+  position: relative;
+  overflow: hidden;
+  padding: 6vh 5px 0;
+  margin-bottom: 30px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
+  box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
+}
+
+view-post .post-holder .post-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+view-post .post-holder .post-header img {
+  margin-right: 15px;
+  width: 60px;
+  height: 60px;
+}
+
+view-post .post-holder .post-header span h6 {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1;
+  color: #12404d;
+  text-align: left;
+}
+
+view-post .post-holder .post-header span .date {
+  font-size: 11px;
+  color: #c1c1c1;
+  text-decoration: none;
+}
+
+view-post .post-holder .post-image {
+  width: 100%;
+  min-height: 150px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+view-post .post-holder p {
+  padding: 0 10px;
+  margin-top: 10px;
+  margin-left: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  text-indent: 25px;
+  letter-spacing: .5px;
+}
+
+view-post .post-holder .comment {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: -10px;
+  margin-right: -10px;
+  background: #12404d;
+}
+
+view-post .post-holder .comment .form-group {
+  width: 80%;
+}
+
+view-post .post-holder .comment .form-group .form-control {
+  padding: 5px 10px;
+  margin: 10px 0 10px 10px;
+  font-size: 13px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+view-post .post-holder .comment .form-group input::-webkit-input-placeholder {
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+view-post .post-holder .comment .form-group input::-moz-placeholder {
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+view-post .post-holder .comment .form-group input:-ms-input-placeholder {
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+view-post .post-holder .comment .form-group input:-moz-placeholder {
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+view-post .post-holder .comment-content {
+  font-size: 12px !important;
+}
+
+view-post .post-holder .item-ios.item-block .item-inner {
+  border-bottom: 0;
+}
+
+view-post .btn-green {
+  padding: 5px;
+  font-size: 12px;
+  color: #fff;
+  background: #12404d;
+  border: 2px solid #12404d;
+  border-radius: 5px;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+view-post .btn-green:hover {
+  color: #12404d;
+  background: #fff;
+  border-color: #fff;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* header */
+.toolbar,
+.toolbar-background-md,
+.toolbar-background-ios {
+  border-color: transparent;
+  background: #12404d;
 }
 
 .toolbar-title-md,
@@ -26001,16 +26284,16 @@ user-register .scroll-content .row ion-item .item-input-has-focus {
 }
 
 user-register .scroll-content .row ion-item .item-input-has-focus ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-register .scroll-content .button-ios,
 user-register .scroll-content .button-md {
-  background-color: #42b66d !important;
+  background-color: #12404d !important;
 }
 
 user-register ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-register .item-ios, user-register .item-md {
@@ -26027,7 +26310,7 @@ user-register .item-ios.item-block .item-inner {
 .toolbar-background-md,
 .toolbar-background-ios {
   border-color: transparent;
-  background: #42b66d;
+  background: #12404d;
 }
 
 .toolbar-title-md,
@@ -26066,11 +26349,11 @@ user-add .scroll-content .row ion-item .item-input-has-focus {
 }
 
 user-add .scroll-content .row ion-item .item-input-has-focus ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-add ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-add .item-ios, user-add .item-md {
@@ -26087,7 +26370,7 @@ user-add .item-ios.item-block .item-inner {
 .toolbar-background-md,
 .toolbar-background-ios {
   border-color: transparent;
-  background: #42b66d;
+  background: #12404d;
 }
 
 .toolbar-title-md,
@@ -26126,11 +26409,11 @@ user-edit .scroll-content .row ion-item .item-input-has-focus {
 }
 
 user-edit .scroll-content .row ion-item .item-input-has-focus ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-edit ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-edit .item-ios, user-edit .item-md {
@@ -26147,7 +26430,7 @@ user-edit .item-ios.item-block .item-inner {
 .toolbar-background-md,
 .toolbar-background-ios {
   border-color: transparent;
-  background: #42b66d;
+  background: #12404d;
 }
 
 .toolbar-title-md,
@@ -26166,7 +26449,7 @@ user-edit .item-ios.item-block .item-inner {
 }
 
 user-list .scroll-content ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 user-list .scroll-content .list-ios {
@@ -26182,7 +26465,7 @@ user-list .scroll-content .list-ios .item-block .item-inner {
 .toolbar-background-md,
 .toolbar-background-ios {
   border-color: transparent;
-  background: #42b66d;
+  background: #12404d;
 }
 
 .toolbar-title-md,
@@ -26223,17 +26506,17 @@ verify-token .scroll-content .row ion-item .item-input-has-focus {
 }
 
 verify-token .scroll-content .row ion-item .item-input-has-focus ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 verify-token .scroll-content .button-ios,
 verify-token .scroll-content .button-md {
   margin: 0px 0 10px !important;
-  background-color: #42b66d !important;
+  background-color: #12404d !important;
 }
 
 verify-token ion-label {
-  color: #42b66d;
+  color: #12404d;
 }
 
 verify-token .item-ios, verify-token .item-md {

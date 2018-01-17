@@ -2,9 +2,8 @@
   <ion-navbar>
     <ion-title>
       Push notification for A.C
-
     </ion-title>
-
+    <a (click)='logoutBtn()' class="logout-btn"><img src="../assets/imgs/power-off.png"/></a>
   </ion-navbar>
 </ion-header>
 
@@ -16,18 +15,13 @@
           <div class="heading-holder">
             <h4>RECENT POSTS</h4>
           </div>
-          <ion-item>
-            <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
-          </ion-item>
-           <ion-item>
-            <ion-input type="text" [(ngModel)]="description" placeholder="Description"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Date</ion-label>
-            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="date_filter"></ion-datetime>
-          </ion-item>
-          <button ion-button (click)='filterPost()'>Filter</button>
-           <ion-refresher (ionRefresh)="doRefresh($event)">
+
+          <button class="filter-btn" (click)='filterPost()'>Filter</button>
+          <div class="filter-holder">
+            <input type="text" [(ngModel)]="title" placeholder="by title">
+            <input type="text" [(ngModel)]="description" placeholder="by description">
+          </div>
+          <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content
               pullingIcon="arrow-dropdown"
               pullingText="Pull to refresh"
@@ -35,39 +29,40 @@
               refreshingText="Refreshing...">
             </ion-refresher-content>
           </ion-refresher>
+
+          <br>
+
           <div class="post-holder" (click)='selectedPost(post)' *ngFor="let post of posts">
             <div class="post-header">
               <img src="../../assets/imgs/logo.png" alt="Angeles City Logo" />
-              <h6>{{post.title}}</h6>
+              <span>
+                <h6>{{post.title}}</h6>
+                <a href="#" class="date">@LungsodngAngeles  &bull; {{ post.created_at | date: format : timezone }}</a>
+              </span>
             </div>
+            <img class="post-image" src="{{post.img}}" alt="" [hidden]="!post.img">
             <p>
               {{post.description}}
             </p>
-            <img width="100" src="{{post.img}}" alt="">
-            <ul>
+            <!-- <ul>
               <li><a href="#" class="date">{{ post.created_at | date: format : timezone }}</a></li>
               <li><a href="#" class="website">www.angelescity.gov.ph</a></li>
               <li><a href="#" class="social">@LungsodngAngeles</a></li>
-            </ul>
-            <ion-item>
-               <form class="comment">
-                 <div class="form-group">
-                   <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Write a comment">
-                   <!-- <input type="submit" value="POST" > -->
-                 </div>
-                 <button ion-button round (click)='postComment(post)' class="btn btn-green">Post</button>
-               </form>
+            </ul> -->
+             <form class="comment">
+               <div class="form-group">
+                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Add a comment">
+                 <!-- <input type="submit" value="POST" > -->
+               </div>
+               <button ion-button round (click)='postComment(post)' class="btn btn-green">Post</button>
+             </form>
+            <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">
+                <div>{{ comment.description }}</div>
             </ion-item>
-              <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">
-                  <div>{{ comment.description }}</div>
-
-              </ion-item>
-
           </div>
-      </div>
-
+        </div>
       </div>
     </div>
   </div>
-       <button ion-button (click)='logoutBtn()'>Log out</button>
+       <!-- <button ion-button (click)='logoutBtn()'>Log out</button> -->
 </ion-content>
