@@ -16,6 +16,7 @@ import { UserListPage } from '../pages/users/users-list/user-list';
 import { UserEditPage } from '../pages/users/users-edit/user-edit';
 import { VerifyTokenPage } from '../pages/users/verify-token/verify-token';
 import { PostViewPage } from '../pages/post/view-post/view-post'
+import { ForgotPassPage } from '../pages/users/forgot-pass/forgot-pass';
 
 // shared
 import { ApiService } from '../shared/api.service';
@@ -35,7 +36,9 @@ import {SocketService, UtilService} from "../providers";
     UserEditPage,
     UserRegisterPage,
     VerifyTokenPage,
-    PostViewPage
+    PostViewPage,
+    VerifyTokenPage,
+    ForgotPassPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,9 @@ import {SocketService, UtilService} from "../providers";
     UserEditPage,
     UserRegisterPage,
     VerifyTokenPage,
-    PostViewPage
+    PostViewPage,
+    VerifyTokenPage,
+    ForgotPassPage
   ],
   providers: [
     StatusBar,

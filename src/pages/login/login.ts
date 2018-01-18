@@ -6,6 +6,7 @@ import { Storage } from '@ionic/storage';
 import { Http }  from '@angular/http';
 import { UserRegisterPage } from '../../pages/users/register/user-register';
 import { VerifyTokenPage } from '../../pages/users/verify-token/verify-token';
+import { ForgotPassPage } from '../../pages/users/forgot-pass/forgot-pass';
 
 import * as $ from "jquery";
 // Pages
@@ -90,6 +91,12 @@ export class LoginPage {
     });
 
   }
+
+  goReset(){
+     this.navCtrl.push(ForgotPassPage, {}, {
+       animate: true,
+       direction: 'forward'
+     });
 
 
 }

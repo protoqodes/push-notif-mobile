@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar color="main">
+    <ion-title text-center>
+     Forgot Password
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+     <ion-item>
+      <ion-label color="main" floating>Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>
+    </ion-item>
+  </ion-row>
+
+  <button ion-button round full>Reset password</button>
+</ion-content>
