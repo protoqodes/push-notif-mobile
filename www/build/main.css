@@ -26087,13 +26087,9 @@ page-home .login-holder .forgot-pass {
   display: flex !important;
 }
 
-.logout-btn img {
+.back-btn img {
   margin: 5px 10px;
-  width: 22px;
-}
-
-.back-button.show-back-button {
-  display: none !important;
+  width: 12px;
 }
 
 view-post {
