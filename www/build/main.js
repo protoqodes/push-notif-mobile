@@ -302,10 +302,9 @@ var ApiService = (function () {
     }
     ApiService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], ApiService);
     return ApiService;
-    var _a;
 }());
 
 //# sourceMappingURL=api.service.js.map
@@ -437,7 +436,8 @@ var LoginPage = (function () {
 
 "use strict";
 var config = {
-    baseUrl: 'http://localhost:5016/api',
+    //baseUrl : 'http://localhost:5016/api',
+    baseUrl: 'https://angeles-notif.herokuapp.com/api'
 };
 /* harmony default export */ __webpack_exports__["a"] = (config);
 //# sourceMappingURL=config.js.map
@@ -846,10 +846,12 @@ var ForgotPassPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'forgot-pass',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\forgot-pass\forgot-pass.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Forgot Password\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>\n\n    </ion-item>\n\n    {{message}}\n\n  </ion-row>\n\n\n\n  <button ion-button round full (click)="resetPass()">Reset password</button>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\forgot-pass\forgot-pass.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
     ], ForgotPassPage);
     return ForgotPassPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=forgot-pass.js.map

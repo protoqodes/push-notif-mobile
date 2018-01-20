@@ -13,6 +13,7 @@ export class PostViewPage {
   description : string;
   save_post = {};
   img : string;
+  fullname : string;
   created_at : string;
   comment_docs: Array<Object>;
   user_id : string;
