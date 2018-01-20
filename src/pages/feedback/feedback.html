@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Push notification for A.C
+    </ion-title>
+    <a (click)='logoutBtn()' class="logout-btn"><img src="../assets/imgs/power-off.png"/></a>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h4>FeedBack</h4>
+	<form (ngSubmit)="feedbackForm()">
+	<ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>
+      </ion-item>
+		<ion-item>
+        <ion-label floating>Description</ion-label>
+        	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" block>Send FeedBack</button>
+	</form>
+</ion-content>

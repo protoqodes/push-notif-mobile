@@ -77,7 +77,10 @@ export class VerifyTokenPage {
 
   }
   backLogin(){
-     this.navCtrl.pop();
+    this.navCtrl.push(HomePage, {
+      animate: true,
+      direction: 'backward'
+    });
     
   }
 

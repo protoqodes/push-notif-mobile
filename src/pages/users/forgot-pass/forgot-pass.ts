@@ -12,6 +12,8 @@ import { HomePage } from '../../../pages/home/home';
   templateUrl: 'forgot-pass.html'
 })
 export class ForgotPassPage {
+email : string;
+message :string;
   constructor(
   	public navCtrl: NavController,
   	private storage : Storage,
@@ -23,5 +25,12 @@ export class ForgotPassPage {
 
   ionViewWillEnter(){
 
+  }
+  resetPass(){
+  this.api.Users.password_reset(this.email).then(user =>{
+    this.message = 'an email has been sent for your new password';
+  }).catch(err =>{  
+    this.message =err._body;
+  })
   }
 }

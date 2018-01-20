@@ -39,19 +39,19 @@ export class SocketService {
     this.socket = io(SOCKET_HOST, {autoConnect: true});
 
     this.socket.on("connect", () => {
-      console.log('***Socket Connected***');
+     // console.log('***Socket Connected***');
     });
 
     this.socket.on("reconnecting", attempt => {
-      console.log('***Socket Reconnecting***', attempt);
+     // console.log('***Socket Reconnecting***', attempt);
     });
 
     this.socket.on("reconnect_failed", () => {
-      console.log('***Socket Reconnect failed***');
+     // console.log('***Socket Reconnect failed***');
     });
 
     this.socket.on('disconnect', () => {
-      console.log('***Socket Disconnected***');
+     // console.log('***Socket Disconnected***');
     });
 
     // Get Message Response

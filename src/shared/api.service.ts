@@ -26,7 +26,8 @@ export class ApiService {
                     username: username,
                     password: password,
                     is_active : is_active,
-                    permission: '0'
+                    permission: '0',
+                    is_verify : '0'
                   })
                     .map(response => {
                      return response.json();
@@ -34,6 +35,14 @@ export class ApiService {
           },
            list: () => {
           return this.http.get(Config.baseUrl + "/users/list")
+                  .map(response => {
+                   return response.json();
+            }).toPromise();
+          },
+          password_reset : (email : string) => {
+            return this.http.post(Config.baseUrl + "/users/reset",{
+                    email : email
+                  })
                   .map(response => {
                    return response.json();
             }).toPromise();
@@ -102,12 +111,13 @@ export class ApiService {
                     return response.json();
              }).toPromise();
         },
-       add : (user_id : any , post_id : String, description : String) => {
+       add : (user_id : any , post_id : String, description : String, fullname : String) => {
                return this.http.post(Config.baseUrl + "/comments/add",
                     {
                      user_id : user_id,
                      post_id : post_id,
-                     description : description
+                     description : description,
+                     fullname : fullname
                    })
                     .map(response => {
                       return response.json();
@@ -145,6 +155,22 @@ export class ApiService {
           }
 
 
+    }
+    Feedback = {
+      add:(title : string,description : string,user_id : string,is_verify : string, email : string) => {
+                return this.http.post(Config.baseUrl + "/feedback/add",
+                     {
+                        user_id: user_id,
+                        title: title,
+                        description : description,
+                        is_verify : is_verify,
+                        email : email
+                    })
+                      .map(response => {
+                       return response.json();
+                }).toPromise();
+
+          }
     }
 
 

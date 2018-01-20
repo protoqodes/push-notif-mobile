@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Push notification for A.C
+    </ion-title>
+    <a (click)='logoutBtn()' class="logout-btn"><img src="../assets/imgs/power-off.png"/></a>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h4>Thank you!</h4>
+	<div *ngIf="is_verify == '1';else verify">
+    <p>we will read your feedback shortly</p>
+  </div>
+    <ng-template #verify>we have recieve your feedback but first please verify your email first thank you</ng-template>
+  <div>
+  <button ion-button (click)="backToPost()">Back to post</button>
+  </div>
+</ion-content>

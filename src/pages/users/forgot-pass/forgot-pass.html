@@ -12,7 +12,8 @@
       <ion-label color="main" floating>Email</ion-label>
       <ion-input type="email" [(ngModel)]="email" text-left></ion-input>
     </ion-item>
+    {{message}}
   </ion-row>
 
-  <button ion-button round full>Reset password</button>
+  <button ion-button round full (click)="resetPass()">Reset password</button>
 </ion-content>

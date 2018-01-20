@@ -15,8 +15,10 @@ import { UserRegisterPage } from '../pages/users/register/user-register';
 import { UserListPage } from '../pages/users/users-list/user-list';
 import { UserEditPage } from '../pages/users/users-edit/user-edit';
 import { VerifyTokenPage } from '../pages/users/verify-token/verify-token';
-import { PostViewPage } from '../pages/post/view-post/view-post'
+import { PostViewPage } from '../pages/post/view-post/view-post';
 import { ForgotPassPage } from '../pages/users/forgot-pass/forgot-pass';
+import { FeedbackPage } from '../pages/feedback/feedback';
+import { FeedbackThankYouPage } from '../pages/feedback_thankyou/thankyou';
 
 // shared
 import { ApiService } from '../shared/api.service';
@@ -38,7 +40,9 @@ import {SocketService, UtilService} from "../providers";
     VerifyTokenPage,
     PostViewPage,
     VerifyTokenPage,
-    ForgotPassPage
+    ForgotPassPage,
+    FeedbackPage,
+    FeedbackThankYouPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import {SocketService, UtilService} from "../providers";
     VerifyTokenPage,
     PostViewPage,
     VerifyTokenPage,
-    ForgotPassPage
+    ForgotPassPage,
+    FeedbackPage,
+    FeedbackThankYouPage
   ],
   providers: [
     StatusBar,

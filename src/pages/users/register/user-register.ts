@@ -55,9 +55,8 @@ export class UserRegisterPage {
 
       var generateToken = UtilService.generateRandomToken();
       this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
-        
-          console.log(mobile_token)
           if(mobile_token.user){
+
              // this.storage.set('user', mobile_token.user);
              // console.log(this.storage)
              this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {

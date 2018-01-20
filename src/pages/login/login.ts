@@ -98,5 +98,5 @@ export class LoginPage {
        direction: 'forward'
      });
 
-
+  }
 }

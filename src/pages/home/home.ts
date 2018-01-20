@@ -5,7 +5,8 @@ import { Storage } from '@ionic/storage';
 
 import { ApiService } from '../../shared/api.service';
 import {SocketService, UtilService} from "../../providers";
-import {PostViewPage} from '../post/view-post/view-post'
+import {PostViewPage} from '../post/view-post/view-post';
+import {FeedbackPage} from '../feedback/feedback';
 
 // import { FCM } from '@ionic-native/fcm';
 @Component({
@@ -124,7 +125,11 @@ export class HomePage {
     });
 
   }
-
+  toFeedBack(){
+    this.navCtrl.push(FeedbackPage, {
+      test : 'test'
+    });
+  }
   logoutBtn(){
     this.storage.clear();
     console.log(this.storage);
