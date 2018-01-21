@@ -21,14 +21,19 @@
     color: #fff;
 }
 
+.back-btn {
+  img {
+    margin: 5px 10px;
+    width: 12px;
+  }
+}
+
 forgot-pass {
   .scroll-content {
     background-position: center;
     background-size: cover;
 
     .row {
-      padding-bottom: 40px;
-
       background: rgba(255, 255, 255, 0.8);
       border-radius: 12px;
 
@@ -42,12 +47,24 @@ forgot-pass {
               color: #42b66d;
             }
         }
+
+        &.msg {
+          .item-inner {
+            border: none !important;
+
+            ion-label {
+              color: #12404d !important;
+              text-overflow: unset;
+              white-space: unset;
+            }
+          }
+        }
       }
     }
 
     .button-ios,
     .button-md {
-      background-color: #42b66d !important;
+      background-color: #12404d !important;
     }
   }
 

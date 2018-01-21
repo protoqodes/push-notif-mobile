@@ -20,20 +20,18 @@
       {{description}}
     </p>
     <img class="post-image" src="{{img}}" alt="" [hidden]="!img">
-    <ion-item>
+    <ion-item class="comment-content" *ngFor="let comment of comment_docs">
+      <span class="name">{{comment.fullname}}</span><span class="date">{{ comment.created_at | date: format : timezone }}</span>
+      <p class="content">{{ comment.description }}</p>
+    </ion-item>
+    <ion-item class="comment-field">
        <form class="comment" (ngSubmit)="postComment()">
          <div class="form-group">
            <input class="form-control" type="text" clearInput name="post-comment" [(ngModel)]="save_post.description" placeholder="Write a comment">
            <!-- <input type="submit" value="POST" > -->
          </div>
-         <button ion-button round class="btn btn-green">Post</button>
+         <button class="btn btn-green">Post</button>
        </form>
-    </ion-item>
-    <ion-item class="comment-content" *ngFor="let comment of comment_docs">
-      <p>{{comment.fullname}}</p>
-      <p>{{ comment.created_at | date: format : timezone }}</p>
-      <div>{{ comment.description }}</div>
-
     </ion-item>
   </div>
 </ion-content>

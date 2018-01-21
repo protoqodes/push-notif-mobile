@@ -28,9 +28,13 @@ message :string;
   }
   resetPass(){
   this.api.Users.password_reset(this.email).then(user =>{
-    this.message = 'an email has been sent for your new password';
-  }).catch(err =>{  
+    this.message = 'An email has been sent for your new password';
+  }).catch(err =>{
     this.message =err._body;
   })
+  }
+
+  goBack(){
+    this.navCtrl.pop();
   }
 }

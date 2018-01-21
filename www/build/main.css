@@ -25721,230 +25721,54 @@ ion-navbar.toolbar {
   display: none !important;
 }
 
-page-home .scroll-content {
-  padding: 16px 0 !important;
+page-feedback .scroll-content {
+  background-position: center;
+  background-size: cover;
 }
 
-page-home .heading-holder {
-  padding: 10px;
-  margin: 0 -15px;
-  margin-bottom: 30px;
-  font-size: 19px;
-  color: #fff;
-  text-align: center;
-  background: #12404d;
-}
-
-page-home .heading-holder h4 {
-  margin-bottom: 0;
-}
-
-page-home .holder .col-12 {
-  width: 100%;
-}
-
-page-home .holder .filter-holder {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-page-home .holder .filter-holder input {
-  padding: 10px;
-  width: 50%;
-  border: 1px solid transparent;
-}
-
-page-home .holder .filter-holder input:nth-child(2) {
-  border-left: 1px solid #d4d4d4;
-}
-
-page-home .holder .filter-btn {
-  display: block;
-  padding: 7px;
-  width: 100%;
-  font-size: 14px;
-  color: #fff;
-  background: #05512a;
-  border: 2px solid #05512a;
-  border-radius: 0;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
-page-home .holder .filter-btn:hover {
-  color: #05512a;
-  background: #fff;
-  border-color: #fff;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-page-home .holder .post-holder {
-  position: relative;
-  overflow: hidden;
-  padding: 10px 5px 0;
-  margin-bottom: 30px;
-  background: #fff;
-  -webkit-box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
-  box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
-}
-
-page-home .holder .post-holder .post-header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-page-home .holder .post-holder .post-header img {
-  margin-right: 15px;
-  width: 60px;
-  height: 60px;
-}
-
-page-home .holder .post-holder .post-header span h6 {
-  padding: 0;
-  margin: 0;
-  font-size: 15px;
-  line-height: 1;
+page-feedback .scroll-content h4 {
+  font-size: 18px;
   color: #12404d;
-  text-align: left;
 }
 
-page-home .holder .post-holder .post-header span .date {
-  font-size: 11px;
-  color: #c1c1c1;
-  text-decoration: none;
+page-feedback .scroll-content ion-item {
+  padding: 0 !important;
 }
 
-page-home .holder .post-holder .post-image {
-  width: 100%;
-  min-height: 150px;
-  -o-object-fit: cover;
-  object-fit: cover;
+page-feedback .scroll-content ion-item .item-input-has-focus {
+  color: #52bc7a !important;
 }
 
-page-home .holder .post-holder p {
-  padding: 0 10px;
-  margin-top: 10px;
-  margin-left: 0;
-  font-size: 13px;
-  line-height: 1.5;
-  text-indent: 25px;
-  letter-spacing: .5px;
+page-feedback .scroll-content ion-item .item-input-has-focus ion-label {
+  color: #42b66d;
 }
 
-page-home .holder .post-holder ul {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  padding-left: 0;
+page-feedback .scroll-content ion-item.msg .item-inner {
+  border: none !important;
 }
 
-page-home .holder .post-holder ul li {
-  display: inline;
-  list-style: none;
+page-feedback .scroll-content ion-item.msg .item-inner ion-label {
+  color: #12404d !important;
+  text-overflow: unset;
+  white-space: unset;
 }
 
-page-home .holder .post-holder ul li a {
-  font-size: 14px;
-  color: #12404d;
-  text-decoration: none;
+page-feedback .scroll-content .button-ios,
+page-feedback .scroll-content .button-md {
+  background-color: #12404d !important;
 }
 
-@media screen and (max-width: 575px) {
-  page-home .holder .post-holder ul {
-    display: block;
-  }
-  page-home .holder .post-holder ul li {
-    display: block;
-    padding: 2px;
-  }
+page-feedback ion-label {
+  color: #42b66d;
 }
 
-page-home .holder .post-holder .comment {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: -10px;
-  margin-right: -10px;
-  background: #12404d;
+page-feedback .item-ios, page-feedback .item-md {
+  background: none;
 }
 
-page-home .holder .post-holder .comment .form-group {
-  width: 80%;
-}
-
-page-home .holder .post-holder .comment .form-group .form-control {
-  padding: 5px 10px;
-  margin: 10px 0 10px 10px;
-  font-size: 13px;
-  color: #fff;
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-page-home .holder .post-holder .comment .form-group input::-webkit-input-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment .form-group input::-moz-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment .form-group input:-ms-input-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment .form-group input:-moz-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment-content {
-  font-size: 12px !important;
-}
-
-page-home .holder .btn-green {
-  padding: 5px;
-  font-size: 12px;
-  color: #fff;
-  background: #12404d;
-  border: 2px solid #12404d;
-  border-radius: 5px;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
-page-home .holder .btn-green:hover {
-  color: #12404d;
-  background: #fff;
-  border-color: #fff;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+page-feedback .item-ios.item-block .item-inner {
+  padding-right: 0 !important;
+  border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
 }
 
 /* header */
@@ -25990,230 +25814,58 @@ page-home .holder .btn-green:hover {
   display: none !important;
 }
 
-page-home .scroll-content {
-  padding: 16px 0 !important;
+page-thank-you .scroll-content {
+  background-position: center;
+  background-size: cover;
 }
 
-page-home .heading-holder {
-  padding: 10px;
-  margin: 0 -15px;
-  margin-bottom: 30px;
-  font-size: 19px;
-  color: #fff;
+page-thank-you .scroll-content h4 {
+  font-size: 18px;
+  color: #12404d;
+}
+
+page-thank-you .scroll-content ion-item {
+  padding: 0 !important;
+}
+
+page-thank-you .scroll-content ion-item .item-input-has-focus {
+  color: #52bc7a !important;
+}
+
+page-thank-you .scroll-content ion-item .item-input-has-focus ion-label {
+  color: #42b66d;
+}
+
+page-thank-you .scroll-content ion-item.msg .item-inner {
+  border: none !important;
+}
+
+page-thank-you .scroll-content ion-item.msg .item-inner ion-label {
+  color: #12404d !important;
+  text-overflow: unset;
+  white-space: unset;
+}
+
+page-thank-you .scroll-content .button-ios,
+page-thank-you .scroll-content .button-md {
+  background-color: #12404d !important;
+}
+
+page-thank-you .scroll-content .button-holder {
   text-align: center;
-  background: #12404d;
 }
 
-page-home .heading-holder h4 {
-  margin-bottom: 0;
+page-thank-you ion-label {
+  color: #42b66d;
 }
 
-page-home .holder .col-12 {
-  width: 100%;
+page-thank-you .item-ios, page-thank-you .item-md {
+  background: none;
 }
 
-page-home .holder .filter-holder {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-page-home .holder .filter-holder input {
-  padding: 10px;
-  width: 50%;
-  border: 1px solid transparent;
-}
-
-page-home .holder .filter-holder input:nth-child(2) {
-  border-left: 1px solid #d4d4d4;
-}
-
-page-home .holder .filter-btn {
-  display: block;
-  padding: 7px;
-  width: 100%;
-  font-size: 14px;
-  color: #fff;
-  background: #05512a;
-  border: 2px solid #05512a;
-  border-radius: 0;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-}
-
-page-home .holder .filter-btn:hover {
-  color: #05512a;
-  background: #fff;
-  border-color: #fff;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-page-home .holder .post-holder {
-  position: relative;
-  overflow: hidden;
-  padding: 10px 5px 0;
-  margin-bottom: 30px;
-  background: #fff;
-  -webkit-box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
-  box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
-}
-
-page-home .holder .post-holder .post-header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-page-home .holder .post-holder .post-header img {
-  margin-right: 15px;
-  width: 60px;
-  height: 60px;
-}
-
-page-home .holder .post-holder .post-header span h6 {
-  padding: 0;
-  margin: 0;
-  font-size: 15px;
-  line-height: 1;
-  color: #12404d;
-  text-align: left;
-}
-
-page-home .holder .post-holder .post-header span .date {
-  font-size: 11px;
-  color: #c1c1c1;
-  text-decoration: none;
-}
-
-page-home .holder .post-holder .post-image {
-  width: 100%;
-  min-height: 150px;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-page-home .holder .post-holder p {
-  padding: 0 10px;
-  margin-top: 10px;
-  margin-left: 0;
-  font-size: 13px;
-  line-height: 1.5;
-  text-indent: 25px;
-  letter-spacing: .5px;
-}
-
-page-home .holder .post-holder ul {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  padding-left: 0;
-}
-
-page-home .holder .post-holder ul li {
-  display: inline;
-  list-style: none;
-}
-
-page-home .holder .post-holder ul li a {
-  font-size: 14px;
-  color: #12404d;
-  text-decoration: none;
-}
-
-@media screen and (max-width: 575px) {
-  page-home .holder .post-holder ul {
-    display: block;
-  }
-  page-home .holder .post-holder ul li {
-    display: block;
-    padding: 2px;
-  }
-}
-
-page-home .holder .post-holder .comment {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: -10px;
-  margin-right: -10px;
-  background: #12404d;
-}
-
-page-home .holder .post-holder .comment .form-group {
-  width: 80%;
-}
-
-page-home .holder .post-holder .comment .form-group .form-control {
-  padding: 5px 10px;
-  margin: 10px 0 10px 10px;
-  font-size: 13px;
-  color: #fff;
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-page-home .holder .post-holder .comment .form-group input::-webkit-input-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment .form-group input::-moz-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment .form-group input:-ms-input-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment .form-group input:-moz-placeholder {
-  color: #fff;
-  letter-spacing: 1.5px;
-}
-
-page-home .holder .post-holder .comment-content {
-  font-size: 12px !important;
-}
-
-page-home .holder .btn-green {
-  padding: 5px;
-  font-size: 12px;
-  color: #fff;
-  background: #12404d;
-  border: 2px solid #12404d;
-  border-radius: 5px;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-}
-
-page-home .holder .btn-green:hover {
-  color: #12404d;
-  background: #fff;
-  border-color: #fff;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+page-thank-you .item-ios.item-block .item-inner {
+  padding-right: 0 !important;
+  border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
 }
 
 /* header */
@@ -26641,7 +26293,7 @@ view-post .scroll-content {
 view-post .post-holder {
   position: relative;
   overflow: hidden;
-  padding: 6vh 5px 0;
+  padding: 4vh 0 0;
   margin-bottom: 30px;
   background: #fff;
   -webkit-box-shadow: 0 0 15px 2px rgba(138, 138, 138, 0.3);
@@ -26657,6 +26309,7 @@ view-post .post-holder .post-header {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  padding-left: 10px;
   margin-bottom: 15px;
 }
 
@@ -26689,12 +26342,12 @@ view-post .post-holder .post-image {
 }
 
 view-post .post-holder p {
-  padding: 0 10px;
+  padding: 0 15px;
   margin-top: 10px;
   margin-left: 0;
   font-size: 13px;
   line-height: 1.5;
-  text-indent: 25px;
+  text-indent: 0;
   letter-spacing: .5px;
 }
 
@@ -26746,7 +26399,50 @@ view-post .post-holder .comment .form-group input:-moz-placeholder {
 }
 
 view-post .post-holder .comment-content {
-  font-size: 12px !important;
+  padding-left: 0;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ececec;
+}
+
+view-post .post-holder .comment-content .item-inner {
+  padding-left: 15px;
+}
+
+view-post .post-holder .comment-content ion-label {
+  margin: 8px auto;
+  white-space: unset;
+}
+
+view-post .post-holder .comment-content .name {
+  font-size: 13px;
+  font-weight: bold;
+  color: #12404d;
+}
+
+view-post .post-holder .comment-content .date {
+  margin-top: 5px;
+  float: right;
+  font-size: 11px;
+  color: #c1c1c1;
+  text-decoration: none;
+}
+
+view-post .post-holder .comment-content .content {
+  padding-left: 0;
+  margin-top: 3px;
+  font-size: 11.5px;
+  text-indent: 0;
+  text-overflow: unset;
+  color: #000;
+}
+
+view-post .post-holder .comment-field {
+  padding-left: 0;
+  background: #12404d;
+}
+
+view-post .post-holder .comment-field ion-label {
+  margin: 0;
 }
 
 view-post .post-holder .item-ios.item-block .item-inner {
@@ -26798,13 +26494,17 @@ view-post .btn-green:hover {
   color: #fff;
 }
 
+.back-btn img {
+  margin: 5px 10px;
+  width: 12px;
+}
+
 forgot-pass .scroll-content {
   background-position: center;
   background-size: cover;
 }
 
 forgot-pass .scroll-content .row {
-  padding-bottom: 40px;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
 }
@@ -26821,9 +26521,19 @@ forgot-pass .scroll-content .row ion-item .item-input-has-focus ion-label {
   color: #42b66d;
 }
 
+forgot-pass .scroll-content .row ion-item.msg .item-inner {
+  border: none !important;
+}
+
+forgot-pass .scroll-content .row ion-item.msg .item-inner ion-label {
+  color: #12404d !important;
+  text-overflow: unset;
+  white-space: unset;
+}
+
 forgot-pass .scroll-content .button-ios,
 forgot-pass .scroll-content .button-md {
-  background-color: #42b66d !important;
+  background-color: #12404d !important;
 }
 
 forgot-pass ion-label {
@@ -26860,6 +26570,11 @@ forgot-pass .item-ios.item-block .item-inner {
 .bar-button-clear-ios-default,
 .bar-button-ios-default {
   color: #fff;
+}
+
+.back-btn img {
+  margin: 5px 10px;
+  width: 12px;
 }
 
 user-register .scroll-content {

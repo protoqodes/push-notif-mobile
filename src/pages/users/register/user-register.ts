@@ -42,9 +42,9 @@ export class UserRegisterPage {
     }
 
     if(!this.validateField(field)){
-        return 
+        return
     }
-    
+
      var mobile = this.mobile.toString();
 
       // this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
@@ -69,13 +69,17 @@ export class UserRegisterPage {
     // }
     console.log('added');
       // });
-    
 
+
+  }
+
+  goBack(){
+    this.navCtrl.pop();
   }
 
 
   validateField(field){
-    
+
     if(parseInt(field.mobile.charAt(3)) !== 9 || field.mobile.length !== 13 ){
        let toast = this.toastCtrl.create({
           message: "Is not valid in PHIL Phone Number  ",
@@ -86,7 +90,7 @@ export class UserRegisterPage {
       return false
     }
 
-   
+
 
     return true;
 

@@ -3,6 +3,7 @@
     <ion-title text-center>
      Forgot Password
     </ion-title>
+    <a (click)='goBack()' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +13,9 @@
       <ion-label color="main" floating>Email</ion-label>
       <ion-input type="email" [(ngModel)]="email" text-left></ion-input>
     </ion-item>
-    {{message}}
+    <ion-item class="msg">
+      <small>{{message}}</small>
+   </ion-item>
   </ion-row>
 
   <button ion-button round full (click)="resetPass()">Reset password</button>
