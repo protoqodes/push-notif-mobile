@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Nav } from 'ionic-angular';
 import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 
@@ -34,7 +34,6 @@ export class HomePage {
   	) {
   }
 
-
   ionViewWillEnter(){
   	this.storage.get('user')
   	.then(user => {
@@ -52,7 +51,7 @@ export class HomePage {
       this.hasData = true
     })
 
-    
+
      // SocketService.connect();
     // if(this.posts){
     //     this.posts.forEach(value =>{
@@ -84,7 +83,7 @@ export class HomePage {
     // })
 
     // this.fcm.unsubscribeFromTopic('marketing');
-  } 
+  }
 
   filterPost(){
 
