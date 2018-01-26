@@ -1,8 +1,7 @@
-<ion-menu [content]="content">
+<ion-menu [content]="sidebar">
 <ion-content padding>
-
+<button class="filter-btn" (click)="toFeedBack()" >Feedback</button>
 </ion-content>
-<p>hahaha</p>
 </ion-menu>
 
-<ion-nav [root]="rootPage" #content></ion-nav>
+<ion-nav [root]="rootPage" #sidebar #test></ion-nav>

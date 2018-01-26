@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, Nav } from 'ionic-angular';
+import { NavController, Nav,MenuController } from 'ionic-angular';
 import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 
@@ -30,7 +30,8 @@ export class HomePage {
   	private storage : Storage,
     public socketService: SocketService,
     // private fcm: FCM
-    private api : ApiService
+    private api : ApiService,
+    public menuCtrl: MenuController
   	) {
   }
 
@@ -134,4 +135,8 @@ export class HomePage {
     console.log(this.storage);
      this.navCtrl.pop();
   }
+  openMenu() {
+  console.log(this.menuCtrl);
+   this.menuCtrl.open('#sidebar');
+ }
 }
