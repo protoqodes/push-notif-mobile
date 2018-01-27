@@ -46,7 +46,8 @@ export class UserListPage {
         mobile: user.mobile,
         email: user.email,
         username : user.username,
-        password : user.password
+        password : user.password,
+        img : user.img
       });
     });
   }

@@ -18,6 +18,7 @@ export class PostViewPage {
   created_at : string;
   comment_docs: Array<Object>;
   user_id : string;
+  img_comment: string;
   constructor(
   	public navCtrl: NavController,
     public navParamsCtrl: NavParams,
@@ -31,22 +32,25 @@ export class PostViewPage {
   ionViewWillEnter(){
 
      this.api.Posts.view(this.navParamsCtrl.data._id).then(post =>{
-            
+             console.log(post);
             this._id = post.results[0]._id;
             this.title = post.results[0].title;
             this.description  = post.results[0].description;
             this.img = post.results[0].img;
+            this.img_comment = post.results[0].comment_docs.img_comment;
             this.comment_docs = post.results[0].comment_docs;
       })
     this.storage.get('user').then(user=>{
       this.user_id = user.user._id;
       this.fullname = user.user.first_name + ' ' + user.user.last_name;
+      this.image_post = user.user.img
     })
-     console.log(this);
+     
   }
   postComment(){
-    this.api.Comments.add(this.user_id,this._id,this.save_post.description,this.fullname)
+    this.api.Comments.add(this.user_id,this._id,this.save_post.description,this.fullname, this.image_post)
     .then(comments =>{
+       
         this.api.Posts.view(this._id).then(post =>{
             this.comment_docs = post.results[0].comment_docs;
       })
