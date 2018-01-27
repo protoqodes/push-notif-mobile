@@ -3,6 +3,7 @@ import { NavController, NavParams, Platform, ToastController } from 'ionic-angul
 import  Config  from '../../../shared/config';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../../shared/api.service';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -29,7 +30,8 @@ export class UserEditPage {
     public navParamsCtrl: NavParams,
   	private storage : Storage,
     private api : ApiService,
-    private transfer: FileTransfer, 
+    private transfer: FileTransfer,
+    public camera: Camera,
     private file: File, 
     private filePath: FilePath,
      public actionSheetCtrl: ActionSheetController
