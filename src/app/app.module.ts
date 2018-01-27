@@ -7,6 +7,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { Camera } from '@ionic-native/camera';
+import { File } from '@ionic-native/file';
+import { FileTransfer} from '@ionic-native/file-transfer';
+import { FilePath } from '@ionic-native/file-path';
 //pages
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
@@ -74,6 +78,10 @@ import {SocketService, UtilService} from "../providers";
     ApiService,
     UtilService,
     SocketService,
+    Camera,
+    File,
+    FileTransfer,
+    FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
