@@ -19,26 +19,26 @@
   ion-content {
     .scroll-content {
       padding: 6vh 0 !important;
+      background: #fff;
 
       ion-item {
         ion-label {
+          margin-top: 5px;
+          margin-bottom: 5px;
+
           font-size: 15px;
           color: #12404d;
         }
       }
 
-      .filter-btn {
+      .sidebar-link {
         display: block;
         padding: 15px 0 ;
 
         width: 100%;
 
         font-size: 14px;
-        color: #fff;
-
-        background: #05512a;
-        border: 2px solid #05512a;
-        border-radius: 0;
+        color: #05512a;
 
         -webkit-transition: 0.2s ease-in-out;
         -moz-transition: 0.2s ease-in-out;
@@ -46,11 +46,6 @@
         transition: 0.2s ease-in-out;
 
         &:hover {
-          color: #05512a;
-
-          background: #fff;
-          border-color: #fff;
-
           outline: none;
           -webkit-box-shadow: none;
           -moz-box-shadow: none;

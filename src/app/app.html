@@ -7,10 +7,11 @@
       </ion-item>
 
       <ion-item>
-        <button ion-button class="filter-btn" (click)="toFeedBack()" >Feedback</button>
+        <a class="sidebar-link" (click)="toFeedBack()" >Feedback</a>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
+<ion-nav #sidebar></ion-nav>
 
 <ion-nav [root]="rootPage" #sidebar #test></ion-nav>
