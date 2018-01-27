@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 
 import { ApiService } from '../api.service';
 import {FeedbackPage} from '../../pages/feedback/feedback';
+import { UserEditPage } from '../../pages/users/users-edit/user-edit';
+
 
 import { NavController, Nav,MenuController } from 'ionic-angular';
 
@@ -36,15 +38,18 @@ export class SidebarNav {
       this.api.Users.notify(value,user.user._id).then(user =>{
         this.storage.remove('user');
         this.storage.set('user',user);
-        
+
       })
     })
-    
+
   }
   toFeedBack(){
     this.navCtrl.push(FeedbackPage, {
       test : 'test'
     });
+  }
+  toEdit(){
+    this.navCtrl.push(UserEditPage);
   }
   openMenu() {
    this.menuCtrl.open('#sidebar');

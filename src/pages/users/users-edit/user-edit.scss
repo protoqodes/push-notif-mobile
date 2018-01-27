@@ -21,13 +21,20 @@
     color: #fff;
 }
 
+.back-btn {
+  img {
+    margin: 5px 10px;
+    width: 12px;
+  }
+}
+
 user-edit {
   .scroll-content {
     // background-color: #52bc7a;
-
-    background: url("../../assets/imgs/bg-generic.jpg");
+    // background: url("../../assets/imgs/bg-generic.jpg");
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 
     .row {
       padding-bottom: 40px;
@@ -36,7 +43,7 @@ user-edit {
       border-radius: 12px;
 
       ion-item {
-        padding: 0 16px !important;
+        padding: 0 10px !important;
 
         .item-input-has-focus {
           color: #52bc7a !important;
@@ -46,6 +53,11 @@ user-edit {
             }
         }
       }
+    }
+
+    .button-ios,
+    .button-md {
+      background-color: #12404d !important;
     }
   }
 

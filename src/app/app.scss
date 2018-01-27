@@ -22,23 +22,27 @@
       background: #fff;
 
       ion-item {
+        padding-left: 0 !important;
         ion-label {
           margin-top: 5px;
           margin-bottom: 5px;
+          margin-left: 15px;
 
           font-size: 15px;
           color: #12404d;
+
+          cursor: pointer;
         }
       }
 
       .sidebar-link {
         display: block;
-        padding: 15px 0 ;
+        padding: 10px 0 ;
 
         width: 100%;
 
-        font-size: 14px;
-        color: #05512a;
+        font-size: 15px;
+        color: #12404d;
 
         -webkit-transition: 0.2s ease-in-out;
         -moz-transition: 0.2s ease-in-out;
