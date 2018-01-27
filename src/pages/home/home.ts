@@ -4,6 +4,8 @@ import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 
 import { ApiService } from '../../shared/api.service';
+
+import { SidebarNav } from '../../shared/sidebar/sidebar';
 import {SocketService, UtilService} from "../../providers";
 import {PostViewPage} from '../post/view-post/view-post';
 import {FeedbackPage} from '../feedback/feedback';
@@ -11,7 +13,8 @@ import {FeedbackPage} from '../feedback/feedback';
 // import { FCM } from '@ionic-native/fcm';
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  directives: [SidebarNav]
 })
 export class HomePage {
   posts : string[];
@@ -25,6 +28,7 @@ export class HomePage {
   user_comment : Array<Object>;
   public users: Array<Object>;
   hasData : boolean = false;
+  is_notify: boolean = false;
   constructor(
   	public navCtrl: NavController,
   	private storage : Storage,
@@ -51,39 +55,6 @@ export class HomePage {
       this.posts = posts.results
       this.hasData = true
     })
-
-
-     // SocketService.connect();
-    // if(this.posts){
-    //     this.posts.forEach(value =>{
-    //         console.log(value);
-
-    //     })
-
-
-    // }
-    // this.fcm.subscribeToTopic('news');
-
-    // this.fcm.getToken().then(token=>{
-
-    //   console.log(token)
-    // // backend.registerToken(token);
-    // })
-
-    // this.fcm.onNotification().subscribe(data=>{
-    // if(data.wasTapped){
-    //   console.log("Received in background");
-    // } else {
-    //   console.log("Received in foreground");
-    // };
-    // })
-
-    // this.fcm.onTokenRefresh().subscribe(token=>{
-    //   console.log(tiken)
-    // // backend.registerToken(token);
-    // })
-
-    // this.fcm.unsubscribeFromTopic('marketing');
   }
 
   filterPost(){
@@ -135,8 +106,13 @@ export class HomePage {
     console.log(this.storage);
      this.navCtrl.pop();
   }
+  notify(value){
+    this.api.Users.notify(value,this.users.user._id).then(user =>{
+        console.log(user);
+        
+    })
+  }
   openMenu() {
-  console.log(this.menuCtrl);
    this.menuCtrl.open('#sidebar');
  }
 }

@@ -1,0 +1,16 @@
+<ion-menu [content]="sidebar">
+  <ion-content padding>
+    <ion-list>
+      <ion-item>
+        <ion-label>Push Notification</ion-label>
+        <ion-toggle (ionChange)="notify(is_notify)" [(ngModel)]="is_notify" color="secondary"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <button ion-button class="filter-btn" (click)="toFeedBack()" >Feedback</button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #sidebar></ion-nav>
