@@ -76,6 +76,16 @@ export class ApiService {
                        return response.json();
                 }).toPromise();
 
+          },
+          notify:(is_notify : boolean ,user_id: string) => {
+                return this.http.post(Config.baseUrl + "/users/notify/"+ user_id,
+                     {
+                        is_notify: is_notify
+                    })
+                      .map(response => {
+                       return response.json();
+                }).toPromise();
+
           }
 
 

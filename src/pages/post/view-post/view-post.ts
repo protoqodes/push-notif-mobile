@@ -3,6 +3,7 @@ import { NavController, NavParams, Platform, ToastController } from 'ionic-angul
 import  Config  from '../../../shared/config';
 import { Storage } from '@ionic/storage';
 import { ApiService } from '../../../shared/api.service';
+import { SidebarNav } from '../../../shared/sidebar/sidebar';
 @Component({
   selector: 'view-post',
   templateUrl: 'view-post.html'
@@ -24,22 +25,22 @@ export class PostViewPage {
     private api : ApiService,
     // private fcm: FCM
   	) {
-    console.log(navParamsCtrl)
-    this._id = navParamsCtrl.get('_id');
   }
 
 
   ionViewWillEnter(){
-     this.api.Posts.view(this._id).then(post =>{
+
+     this.api.Posts.view(this.navParamsCtrl.data._id).then(post =>{
+            
             this._id = post.results[0]._id;
             this.title = post.results[0].title;
             this.description  = post.results[0].description;
             this.img = post.results[0].img;
             this.comment_docs = post.results[0].comment_docs;
       })
-    this.storage.get('user').then(data=>{
-      this.user_id = data.user._id;
-      this.fullname = data.user.first_name + ' ' + data.user.last_name;
+    this.storage.get('user').then(user=>{
+      this.user_id = user.user._id;
+      this.fullname = user.user.first_name + ' ' + user.user.last_name;
     })
      console.log(this);
   }

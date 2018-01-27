@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,MenuController } from 'ionic-angular';
 import { ApiService } from '../../shared/api.service';
 import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
@@ -25,13 +25,17 @@ export class LoginPage {
   }
   constructor(
   	public navCtrl: NavController,
-
+    public menu :MenuController,
     private storage: Storage,
     private api:ApiService,
     private http:Http) {
 
   }
+  isEnabled() {
+      console.log(this.menu.enable());
+  }
   ionViewWillEnter(){
+    this.isEnabled();
     // this.storage.clear();
     this.storage.get('user')
     .then(user => {
@@ -64,6 +68,7 @@ export class LoginPage {
     if(user.user.is_active === 0){
         this.goVerify(user)
     }else{
+        this.storage.set('is_notify',user.user.is_notify);
        this.storage.set('user', user);
         this.navCtrl.push(HomePage, {}, {
           animate: true,
