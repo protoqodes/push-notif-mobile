@@ -261,6 +261,14 @@ module.exports = [
         "clobbers": [
             "window.FileTransfer"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-filepath/www/FilePath.js",
+        "id": "cordova-plugin-filepath.FilePath",
+        "pluginId": "cordova-plugin-filepath",
+        "clobbers": [
+            "window.FilePath"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -275,7 +283,8 @@ module.exports.metadata =
     "cordova-plugin-fcm": "2.1.2",
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-file": "4.1.1",
-    "cordova-plugin-file-transfer": "1.5.1"
+    "cordova-plugin-file-transfer": "1.5.1",
+    "cordova-plugin-filepath": "1.0.2"
 }
 // BOTTOM OF METADATA
 });

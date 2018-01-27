@@ -111,9 +111,7 @@ export class UserEditPage {
 
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-         
-          // alert('running here if');
-          
+     
       });
      }else{
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
