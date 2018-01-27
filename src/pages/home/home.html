@@ -12,13 +12,6 @@
       Push notification for A.C
     </ion-title>
     <a (click)='logoutBtn()' class="logout-btn"><img src="https://cdn.filestackcontent.com/CJMyS34SVmEdMrx42D6N"/></a>
-    <ion-buttons start>
-      <button ion-button icon-only menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-buttons>
-
-      <button ion-button (click)="openMenu()">Toggle Menu</button>
   </ion-navbar>
 </ion-header>
 <ion-content padding *ngIf="hasData">
@@ -45,7 +38,7 @@
           </ion-refresher>
 
           <br>
-          <button class="filter-btn" (click)="toFeedBack()" >Feedback</button>
+          <!-- <button class="filter-btn" (click)="toFeedBack()" >Feedback</button> -->
           <div class="post-holder" (click)='selectedPost(post)' *ngFor="let post of posts">
             <div class="post-header">
               <img src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn" alt="Angeles City Logo" />

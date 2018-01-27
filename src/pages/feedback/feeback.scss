@@ -38,6 +38,13 @@
     display: none !important;
 }
 
+.back-btn {
+  img {
+    margin: 5px 10px;
+    width: 12px;
+  }
+}
+
 page-feedback {
   .scroll-content {
     background-position: center;

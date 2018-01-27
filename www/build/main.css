@@ -25678,6 +25678,37 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.menu-inner ion-content .scroll-content {
+  padding: 6vh 0 !important;
+}
+
+.menu-inner ion-content .scroll-content ion-item ion-label {
+  font-size: 15px;
+  color: #12404d;
+}
+
+.menu-inner ion-content .scroll-content .filter-btn {
+  display: block;
+  padding: 15px 0;
+  width: 100%;
+  font-size: 14px;
+  color: #fff;
+  background: #05512a;
+  border: 2px solid #05512a;
+  border-radius: 0;
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+}
+
+.menu-inner ion-content .scroll-content .filter-btn:hover {
+  color: #05512a;
+  background: #fff;
+  border-color: #fff;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 /* header */
 .toolbar,
 .toolbar-background-md,
@@ -25719,6 +25750,11 @@ ion-navbar.toolbar {
 
 .back-button.show-back-button {
   display: none !important;
+}
+
+.back-btn img {
+  margin: 5px 10px;
+  width: 12px;
 }
 
 page-feedback .scroll-content {
@@ -25808,6 +25844,11 @@ page-feedback .item-ios.item-block .item-inner {
 .logout-btn img {
   margin: 5px 10px;
   width: 22px;
+}
+
+.back-btn img {
+  margin: 5px 10px;
+  width: 12px;
 }
 
 .back-button.show-back-button {
