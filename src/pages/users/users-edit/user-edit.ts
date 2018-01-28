@@ -78,10 +78,7 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-    /* var file = {
-      url : 'file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg',
-      mimetype  : 'image/*'
-     }
+     
      var fileOptions = {
       intelligent: true
       };
@@ -89,7 +86,9 @@ export class UserEditPage {
       filename: 'test.jpg',
       access :'public'
       }
-      filestack.upload(btoa(file),FileUploadOptions,storeOptions)
+      var file = new Blob(['file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg'] , {type:'image/png'});
+      
+      filestack.upload(file,FileUploadOptions,storeOptions)
         .then(res => {
           this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
@@ -100,9 +99,9 @@ export class UserEditPage {
             this.api.Users.image(this._id,'asd',err).then(image => {
               console.log();
           })
-          });*/
+          });
       
-     let actionSheet = this.actionSheetCtrl.create({
+     /*let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
@@ -123,7 +122,7 @@ export class UserEditPage {
         }
       ]
     });
-    actionSheet.present();
+    actionSheet.present();*/
   }
 
   public takePicture(sourceType){
@@ -148,8 +147,8 @@ export class UserEditPage {
       filename: name
       }
       this.base64.encodeFile(imageData).then((base64File: string) => {
-        alert(base64File);
-        filestack.upload(base64File)
+        alert(base64);
+        filestack.upload(base64)
         .then(res => {
           this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
