@@ -76,7 +76,13 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-     let actionSheet = this.actionSheetCtrl.create({
+
+      console.log(filestack);
+
+      filestack.pick().then(data => {
+        this.path = data.filesUploaded[0].url
+      });
+     /*let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
@@ -97,7 +103,7 @@ export class UserEditPage {
         }
       ]
     });
-    actionSheet.present();
+    actionSheet.present();*/
   }
 
   public takePicture(sourceType){
