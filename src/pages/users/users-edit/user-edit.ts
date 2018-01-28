@@ -104,15 +104,13 @@ export class UserEditPage {
     actionSheet.present();
   }
 
-  public takePicture(sourceType){
+  public takePicture(){
      var options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
-      sourceType: sourceType,
        correctOrientation: false,
-      saveToPhotoAlbum: true,
       targetWidth: 1000,
       targetHeight: 1000
       
@@ -129,7 +127,7 @@ export class UserEditPage {
         const imageRef = storageRef.child(`images/${filename}.jpg`);
         imageRef.putString(file_path, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
           // Do something here when the data is succesfully uploaded!
-        });
+        })
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
       this.filePath.resolveNativePath(imageData).then( filePath=>{
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);

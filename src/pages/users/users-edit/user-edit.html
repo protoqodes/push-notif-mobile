@@ -16,14 +16,14 @@
     <ion-item text-center>
     <div class="editPhoto">
     
-    <button ion-button icon-left (click)="presentActionSheet()">
+    <button ion-button icon-left (click)="takePicture()">
       <ion-icon name="camera"></ion-icon>Edit Profile  
     </button>
   </div><br>
       <img src="{{path}}"  height="100px" width="100px"><br>
       {{path}}
     </ion-item>
-    
+
     <ion-item>
       <ion-label color="main" floating>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>
