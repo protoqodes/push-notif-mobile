@@ -125,8 +125,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var filestack = __WEBPACK_IMPORTED_MODULE_8_filestack_js__["a" /* default */].init('AFHvRuXHQeevnhfnlqdyAz', {
-    policy: 'eyJjYWxsIjpbInBpY2siLCJyZWFkIiwic3RhdCIsIndyaXRlIiwid3JpdGVVcmwiLCJzdG9yZSIsInJlbW92ZSJdfQ==',
-    signature: 'a054c0ef8dd45bec1d19dac4cbec367c2a4db434683605584ff5d44ace871c10'
+    policy: 'eyJjYWxsIjpbInBpY2siLCJyZWFkIiwic3RhdCIsIndyaXRlIiwid3JpdGVVcmwiLCJzdG9yZSIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTMyOTY2NDAwfQ==',
+    signature: 'd0643e1e7c2320fecbbe6500c2f0f7ca7146c7abf1a110363b45da46d4cb81e4'
 });
 var UserEditPage = (function () {
     function UserEditPage(navCtrl, navParamsCtrl, storage, api, transfer, camera, file, filePath, actionSheetCtrl
@@ -142,17 +142,6 @@ var UserEditPage = (function () {
         this.file = file;
         this.filePath = filePath;
         this.actionSheetCtrl = actionSheetCtrl;
-        this.filePath.resolveNativePath('https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg').then(function (filePath) {
-            var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
-            var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
-            _this.path = filePath;
-            _this.img_name = imageData;
-            _this.api.Users.image(_this._id, correctPath, currentName).then(function (image) {
-                console.log(image);
-            });
-        }).catch(function (err) {
-            console.log('test');
-        });
         this.storage.get('user')
             .then(function (user) {
             console.log(user);
@@ -211,10 +200,14 @@ var UserEditPage = (function () {
             targetHeight: 1000
         };
         this.camera.getPicture(options).then(function (imageData) {
+            alert('esr');
             filestack.storeURL(imageData)
                 .then(function (res) {
+                alert('asd');
                 _this.api.Users.image(_this._id, 'asd', res).then(function (image) {
                     console.log(image);
+                }).catch(function (err) {
+                    alert('test');
                 });
             });
             if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {

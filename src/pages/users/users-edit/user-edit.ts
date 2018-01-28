@@ -13,8 +13,8 @@ import  client  from 'filestack-js';
 const filestack = client.init(
   'AFHvRuXHQeevnhfnlqdyAz',
   {
-    policy : 'eyJjYWxsIjpbInBpY2siLCJyZWFkIiwic3RhdCIsIndyaXRlIiwid3JpdGVVcmwiLCJzdG9yZSIsInJlbW92ZSJdfQ==',
-    signature : 'a054c0ef8dd45bec1d19dac4cbec367c2a4db434683605584ff5d44ace871c10'
+    policy : 'eyJjYWxsIjpbInBpY2siLCJyZWFkIiwic3RhdCIsIndyaXRlIiwid3JpdGVVcmwiLCJzdG9yZSIsImNvbnZlcnQiXSwiZXhwaXJ5IjoxNTMyOTY2NDAwfQ==',
+    signature : 'd0643e1e7c2320fecbbe6500c2f0f7ca7146c7abf1a110363b45da46d4cb81e4'
   });
 @Component({
   selector: 'user-edit',
@@ -44,17 +44,6 @@ export class UserEditPage {
      public actionSheetCtrl: ActionSheetController
     // private fcm: FCM
     ) {
-    this.filePath.resolveNativePath('https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg').then( filePath=>{
-          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
-          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          this.path = filePath;
-          this.img_name = imageData;
-          this.api.Users.image(this._id,correctPath,currentName).then(image => {
-              console.log(image);
-          })
-      }).catch(err =>{
-          console.log('test');
-      })
   this.storage.get('user')
     .then(user => {
       console.log(user);
@@ -125,10 +114,14 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
+      alert('esr');
       filestack.storeURL(imageData)
         .then(res => {
+        alert(fes.url);
          this.api.Users.image(this._id,'asd',res).then(image => {
               console.log(image);
+          }).catch(err => {
+            alert(err);
           })
         });
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
