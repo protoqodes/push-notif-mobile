@@ -47,7 +47,7 @@ export class UserEditPage {
      private base64: Base64
     // private fcm: FCM
     ) {
-    initializeApp(Config.firebase);
+    console.log(initializeApp(Config.firebase));
   this.storage.get('user')
     .then(user => {
       console.log(user);
@@ -80,7 +80,6 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-      
      let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
@@ -106,25 +105,52 @@ export class UserEditPage {
   }
 
   public takePicture(sourceType){
-     const  options: CameraOptions = {
+     var options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
       sourceType: sourceType,
        correctOrientation: false,
       saveToPhotoAlbum: true,
       targetWidth: 1000,
-      targetHeight: 1000,
-      correctOrientation : true,
+      targetHeight: 1000
       
     }
     
-  const result = this.camera.getPicture(options);
-  alert(result);
-  const image = `data:image/jpeg;base64,${result}`;
-  const pictures = storage.ref('pictures');
-  pictures.putString(image, 'data_url');
+    this.camera.getPicture(options).then((imageData) => {
+        const file_path ='data:image/jpeg;base64,' + imageData;
 
+        let storageRef = firebase.storage().ref();
+        // Create a timestamp as filename
+        const filename = Math.floor(Date.now() / 1000);
+
+        // Create a reference to 'images/todays-date.jpg'
+        const imageRef = storageRef.child(`images/${filename}.jpg`);
+        imageRef.putString(file_path, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
+          // Do something here when the data is succesfully uploaded!
+        });
+     if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+      this.filePath.resolveNativePath(imageData).then( filePath=>{
+          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
+          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+          this.path = filePath;
+          this.img_name = imageData;
+      }).catch(err =>{
+          console.log('test');
+      })
+     }else{
+          let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
+          let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
+          this.path = filePath;
+          this.img_name = imageData;
+           // alert('running here else');
+     }
+    
+    }, (err) => {
+      alert(err)
+     // Handle error
+    });
   }
 
   updateUser(){
