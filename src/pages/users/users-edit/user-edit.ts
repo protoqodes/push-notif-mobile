@@ -38,6 +38,17 @@ export class UserEditPage {
      public actionSheetCtrl: ActionSheetController
     // private fcm: FCM
     ) {
+    this.filePath.resolveNativePath('https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg').then( filePath=>{
+          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
+          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+          this.path = filePath;
+          this.img_name = imageData;
+          this.api.Users.image(this._id,correctPath,currentName).then(image => {
+              console.log(image);
+          })
+      }).catch(err =>{
+          console.log('test');
+      })
   this.storage.get('user')
     .then(user => {
       console.log(user);
@@ -60,17 +71,7 @@ export class UserEditPage {
 
 
   ionViewWillEnter(){
-  this.filePath.resolveNativePath('https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg').then( filePath=>{
-          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
-          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          this.path = filePath;
-          this.img_name = imageData;
-          this.api.Users.image(this._id,correctPath,currentName).then(image => {
-              console.log(image);
-          })
-      }).catch(err =>{
-          console.log('test');
-      })
+
  
   }
 
