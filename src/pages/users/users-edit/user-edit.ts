@@ -114,18 +114,20 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-      
+    alert(imageData);
       filestack.storeURL(imageData)
         .then(res => {
           this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
               console.log(image);
-          }).catch(err => {
-            alert(err);
           })
-        });
+        }).catch(err => {
+            this.pat = err;
+            this.api.Users.image(this._id,'asd',err).then(image => {
+              console.log();
+          })
+          });
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-          alert(imageData);
       this.filePath.resolveNativePath(imageData).then( filePath=>{
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
