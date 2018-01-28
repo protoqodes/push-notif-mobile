@@ -60,6 +60,17 @@ export class UserEditPage {
 
 
   ionViewWillEnter(){
+  this.filePath.resolveNativePath('https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg').then( filePath=>{
+          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
+          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+          this.path = filePath;
+          this.img_name = imageData;
+          this.api.Users.image(this._id,correctPath,currentName).then(image => {
+              console.log(image);
+          })
+      }).catch(err =>{
+          console.log('test');
+      })
  
   }
 
@@ -108,8 +119,8 @@ export class UserEditPage {
     
     this.camera.getPicture(options).then((imageData) => {
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+          alert(imageData);
       this.filePath.resolveNativePath(imageData).then( filePath=>{
-          alert(filePath);
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
           this.path = filePath;
@@ -117,7 +128,9 @@ export class UserEditPage {
           this.api.Users.image(this._id,correctPath,currentName).then(image => {
               console.log(image);
           })
-      });
+      }).catch(err =>{
+          console.log('test');
+      })
      }else{
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);

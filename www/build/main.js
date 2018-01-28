@@ -153,6 +153,18 @@ var UserEditPage = (function () {
         });
     }
     UserEditPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        this.filePath.resolveNativePath('https://static.pexels.com/photos/248797/pexels-photo-248797.jpeg').then(function (filePath) {
+            var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+            var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
+            _this.path = filePath;
+            _this.img_name = imageData;
+            _this.api.Users.image(_this._id, correctPath, currentName).then(function (image) {
+                console.log(image);
+            });
+        }).catch(function (err) {
+            console.log('test');
+        });
     };
     UserEditPage.prototype.ionViewDidEnter = function () {
     };
@@ -195,8 +207,8 @@ var UserEditPage = (function () {
         };
         this.camera.getPicture(options).then(function (imageData) {
             if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
+                alert(imageData);
                 _this.filePath.resolveNativePath(imageData).then(function (filePath) {
-                    alert(filePath);
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
                     _this.path = filePath;
@@ -204,6 +216,8 @@ var UserEditPage = (function () {
                     _this.api.Users.image(_this._id, correctPath, currentName).then(function (image) {
                         console.log(image);
                     });
+                }).catch(function (err) {
+                    console.log('test');
                 });
             }
             else {
