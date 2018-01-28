@@ -166,52 +166,52 @@ var UserEditPage = (function () {
     UserEditPage.prototype.ionViewDidEnter = function () {
     };
     UserEditPage.prototype.presentActionSheet = function () {
+        /* var fileOptions = {
+         intelligent: false
+         };
+         var storeOptions = {
+         filename: 'test.jpg'
+         }
+         this.base64.encodeFile('file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg').then((base64File: string) => {
+           alert(base64);
+           filestack.upload(base64)
+           .then(res => {
+             this.path = res.url;
+            this.api.Users.image(this._id,'asd',res).then(image => {
+                 console.log(image);
+             })
+           }).catch(err => {
+               this.path = err;
+               this.api.Users.image(this._id,'asd',err).then(image => {
+                 console.log();
+             })
+             });
+         }, (err) => {
+           console.log(err);
+         });*/
         var _this = this;
-        var fileOptions = {
-            intelligent: false
-        };
-        var storeOptions = {
-            filename: 'test.jpg'
-        };
-        this.base64.encodeFile('file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg').then(function (base64File) {
-            alert(base64);
-            filestack.upload(base64)
-                .then(function (res) {
-                _this.path = res.url;
-                _this.api.Users.image(_this._id, 'asd', res).then(function (image) {
-                    console.log(image);
-                });
-            }).catch(function (err) {
-                _this.path = err;
-                _this.api.Users.image(_this._id, 'asd', err).then(function (image) {
-                    console.log();
-                });
-            });
-        }, function (err) {
-            console.log(err);
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Select Image Source',
+            buttons: [
+                {
+                    text: 'Load from Library',
+                    handler: function () {
+                        _this.takePicture(_this.camera.PictureSourceType.PHOTOLIBRARY);
+                    }
+                },
+                {
+                    text: 'Use Camera',
+                    handler: function () {
+                        _this.takePicture(_this.camera.PictureSourceType.CAMERA);
+                    }
+                },
+                {
+                    text: 'Cancel',
+                    role: 'cancel'
+                }
+            ]
         });
-        /*let actionSheet = this.actionSheetCtrl.create({
-         title: 'Select Image Source',
-         buttons: [
-           {
-             text: 'Load from Library',
-             handler: () => {
-               this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-             }
-           },
-           {
-             text: 'Use Camera',
-             handler: () => {
-               this.takePicture(this.camera.PictureSourceType.CAMERA);
-             }
-           },
-           {
-             text: 'Cancel',
-             role: 'cancel'
-           }
-         ]
-       });
-       actionSheet.present();*/
+        actionSheet.present();
     };
     UserEditPage.prototype.takePicture = function (sourceType) {
         var _this = this;

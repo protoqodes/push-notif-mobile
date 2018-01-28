@@ -78,7 +78,7 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-      var fileOptions = {
+     /* var fileOptions = {
       intelligent: false
       };
       var storeOptions = {
@@ -100,9 +100,9 @@ export class UserEditPage {
           });
       }, (err) => {
         console.log(err);
-      });
+      });*/
       
-     /*let actionSheet = this.actionSheetCtrl.create({
+     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
@@ -123,7 +123,7 @@ export class UserEditPage {
         }
       ]
     });
-    actionSheet.present();*/
+    actionSheet.present();
   }
 
   public takePicture(sourceType){
