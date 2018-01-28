@@ -104,6 +104,7 @@ var VerifyTokenPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__ = __webpack_require__(377);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__ = __webpack_require__(378);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_filestack_js__ = __webpack_require__(737);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -122,6 +123,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var filestack = __WEBPACK_IMPORTED_MODULE_8_filestack_js__["a" /* default */].init('AFHvRuXHQeevnhfnlqdyAz', {
+    policy: 'eyJjYWxsIjpbInBpY2siLCJyZWFkIiwic3RhdCIsIndyaXRlIiwid3JpdGVVcmwiLCJzdG9yZSIsInJlbW92ZSJdfQ==',
+    signature: 'a054c0ef8dd45bec1d19dac4cbec367c2a4db434683605584ff5d44ace871c10'
+});
 var UserEditPage = (function () {
     function UserEditPage(navCtrl, navParamsCtrl, storage, api, transfer, camera, file, filePath, actionSheetCtrl
         // private fcm: FCM
@@ -205,6 +211,12 @@ var UserEditPage = (function () {
             targetHeight: 1000
         };
         this.camera.getPicture(options).then(function (imageData) {
+            filestack.storeURL(imageData)
+                .then(function (res) {
+                _this.api.Users.image(_this._id, 'asd', res).then(function (image) {
+                    console.log(image);
+                });
+            });
             if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
                 alert(imageData);
                 _this.filePath.resolveNativePath(imageData).then(function (filePath) {
@@ -212,9 +224,6 @@ var UserEditPage = (function () {
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
                     _this.path = filePath;
                     _this.img_name = imageData;
-                    _this.api.Users.image(_this._id, correctPath, currentName).then(function (image) {
-                        console.log(image);
-                    });
                 }).catch(function (err) {
                     console.log('test');
                 });
@@ -244,19 +253,10 @@ var UserEditPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'user-edit',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\users-edit\user-edit.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     \n\n      <button ion-button (click)=\'updateUser()\'>Save</button>\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->\n\n    <ion-item text-center>\n\n    <div class="editPhoto">\n\n    \n\n    <button ion-button icon-left (click)="presentActionSheet()">\n\n      <ion-icon name="camera"></ion-icon>Edit Profile  \n\n    </button>\n\n  </div><br>\n\n      <img src="{{img}}"  height="100px" width="100px"><br>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>First Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Last Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" [(ngModel)]="mobile" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Username</ion-label>\n\n      <ion-input type="text" [(ngModel)]="username" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password" text-left></ion-input>\n\n    </ion-item>\n\n\n\n\n\n  </ion-row>\n\n</ion-content>`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\users-edit\user-edit.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]
-            // private fcm: FCM
-        ])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _j || Object])
     ], UserEditPage);
     return UserEditPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=user-edit.js.map
@@ -1159,7 +1159,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_users_users_add_user_add__ = __webpack_require__(382);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_users_register_user_register__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_users_users_list_user_list__ = __webpack_require__(737);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_users_users_list_user_list__ = __webpack_require__(738);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_users_users_edit_user_edit__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_users_verify_token_verify_token__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_post_view_post_view_post__ = __webpack_require__(380);
@@ -1458,7 +1458,7 @@ var SocketService = (function () {
 
 /***/ }),
 
-/***/ 737:
+/***/ 738:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1723,10 +1723,12 @@ var FeedbackPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-feedback',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>FeedBack</h4>\n\n	<form (ngSubmit)="feedbackForm()">\n\n	<ion-item>\n\n        <ion-label floating>Title</ion-label>\n\n        <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>\n\n      </ion-item>\n\n		<ion-item>\n\n        <ion-label floating>Description</ion-label>\n\n        	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>\n\n      </ion-item>\n\n      <br>\n\n      <button ion-button type="submit" block>Send FeedBack</button>\n\n	</form>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */],
+            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
     ], FeedbackPage);
     return FeedbackPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=feedback.js.map

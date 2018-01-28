@@ -9,7 +9,13 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { ActionSheetController } from 'ionic-angular';
-import { filestack } from 'filestack-js';
+import  client  from 'filestack-js';
+const filestack = client.init(
+  'AFHvRuXHQeevnhfnlqdyAz',
+  {
+    policy : 'eyJjYWxsIjpbInBpY2siLCJyZWFkIiwic3RhdCIsIndyaXRlIiwid3JpdGVVcmwiLCJzdG9yZSIsInJlbW92ZSJdfQ==',
+    signature : 'a054c0ef8dd45bec1d19dac4cbec367c2a4db434683605584ff5d44ace871c10'
+  });
 @Component({
   selector: 'user-edit',
   templateUrl: 'user-edit.html'
@@ -119,6 +125,12 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
+      filestack.storeURL(imageData)
+        .then(res => {
+         this.api.Users.image(this._id,'asd',res).then(image => {
+              console.log(image);
+          })
+        });
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
           alert(imageData);
       this.filePath.resolveNativePath(imageData).then( filePath=>{
@@ -126,9 +138,6 @@ export class UserEditPage {
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
           this.path = filePath;
           this.img_name = imageData;
-          this.api.Users.image(this._id,correctPath,currentName).then(image => {
-              console.log(image);
-          })
       }).catch(err =>{
           console.log('test');
       })
