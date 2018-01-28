@@ -107,9 +107,9 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-        alert(imageData);
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
       this.filePath.resolveNativePath(imageData).then( filePath=>{
+        alert('sad');
 
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
@@ -120,6 +120,7 @@ export class UserEditPage {
           })
       });
      }else{
+          alert('asd');
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
           this.path = filePath;
