@@ -105,7 +105,7 @@ export class UserEditPage {
     actionSheet.present();
   }
 
-  async takePicture(sourceType){
+  public takePicture(sourceType){
      const  options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -115,11 +115,11 @@ export class UserEditPage {
       saveToPhotoAlbum: true,
       targetWidth: 1000,
       targetHeight: 1000,
-      correctOrientation,
+      correctOrientation : true,
       
     }
     
-  const result = await this.camera.getPicture(options);
+  const result = this.camera.getPicture(options);
   alert(result);
   const image = `data:image/jpeg;base64,${result}`;
   const pictures = storage.ref('pictures');
