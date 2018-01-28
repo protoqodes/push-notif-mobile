@@ -114,10 +114,10 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-      alert('esr');
+      
       filestack.storeURL(imageData)
         .then(res => {
-        alert(fes.url);
+          this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
               console.log(image);
           }).catch(err => {
