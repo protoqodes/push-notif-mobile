@@ -78,15 +78,18 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-     /* var fileOptions = {
-      intelligent: false
+    /* var file = {
+      url : 'file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg',
+      mimetype  : 'image/*'
+     }
+     var fileOptions = {
+      intelligent: true
       };
       var storeOptions = {
-      filename: 'test.jpg'
+      filename: 'test.jpg',
+      access :'public'
       }
-      this.base64.encodeFile('file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg').then((base64File: string) => {
-        alert(base64);
-        filestack.upload(base64)
+      filestack.upload(btoa(file),FileUploadOptions,storeOptions)
         .then(res => {
           this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
@@ -97,10 +100,7 @@ export class UserEditPage {
             this.api.Users.image(this._id,'asd',err).then(image => {
               console.log();
           })
-          });
-      }, (err) => {
-        console.log(err);
-      });*/
+          });*/
       
      let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
@@ -141,14 +141,12 @@ export class UserEditPage {
     
     this.camera.getPicture(options).then((imageData) => {
    let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-    alert(name);
       var fileOptions = {
       intelligent: false
       };
       var storeOptions = {
       filename: name
       }
-
       this.base64.encodeFile(imageData).then((base64File: string) => {
         alert(base64);
         filestack.upload(base64)
