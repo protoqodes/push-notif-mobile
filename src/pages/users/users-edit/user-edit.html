@@ -12,6 +12,15 @@
 <ion-content padding>
   <ion-row>
     <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->
+    <ion-item text-center>
+    <div class="editPhoto">
+    
+    <button ion-button icon-left (click)="presentActionSheet()">
+      <ion-icon name="camera"></ion-icon>Edit Profile  
+    </button>
+  </div><br>
+      <img src="{{img}}"  height="100px" width="100px"><br>
+    </ion-item>
     <ion-item>
       <ion-label color="main" floating>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>
@@ -36,5 +45,7 @@
       <ion-label color="main" floating>Password</ion-label>
       <ion-input type="password" [(ngModel)]="password" text-left></ion-input>
     </ion-item>
+
+
   </ion-row>
 </ion-content>
