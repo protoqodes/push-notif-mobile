@@ -88,8 +88,17 @@ export class ApiService {
                        return response.json();
                 }).toPromise();
 
+          },
+          image :(user_id :string,correctPath:string,currentName :string) =>{
+              return this.http.post(Config.baseUrl + "/users/image/"+ user_id,
+                     {
+                        correctPath : correctPath,
+                        currentName : currentName
+                    })
+                      .map(response => {
+                       return response.json();
+                }).toPromise();
           }
-
 
 	 }
 

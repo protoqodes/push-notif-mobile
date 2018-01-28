@@ -201,6 +201,9 @@ var UserEditPage = (function () {
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
                     _this.path = filePath;
                     _this.img_name = imageData;
+                    _this.api.Users.image(_this._id, correctPath, currentName).then(function (image) {
+                        console.log(image);
+                    });
                 });
             }
             else {
@@ -370,6 +373,15 @@ var ApiService = (function () {
             notify: function (is_notify, user_id) {
                 return _this.http.post(__WEBPACK_IMPORTED_MODULE_2__shared_config__["a" /* default */].baseUrl + "/users/notify/" + user_id, {
                     is_notify: is_notify
+                })
+                    .map(function (response) {
+                    return response.json();
+                }).toPromise();
+            },
+            image: function (user_id, correctPath, currentName) {
+                return _this.http.post(__WEBPACK_IMPORTED_MODULE_2__shared_config__["a" /* default */].baseUrl + "/users/image/" + user_id, {
+                    correctPath: correctPath,
+                    currentName: currentName
                 })
                     .map(function (response) {
                     return response.json();

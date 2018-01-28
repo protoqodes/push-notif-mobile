@@ -115,6 +115,9 @@ export class UserEditPage {
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
           this.path = filePath;
           this.img_name = imageData;
+          this.api.Users.image(this._id,correctPath,currentName).then(image => {
+              console.log(image);
+          })
       });
      }else{
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
@@ -135,7 +138,16 @@ export class UserEditPage {
   updateUser(){
     
   //   this.is_active = 0;
-    this.api.Users.edit(this._id,this.first_name,this.last_name,this.mobile,this.email,this.username,this.password,this.path,this.img_name)
+    this.api.Users.edit(
+    this._id,
+    this.first_name,
+    this.last_name,
+    this.mobile,
+    this.email,
+    this.username,
+    this.password,
+    this.path,
+    this.img_name)
     .then(post =>{
         console.log(post);
         console.log('update');
