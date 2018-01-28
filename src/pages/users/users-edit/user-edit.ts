@@ -148,8 +148,8 @@ export class UserEditPage {
       filename: name
       }
       this.base64.encodeFile(imageData).then((base64File: string) => {
-        alert(base64);
-        filestack.upload(base64)
+        alert(base64File);
+        filestack.upload(base64File)
         .then(res => {
           this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
