@@ -27,6 +27,7 @@ import { FeedbackThankYouPage } from '../pages/feedback_thankyou/thankyou';
 // shared
 import { ApiService } from '../shared/api.service';
 import { SidebarNav } from '../shared/sidebar/sidebar';
+import { Base64 } from '@ionic-native/base64';
 //providers
 // import { UtilService } from '../providers/utils.service';
 // import { SocketService } from '../providers/socket.service';
@@ -82,6 +83,7 @@ import {SocketService, UtilService} from "../providers";
     File,
     FileTransfer,
     FilePath,
+    Base64,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

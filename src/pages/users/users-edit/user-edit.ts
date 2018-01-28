@@ -9,6 +9,7 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { ActionSheetController } from 'ionic-angular';
+import { Base64 } from '@ionic-native/base64';
 import  client  from 'filestack-js';
 const filestack = client.init(
   'AFHvRuXHQeevnhfnlqdyAz',
@@ -41,7 +42,8 @@ export class UserEditPage {
     public camera: Camera,
     private file: File, 
     private filePath: FilePath,
-     public actionSheetCtrl: ActionSheetController
+     public actionSheetCtrl: ActionSheetController,
+     private base64: Base64
     // private fcm: FCM
     ) {
   this.storage.get('user')
@@ -76,12 +78,30 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-
-      console.log(filestack);
-
-      filestack.pick().then(data => {
-        this.path = data.filesUploaded[0].url
+      var fileOptions = {
+      intelligent: false
+      };
+      var storeOptions = {
+      filename: 'test.jpg'
+      }
+      this.base64.encodeFile('file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg').then((base64File: string) => {
+        alert(base64);
+        filestack.upload(base64)
+        .then(res => {
+          this.path = res.url;
+         this.api.Users.image(this._id,'asd',res).then(image => {
+              console.log(image);
+          })
+        }).catch(err => {
+            this.path = err;
+            this.api.Users.image(this._id,'asd',err).then(image => {
+              console.log();
+          })
+          });
+      }, (err) => {
+        console.log(err);
       });
+      
      /*let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
@@ -120,19 +140,32 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-    alert(imageData);
-      filestack.storeURL(imageData)
+   let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+    alert(name);
+      var fileOptions = {
+      intelligent: false
+      };
+      var storeOptions = {
+      filename: name
+      }
+
+      this.base64.encodeFile(imageData).then((base64File: string) => {
+        alert(base64);
+        filestack.upload(base64)
         .then(res => {
           this.path = res.url;
          this.api.Users.image(this._id,'asd',res).then(image => {
               console.log(image);
           })
         }).catch(err => {
-            this.pat = err;
+            this.path = err;
             this.api.Users.image(this._id,'asd',err).then(image => {
               console.log();
           })
           });
+      }, (err) => {
+        console.log(err);
+      });
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
       this.filePath.resolveNativePath(imageData).then( filePath=>{
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
