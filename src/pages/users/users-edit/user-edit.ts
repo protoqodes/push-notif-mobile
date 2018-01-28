@@ -9,9 +9,6 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { ActionSheetController } from 'ionic-angular';
-import filestack from 'filestack-js';
-const apikey = 'AFHvRuXHQeevnhfnlqdyAz';
-const client = filestack.init(apikey);
 @Component({
   selector: 'user-edit',
   templateUrl: 'user-edit.html'
@@ -40,8 +37,6 @@ export class UserEditPage {
      public actionSheetCtrl: ActionSheetController
     // private fcm: FCM
   	) {
-  
-    console.log(client);
   this.storage.get('user')
     .then(user => {
       console.log(user);
