@@ -11,6 +11,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { ActionSheetController } from 'ionic-angular';
 import { Base64 } from '@ionic-native/base64';
 import  client  from 'filestack-js';
+import { storage, initializeApp } from 'firebase';
 const filestack = client.init(
   'AFHvRuXHQeevnhfnlqdyAz',
   {
@@ -46,6 +47,7 @@ export class UserEditPage {
      private base64: Base64
     // private fcm: FCM
     ) {
+    initializeApp(Config.firebase);
   this.storage.get('user')
     .then(user => {
       console.log(user);
@@ -78,30 +80,8 @@ export class UserEditPage {
   }
 
   presentActionSheet() {
-     
-     var fileOptions = {
-      intelligent: true
-      };
-      var storeOptions = {
-      filename: 'test.jpg',
-      access :'public'
-      }
-      var file = new Blob(['file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg'] , {type:'image/png'});
       
-      filestack.upload(file,FileUploadOptions,storeOptions)
-        .then(res => {
-          this.path = res.url;
-         this.api.Users.image(this._id,'asd',res).then(image => {
-              console.log(image);
-          })
-        }).catch(err => {
-            this.path = err;
-            this.api.Users.image(this._id,'asd',err).then(image => {
-              console.log();
-          })
-          });
-      
-     /*let actionSheet = this.actionSheetCtrl.create({
+     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
@@ -122,70 +102,28 @@ export class UserEditPage {
         }
       ]
     });
-    actionSheet.present();*/
+    actionSheet.present();
   }
 
-  public takePicture(sourceType){
-     var options: CameraOptions = {
+  async takePicture(sourceType){
+     const  options: CameraOptions = {
       quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      // encodingType: this.camera.EncodingType.JPEG,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
       sourceType: sourceType,
        correctOrientation: false,
       saveToPhotoAlbum: true,
       targetWidth: 1000,
-      targetHeight: 1000
+      targetHeight: 1000,
+      correctOrientation,
       
     }
     
-    this.camera.getPicture(options).then((imageData) => {
-   let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-      var fileOptions = {
-      intelligent: false
-      };
-      var storeOptions = {
-      filename: name
-      }
-      this.base64.encodeFile(imageData).then((base64File: string) => {
-        alert(base64);
-        filestack.upload(base64)
-        .then(res => {
-          this.path = res.url;
-         this.api.Users.image(this._id,'asd',res).then(image => {
-              console.log(image);
-          })
-        }).catch(err => {
-            this.path = err;
-            this.api.Users.image(this._id,'asd',err).then(image => {
-              console.log();
-          })
-          });
-      }, (err) => {
-        console.log(err);
-      });
-     if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-      this.filePath.resolveNativePath(imageData).then( filePath=>{
-          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
-          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          this.path = filePath;
-          this.img_name = imageData;
-      }).catch(err =>{
-          console.log('test');
-      })
-     }else{
-          let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
-          let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
-          this.path = filePath;
-          this.img_name = imageData;
-           // alert('running here else');
-     }
-    
-    }, (err) => {
-      alert(err)
-     // Handle error
-    });
-
-
+  const result = await this.camera.getPicture(options);
+  alert(result);
+  const image = `data:image/jpeg;base64,${result}`;
+  const pictures = storage.ref('pictures');
+  pictures.putString(image, 'data_url');
 
   }
 
