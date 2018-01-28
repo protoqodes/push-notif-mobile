@@ -107,10 +107,9 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-        alert(this.filePath.resolveNativePath(imageData));
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
       this.filePath.resolveNativePath(imageData).then( filePath=>{
-
+          alert(filePath);
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
           this.path = filePath;
@@ -128,6 +127,7 @@ export class UserEditPage {
      }
     
     }, (err) => {
+      alert(err)
      // Handle error
     });
 

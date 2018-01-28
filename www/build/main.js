@@ -194,9 +194,9 @@ var UserEditPage = (function () {
             targetHeight: 1000
         };
         this.camera.getPicture(options).then(function (imageData) {
-            alert(_this.filePath.resolveNativePath(imageData));
             if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
                 _this.filePath.resolveNativePath(imageData).then(function (filePath) {
+                    alert(filePath);
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
                     _this.path = filePath;
@@ -214,6 +214,7 @@ var UserEditPage = (function () {
                 // alert('running here else');
             }
         }, function (err) {
+            alert(err);
             // Handle error
         });
     };
