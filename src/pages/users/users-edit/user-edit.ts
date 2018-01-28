@@ -119,7 +119,8 @@ export class UserEditPage {
      }else{
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
-         
+          this.path = filePath;
+          this.img_name = imageData;
            // alert('running here else');
      }
     
@@ -132,7 +133,7 @@ export class UserEditPage {
   }
 
   updateUser(){
-     
+    
   //   this.is_active = 0;
     this.api.Users.edit(this._id,this.first_name,this.last_name,this.mobile,this.email,this.username,this.password,this.path,this.img_name)
     .then(post =>{
