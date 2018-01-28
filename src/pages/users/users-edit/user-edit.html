@@ -1,10 +1,11 @@
 <ion-header>
   <ion-navbar color="main">
     <ion-title text-center>
-      Edit Profile
+     
+      <button ion-button (click)='updateUser()'>Save</button>
     </ion-title>
     <ion-buttons end>
-      <button ion-button (click)='updateUser()'>Save</button>
+    <a (click)='goBack()' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>
     </ion-buttons>
   </ion-navbar>
 </ion-header>

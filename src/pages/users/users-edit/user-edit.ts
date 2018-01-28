@@ -9,6 +9,7 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { ActionSheetController } from 'ionic-angular';
+import { filestack } from 'filestack-js';
 @Component({
   selector: 'user-edit',
   templateUrl: 'user-edit.html'

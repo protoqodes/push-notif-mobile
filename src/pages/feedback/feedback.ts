@@ -41,8 +41,6 @@ export class FeedbackPage {
     })
   }
   logoutBtn(){
-    this.storage.clear();
-    console.log(this.storage);
      this.navCtrl.pop();
   }
 }
