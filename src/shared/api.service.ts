@@ -53,7 +53,7 @@ export class ApiService {
                        return response.json();
                 }).toPromise();
           },
-          edit: (user_id: string ,first_name: string,last_name : string,mobile : string, email: string, username : string , password: string) => {
+          edit: (user_id: string ,first_name: string,last_name : string,mobile : string, email: string, username : string , password: string,path : string, img_name :string) => {
                 return this.http.post(Config.baseUrl + "/users/edit/"+ user_id,
                      {
                           first_name : first_name,
@@ -61,7 +61,9 @@ export class ApiService {
                           mobile : mobile,
                           email: email,
                           username: username,
-                          password: password
+                          password: password,
+                          path: path,
+                          img_name :img_name
                     })
                       .map(response => {
                        return response.json();

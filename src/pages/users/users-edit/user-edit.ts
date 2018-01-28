@@ -9,7 +9,9 @@ import { File } from '@ionic-native/file';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { ActionSheetController } from 'ionic-angular';
-
+import filestack from 'filestack-js';
+const apikey = 'AFHvRuXHQeevnhfnlqdyAz';
+const client = filestack.init(apikey);
 @Component({
   selector: 'user-edit',
   templateUrl: 'user-edit.html'
@@ -24,7 +26,8 @@ export class UserEditPage {
   password : string;
   is_active : number;
   img : string;
-
+  path : string;
+  img_name : string;
   constructor(
   	public navCtrl: NavController, 
     public navParamsCtrl: NavParams,
@@ -38,9 +41,10 @@ export class UserEditPage {
     // private fcm: FCM
   	) {
   
-
+    console.log(client);
   this.storage.get('user')
     .then(user => {
+      console.log(user);
       if(user){
         console.log(user.user._id)
           this._id = user.user._id;
@@ -113,7 +117,8 @@ export class UserEditPage {
 
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-     
+          this.path = filePath;
+          this.img_name = imageData;
       });
      }else{
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
@@ -133,7 +138,7 @@ export class UserEditPage {
   updateUser(){
      
   //   this.is_active = 0;
-    this.api.Users.edit(this._id,this.first_name,this.last_name,this.mobile,this.email,this.username,this.password)
+    this.api.Users.edit(this._id,this.first_name,this.last_name,this.mobile,this.email,this.username,this.password,this.path,this.img_name)
     .then(post =>{
         console.log(post);
         console.log('update');
