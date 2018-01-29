@@ -210,4 +210,7 @@ export class UserEditPage {
     this.navCtrl.pop();
 
   }
+goBack(){
+     this.navCtrl.pop();
+  }
 }
