@@ -31,6 +31,11 @@ message :string;
     this.message = 'An email has been sent for your new password';
   }).catch(err =>{
     this.message =err._body;
+     let toast = this.toastCtrl.create({
+          message: err._body,
+          duration: 2000
+      });
+      toast.present();
   })
   }
 

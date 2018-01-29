@@ -6,7 +6,7 @@ import { ApiService } from '../../../shared/api.service';
 import { UtilService } from '../../../providers/utils.service';
 // import { HomePage } from '../../../pages/home/home';
 import { VerifyTokenPage } from '../../../pages/users/verify-token/verify-token';
-
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'user-register',
@@ -20,6 +20,10 @@ export class UserRegisterPage {
   username : string;
   password : string;
   is_active : number;
+  data_validate : {
+     phone : boolean,
+     first_name : boolean
+  };
   selected_number : string;
   constructor(
   	public navCtrl: NavController,
@@ -38,37 +42,37 @@ export class UserRegisterPage {
     this.is_active = 0;
 
     var field = {
-      mobile : this.mobile
+      mobile : this.mobile,
+      first_name : this.first_name
     }
 
     if(!this.validateField(field)){
         return
     }
 
+     console.log(this.data_validate);
+
      var mobile = this.mobile.toString();
 
-      // this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
-      // .then(post =>{
-      //     console.log(post);
+      this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
+      .then(post =>{
+          console.log(post);
 
-          // if(post){
+          if(post){
 
-      var generateToken = UtilService.generateRandomToken();
-      this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
-          if(mobile_token.user){
+              var generateToken = UtilService.generateRandomToken();
+              this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
+                  if(mobile_token.user){
+                     this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
+                      animate: true,
+                      direction: 'forward'
+                    });
+                  }
 
-             // this.storage.set('user', mobile_token.user);
-             // console.log(this.storage)
-             this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
-              animate: true,
-              direction: 'forward'
-            });
+              });
           }
-
-      });
-    // }
     console.log('added');
-      // });
+      });
 
 
   }
@@ -80,17 +84,37 @@ export class UserRegisterPage {
 
   validateField(field){
 
+    // this.data_validate = {
+    //   phone : true,
+    //   first_name : true,
+    //   last_name : true,
+    //   email : true,
+    //   username : true,
+    //   password : true
+    // }
+
+     
+
     if(parseInt(field.mobile.charAt(3)) !== 9 || field.mobile.length !== 13 ){
        let toast = this.toastCtrl.create({
           message: "Is not valid in PHIL Phone Number  ",
           duration: 2000
       });
       toast.present();
-
-      return false
+      this.data_validate.phone = false;
+      return false;
     }
 
+    // if(!field.first_name || /^[a-zA-Z0-9- ]*$/.test(field.first_name) == false){
+    // //     let toast = this.toastCtrl.create({
+    // //       message: "Invalid First Name",
+    // //       duration: 2000
+    // //   });
+    // //   toast.present();
+    //   this.data_validate.first_name = false;
+    // }
 
+  
 
     return true;
 

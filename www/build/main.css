@@ -26607,6 +26607,27 @@ forgot-pass .item-ios.item-block .item-inner {
   color: #fff;
 }
 
+label.item.item-input:after {
+  -webkit-transition: 0.15s -webkit-transform ease;
+  transition: 0.15s -webkit-transform ease;
+  transition: 0.15s transform ease;
+  transition: 0.15s transform ease, 0.15s -webkit-transform ease;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: red;
+  width: 100%;
+  left: 0;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+
+label.item.item-input.has-error:after {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
 .bar-button-default-md,
 .bar-button-clear-md-default,
 .bar-button-md-default,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,MenuController } from 'ionic-angular';
+import { NavController,MenuController,ToastController} from 'ionic-angular';
 import { ApiService } from '../../shared/api.service';
 import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
@@ -26,6 +26,7 @@ export class LoginPage {
   constructor(
   	public navCtrl: NavController,
     public menu :MenuController,
+    public toastCtrl: ToastController,
     private storage: Storage,
     private api:ApiService,
     private http:Http) {
@@ -57,6 +58,13 @@ export class LoginPage {
       this.storeUser(user);
     })
     .catch(error => {
+      console.log(error);
+       let toast = this.toastCtrl.create({
+        message: error._body,
+        duration: 2000
+      });
+
+      toast.present();
       console.log(error)
     })
 
