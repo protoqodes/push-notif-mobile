@@ -11,19 +11,20 @@
 </ion-header>
 
 <ion-content padding>
+<form [formGroup]="userForm" (click)='addUser()'>
   <ion-row>
     <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->
     <ion-item>
       <ion-label color="main" floating>First Name</ion-label>
-      <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>
+      <ion-input type="text" formControlName="first_name" [class.invalid]="!userForm.controls.first_name.valid && (userForm.controls.first_name.dirty || submitAttempt)" text-left></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="main" floating>Last Name</ion-label>
-      <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>
+      <ion-input type="text"  [class.invalid]="!userForm.controls.first_name.valid && (userForm.controls.last_name.dirty || submitAttempt)" formControlName="last_name"  text-left></ion-input>
     </ion-item>
       <ion-item>
        <ion-label color="main" floating>Phone</ion-label>
-      <ion-input type="text" value="+63"  [(ngModel)]="mobile" maxlength="13" text-left></ion-input>
+      <ion-input type="text" value="+63"  [class.invalid]="!userForm.controls.mobile.valid && (userForm.controls.mobile.dirty || submitAttempt)" formControlName="mobile" maxlength="13" text-left></ion-input>
     </ion-item>
   <!--   <ion-item>
       <ion-label color="main" floating>Phone</ion-label>
@@ -31,17 +32,18 @@
     </ion-item> -->
      <ion-item>
       <ion-label color="main" floating>Email</ion-label>
-      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>
+      <ion-input type="email" formControlName="email" text-left></ion-input>
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="username" text-left></ion-input>
+      <ion-input type="text" formControlName="username" text-left></ion-input>
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password" text-left></ion-input>
+      <ion-input type="password" formControlName="password" text-left></ion-input>
     </ion-item>
   </ion-row><br>
 
   <button ion-button round full (click)='addUser()'>Register</button>
+  </form>
 </ion-content>

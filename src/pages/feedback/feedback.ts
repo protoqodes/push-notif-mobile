@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import  Config  from '../../shared/config';
 import { Storage } from '@ionic/storage';
 
@@ -17,28 +17,42 @@ export class FeedbackPage {
   	public navCtrl: NavController,
   	private storage : Storage,
     public socketService: SocketService,
+    public toastCtrl: ToastController,
     // private fcm: FCM
     private api : ApiService
   	) {
   }
 
   feedbackForm(){
-    this.storage.get('user').then(data =>{
-      
-      this.api.Feedback.add(
-      this.feedback.title,
-      this.feedback.description,
-      data.user._id,
-      data.user.is_verify,
-      data.user.email
-      ).then(feedback =>{
 
-          console.log(feedback);
-          this.navCtrl.push(FeedbackThankYouPage,{
-           hello : 'test'
+
+    if(Object.keys(this.feedback).length <2){
+       let toast = this.toastCtrl.create({
+          message: "Required All",
+          duration: 2000
+      });
+      toast.present();
+
+      return
+    }
+     if(Object.keys(this.feedback).length == 2){
+        this.storage.get('user').then(data =>{
+          
+          this.api.Feedback.add(
+          this.feedback.title,
+          this.feedback.description,
+          data.user._id,
+          data.user.is_verify,
+          data.user.email
+          ).then(feedback =>{
+
+              console.log(feedback);
+              this.navCtrl.push(FeedbackThankYouPage,{
+               hello : 'test'
+              })
           })
-      })
-    })
+        })
+   }
   }
   logoutBtn(){
      this.navCtrl.pop();

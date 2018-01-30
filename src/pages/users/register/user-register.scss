@@ -12,6 +12,12 @@
     color: #fff;
 }
 
+
+.invalid {
+            border: 1px solid #ea6153;
+        }
+
+        
 label.item.item-input:after {
   transition: 0.15s transform ease;
   content: '';

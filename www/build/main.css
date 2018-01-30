@@ -26607,6 +26607,10 @@ forgot-pass .item-ios.item-block .item-inner {
   color: #fff;
 }
 
+.invalid {
+  border: 1px solid #ea6153;
+}
+
 label.item.item-input:after {
   -webkit-transition: 0.15s -webkit-transform ease;
   transition: 0.15s -webkit-transform ease;
