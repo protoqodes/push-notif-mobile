@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-<form [formGroup]="userForm" (click)='addUser()'>
+<form [formGroup]="userForm" (ngSubmit)='addUser()'>
   <ion-row>
     <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->
     <ion-item>
@@ -26,10 +26,6 @@
        <ion-label color="main" floating>Phone</ion-label>
       <ion-input type="text" value="+63"  [class.invalid]="!userForm.controls.mobile.valid && (userForm.controls.mobile.dirty || submitAttempt)" formControlName="mobile" maxlength="13" text-left></ion-input>
     </ion-item>
-  <!--   <ion-item>
-      <ion-label color="main" floating>Phone</ion-label>
-      <ion-input type="text" [(ngModel)]="mobile" maxlength="10" text-left></ion-input>
-    </ion-item> -->
      <ion-item>
       <ion-label color="main" floating>Email</ion-label>
       <ion-input type="email" formControlName="email" text-left></ion-input>
@@ -44,6 +40,6 @@
     </ion-item>
   </ion-row><br>
 
-  <button ion-button round full (click)='addUser()'>Register</button>
+  <button ion-button round full type="submit">Register</button>
   </form>
 </ion-content>

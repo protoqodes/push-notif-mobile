@@ -42,7 +42,7 @@ export class UserRegisterPage {
       this.userForm = formBuilder.group({
         first_name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
         last_name: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-        mobile: [null, Validators.compose([Validators.required]) ,this.checkMobile],
+        mobile: ['+63', Validators.compose([Validators.required]) ,this.checkMobile],
         email: ['', Validators.compose([Validators.required])],
         username: ['', Validators.compose([Validators.required])],
         password:['', Validators.compose([Validators.required])]
@@ -64,22 +64,23 @@ export class UserRegisterPage {
 
   checkMobile(c : FormControl){
        console.log(c.value.length);
-  
-       return new Promise(resolve => {
+      
+      
+         return new Promise(resolve => {
        
-      //Fake a slow response from server
- 
-      setTimeout(() => {
-          if(parseInt(c.value.length) !== 13 || parseInt(c.value.charAt(3)) !== 9){
-            resolve({ "not valid number ": true })  
+            //Fake a slow response from server
+       
+            setTimeout(() => {
+                if(parseInt(c.value.length) !== 13 || parseInt(c.value.charAt(3)) !== 9){
+                  resolve({ "not valid number ": true })  
 
-          }
+                }
 
-          resolve(null);
-      }, 2000);
- 
-    });
-
+                resolve(null);
+            }, 2000);
+       });
+    
+       
 
   }
 
@@ -105,7 +106,7 @@ export class UserRegisterPage {
   }
 
   addUser(){
-   
+     this.is_active = 0;
     // console.log(MobileValidator.checkMobile);
     // var field = {
     //   mobile : this.mobile,
@@ -115,35 +116,46 @@ export class UserRegisterPage {
     // if(!this.validateField(field)){
     //     return
     // }
-
-    //  console.log(this.data_validate);
-
-     var mobile = this.mobile.toString();
-
-      this.api.Users.add(this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active)
-      .then(post =>{
-          console.log(post);
-
-          if(post){
-
-              var generateToken = UtilService.generateRandomToken();
-              this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
-                  if(mobile_token.user){
-                     this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
-                      animate: true,
-                      direction: 'forward'
-                    });
-                  }
-
+      // console.log(this.userForm.valid);
+      if(!this.userForm.valid){
+               let toast = this.toastCtrl.create({
+                  message: "Need to fill up all ",
+                  duration: 2000
               });
-          }
-    console.log('added');
-      }).catch(error => {
-       
-    });
+              toast.present();
+ 
+         return false;
 
-      console.log(this.userForm);
+      }
+      if(this.userForm.valid){
+              var mobile = this.mobile.toString();
+           
+                this.api.Users.add(this.first_name.value,this.last_name.value,this.mobile.value,this.email.value,this.username.value,this.password.value,this.is_active)
+                  .then(post =>{
+                      console.log(post);
 
+                      if(post){
+
+                          var generateToken = UtilService.generateRandomToken();
+                          this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
+                              if(mobile_token.user){
+                                 this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
+                                  animate: true,
+                                  direction: 'forward'
+                                });
+                              }
+
+                          });
+                      }
+                console.log('added');
+                  }).catch(error => {
+             
+          });
+
+
+      }
+    
+      
   }
 
   goBack(){
