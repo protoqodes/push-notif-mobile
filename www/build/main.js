@@ -738,7 +738,7 @@ var UserRegisterPage = (function () {
             last_name: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].maxLength(30), __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].pattern('[a-zA-Z ]*'), __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required])],
             mobile: ['+63', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required]), this.checkMobile],
             email: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required])],
-            username: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required])],
+            username: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required]), this.checkUsername],
             password: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_6__angular_forms__["f" /* Validators */].required])]
         });
         this.first_name = this.userForm.controls['first_name'];
@@ -762,20 +762,19 @@ var UserRegisterPage = (function () {
             }, 2000);
         });
     };
-    UserRegisterPage.prototype.checkUsername = function (c) {
-        return new Promise(function (resolve) {
-            console.log(c);
-            //Fake a slow response from server
-            setTimeout(function () {
-                if (existUser) {
-                    resolve({ "Exist User ": true });
-                }
-                // if(parseInt(c.value.length) !== 13 || parseInt(c.value.charAt(3)) !== 9){
-                // }
-                resolve(null);
-            }, 2000);
-        });
-    };
+    // checkUsername(c : FormControl){
+    //   return new Promise(resolve => {
+    //     //Fake a slow response from server
+    //     setTimeout(() => {
+    //         if(c.value.length < 1){
+    //           resolve({ "fill up the username": true })  
+    //         }
+    //         // if(parseInt(c.value.length) !== 13 || parseInt(c.value.charAt(3)) !== 9){
+    //         // }
+    //         resolve(null);
+    //     }, 2000);
+    //   });
+    // }
     UserRegisterPage.prototype.addUser = function () {
         var _this = this;
         this.is_active = 0;
@@ -784,10 +783,11 @@ var UserRegisterPage = (function () {
         //   mobile : this.mobile,
         //   first_name : this.first_name
         // }
+        this.submitAttempt = true;
         // if(!this.validateField(field)){
         //     return
         // }
-        // console.log(this.userForm.valid);
+        console.log(this.userForm);
         if (!this.userForm.valid) {
             var toast = this.toastCtrl.create({
                 message: "Need to fill up all ",
@@ -814,6 +814,8 @@ var UserRegisterPage = (function () {
                 }
                 console.log('added');
             }).catch(function (error) {
+                _this.existUser = true;
+                return;
             });
         }
     };
@@ -822,17 +824,12 @@ var UserRegisterPage = (function () {
     };
     UserRegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'user-register',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Register\n\n    </ion-title>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n    <!-- <ion-buttons end>\n\n      <button ion-button (click)=\'addUser()\'>Add</button>\n\n    </ion-buttons> -->\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n<form [formGroup]="userForm" (ngSubmit)=\'addUser()\'>\n\n  <ion-row>\n\n    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->\n\n    <ion-item>\n\n      <ion-label color="main" floating>First Name</ion-label>\n\n      <ion-input type="text" formControlName="first_name" [class.invalid]="!userForm.controls.first_name.valid && (userForm.controls.first_name.dirty || submitAttempt)" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Last Name</ion-label>\n\n      <ion-input type="text"  [class.invalid]="!userForm.controls.first_name.valid && (userForm.controls.last_name.dirty || submitAttempt)" formControlName="last_name"  text-left></ion-input>\n\n    </ion-item>\n\n      <ion-item>\n\n       <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" value="+63"  [class.invalid]="!userForm.controls.mobile.valid && (userForm.controls.mobile.dirty || submitAttempt)" formControlName="mobile" maxlength="13" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" formControlName="email" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Username</ion-label>\n\n      <ion-input type="text" formControlName="username" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Password</ion-label>\n\n      <ion-input type="password" formControlName="password" text-left></ion-input>\n\n    </ion-item>\n\n  </ion-row><br>\n\n\n\n  <button ion-button round full type="submit">Register</button>\n\n  </form>\n\n</ion-content>\n\n`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/
+            selector: 'user-register',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Register\n\n    </ion-title>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n    <!-- <ion-buttons end>\n\n      <button ion-button (click)=\'addUser()\'>Add</button>\n\n    </ion-buttons> -->\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n<form [formGroup]="userForm" (ngSubmit)=\'addUser()\'>\n\n  <ion-row>\n\n    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->\n\n    <ion-item>\n\n      <ion-label color="main" floating>First Name</ion-label>\n\n      <ion-input type="text" formControlName="first_name" [class.invalid]="!userForm.controls.first_name.valid && (userForm.controls.first_name.dirty || submitAttempt)" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Last Name</ion-label>\n\n      <ion-input type="text"  [class.invalid]="!userForm.controls.last_name.valid && (userForm.controls.last_name.dirty || submitAttempt)" formControlName="last_name"  text-left></ion-input>\n\n    </ion-item>\n\n      <ion-item>\n\n       <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" value="+63"  [class.invalid]="!userForm.controls.mobile.valid && (userForm.controls.mobile.dirty || submitAttempt)" formControlName="mobile" maxlength="13" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" formControlName="email" [class.invalid]="!userForm.controls.email.valid && (userForm.controls.email.dirty || submitAttempt)" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Username</ion-label>\n\n      <ion-input type="text" formControlName="username" [ngClass]= "existUser ? \'exist_username\' : not_exist "  text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Password</ion-label>\n\n      <ion-input type="password" formControlName="password"  [class.invalid]="!userForm.controls.password.valid && (userForm.controls.password.dirty || submitAttempt)"  text-left></ion-input>\n\n    </ion-item>\n\n  </ion-row><br>\n\n\n\n  <button ion-button round full type="submit">Register</button>\n\n  </form>\n\n</ion-content>\n\n`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\users\register\user-register.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */]
-            // private fcm: FCM
-        ])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormBuilder */]) === "function" && _e || Object])
     ], UserRegisterPage);
     return UserRegisterPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=user-register.js.map
@@ -1844,10 +1841,13 @@ var FeedbackPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-feedback',template:/*ion-inline-start:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\feedback\feedback.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>FeedBack</h4>\n\n	<form (ngSubmit)="feedbackForm()">\n\n	<ion-item>\n\n        <ion-label floating>Title</ion-label>\n\n        <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>\n\n      </ion-item>\n\n		<ion-item>\n\n        <ion-label floating>Description</ion-label>\n\n        	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>\n\n      </ion-item>\n\n      <br>\n\n      <button ion-button type="submit" block>Send FeedBack</button>\n\n	</form>\n\n</ion-content>\n\n`/*ion-inline-end:"C:\Users\SirManny\Documents\Jake\ionic\push-notif-mobile\src\pages\feedback\feedback.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
     ], FeedbackPage);
     return FeedbackPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=feedback.js.map

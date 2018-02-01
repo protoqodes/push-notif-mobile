@@ -20,7 +20,7 @@
     </ion-item>
     <ion-item>
       <ion-label color="main" floating>Last Name</ion-label>
-      <ion-input type="text"  [class.invalid]="!userForm.controls.first_name.valid && (userForm.controls.last_name.dirty || submitAttempt)" formControlName="last_name"  text-left></ion-input>
+      <ion-input type="text"  [class.invalid]="!userForm.controls.last_name.valid && (userForm.controls.last_name.dirty || submitAttempt)" formControlName="last_name"  text-left></ion-input>
     </ion-item>
       <ion-item>
        <ion-label color="main" floating>Phone</ion-label>
@@ -28,15 +28,15 @@
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Email</ion-label>
-      <ion-input type="email" formControlName="email" text-left></ion-input>
+      <ion-input type="email" formControlName="email" [class.invalid]="!userForm.controls.email.valid && (userForm.controls.email.dirty || submitAttempt)" text-left></ion-input>
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Username</ion-label>
-      <ion-input type="text" formControlName="username" text-left></ion-input>
+      <ion-input type="text" formControlName="username" [ngClass]= "existUser ? 'exist_username' : not_exist "  text-left></ion-input>
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Password</ion-label>
-      <ion-input type="password" formControlName="password" text-left></ion-input>
+      <ion-input type="password" formControlName="password"  [class.invalid]="!userForm.controls.password.valid && (userForm.controls.password.dirty || submitAttempt)"  text-left></ion-input>
     </ion-item>
   </ion-row><br>
 

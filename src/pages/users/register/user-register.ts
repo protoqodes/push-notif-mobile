@@ -84,26 +84,27 @@ export class UserRegisterPage {
 
   }
 
-  checkUsername(c : FormControl){
-    return new Promise(resolve => {
-        console.log(c);
-      //Fake a slow response from server
+  // checkUsername(c : FormControl){
+  //   return new Promise(resolve => {
+  //     //Fake a slow response from server
  
-      setTimeout(() => {
-          if(existUser){
-            resolve({ "Exist User ": true })  
+  //     setTimeout(() => {
+  //         if(c.value.length < 1){
+  //           resolve({ "fill up the username": true })  
 
-          }
-          // if(parseInt(c.value.length) !== 13 || parseInt(c.value.charAt(3)) !== 9){
+  //         }
+
+
+  //         // if(parseInt(c.value.length) !== 13 || parseInt(c.value.charAt(3)) !== 9){
         
-          // }
+  //         // }
 
-          resolve(null);
-      }, 2000);
+  //         resolve(null);
+  //     }, 2000);
  
-    });
+  //   });
 
-  }
+  // }
 
   addUser(){
      this.is_active = 0;
@@ -112,11 +113,12 @@ export class UserRegisterPage {
     //   mobile : this.mobile,
     //   first_name : this.first_name
     // }
-
+    this.submitAttempt = true;
     // if(!this.validateField(field)){
     //     return
     // }
-      // console.log(this.userForm.valid);
+    console.log(this.userForm);
+       
       if(!this.userForm.valid){
                let toast = this.toastCtrl.create({
                   message: "Need to fill up all ",
@@ -149,8 +151,9 @@ export class UserRegisterPage {
                       }
                 console.log('added');
                   }).catch(error => {
-             
-          });
+                   this.existUser = true;
+                    return;
+              });
 
 
       }
