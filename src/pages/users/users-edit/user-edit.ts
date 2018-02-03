@@ -183,6 +183,7 @@ export class UserEditPage {
   captureDataUrl: string;
   capture() {
     //setup camera options
+    console.log(this.camera.DestinationType);
     const cameraOptions: CameraOptions = {
       quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,

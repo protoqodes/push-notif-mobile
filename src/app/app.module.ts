@@ -71,7 +71,7 @@ import {SocketService, UtilService} from "../providers";
     FeedbackPage,
     FeedbackThankYouPage
   ],
-  imports: [
+    imports: [
     BrowserModule,
      HttpModule,
     IonicModule.forRoot(MyApp),
