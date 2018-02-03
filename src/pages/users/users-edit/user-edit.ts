@@ -119,46 +119,50 @@ export class UserEditPage {
     }
     
     this.camera.getPicture(options).then((imageData) => {
-   let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-      var fileOptions = {
-      intelligent: false
-      };
-      var storeOptions = {
-      filename: name
-      }
-      this.base64.encodeFile(imageData).then((base64File: string) => {
-        alert(base64);
-        // filestack.upload(base64)
-        // .then(res => {
-        //   this.path = res.url;
-        //  this.api.Users.image(this._id,'asd',res).then(image => {
-        //       console.log(image);
-        //   })
-        // }).catch(err => {
-        //     this.path = err;
-        //     this.api.Users.image(this._id,'asd',err).then(image => {
-        //       console.log();
-        //   })
-        //   });
-      }, (err) => {
-        console.log(err);
-      });
-     if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-      this.filePath.resolveNativePath(imageData).then( filePath=>{
-          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
-          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          this.path = filePath;
-          this.img_name = imageData;
-      }).catch(err =>{
-          console.log('test');
-      })
-     }else{
-          let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
-          let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
-          this.path = filePath;
-          this.img_name = imageData;
-           // alert('running here else');
-     }
+
+       let base64Image = 'data:image/jpeg;base64,' + imageData;
+
+       alert(base64Image);
+   // let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+   //    var fileOptions = {
+   //    intelligent: false
+   //    };
+   //    var storeOptions = {
+   //    filename: name
+   //    }
+   //    this.base64.encodeFile(imageData).then((base64File: string) => {
+   //      alert(base64);
+   //      // filestack.upload(base64)
+   //      // .then(res => {
+   //      //   this.path = res.url;
+   //      //  this.api.Users.image(this._id,'asd',res).then(image => {
+   //      //       console.log(image);
+   //      //   })
+   //      // }).catch(err => {
+   //      //     this.path = err;
+   //      //     this.api.Users.image(this._id,'asd',err).then(image => {
+   //      //       console.log();
+   //      //   })
+   //      //   });
+   //    }, (err) => {
+   //      console.log(err);
+   //    });
+   //   if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+   //    this.filePath.resolveNativePath(imageData).then( filePath=>{
+   //        let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
+   //        let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+   //        this.path = filePath;
+   //        this.img_name = imageData;
+   //    }).catch(err =>{
+   //        console.log('test');
+   //    })
+   //   }else{
+   //        let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
+   //        let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
+   //        this.path = filePath;
+   //        this.img_name = imageData;
+   //         // alert('running here else');
+   //   }
     
     }, (err) => {
       alert(err)
