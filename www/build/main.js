@@ -473,14 +473,14 @@ var UserEditPage = (function () {
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     alert(correctPath);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
-                    // const asd = this.afStorage.ref(`users/${currentName}.jpg`)
-                    //  .putString(imageData, 'base64', {contentType: 'image/png'})
-                    //  .then((snapshot)=>{
-                    //  alert(snapshot);
-                    //  })
-                    //  .catch((err)=>{
-                    //  alert(err);
-                    //  }) 
+                    var asd = _this.afStorage.ref("users/" + currentName + ".jpg")
+                        .putString(imageData, 'base64', { contentType: 'image/jpg' })
+                        .then(function (snapshot) {
+                        alert(snapshot);
+                    })
+                        .catch(function (err) {
+                        alert(err);
+                    });
                     _this.path = filePath;
                     _this.img_name = imageData;
                 }).catch(function (err) {
