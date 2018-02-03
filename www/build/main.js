@@ -466,6 +466,7 @@ var UserEditPage = (function () {
             //     console.log(err);
             //   });
             if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
+                alert('photo');
                 _this.filePath.resolveNativePath(imageData).then(function (filePath) {
                     alert(filePath);
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
@@ -482,10 +483,12 @@ var UserEditPage = (function () {
                     _this.path = filePath;
                     _this.img_name = imageData;
                 }).catch(function (err) {
+                    alert(JSON.stringify(err));
                     console.log('test');
                 });
             }
             else {
+                alert('camera');
                 var correctPath = imageData.substr(0, imageData.lastIndexOf('/') + 1);
                 var currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
                 _this.path = filePath;
