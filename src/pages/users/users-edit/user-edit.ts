@@ -79,29 +79,9 @@ export class UserEditPage {
 
   presentActionSheet() {
      
-     var fileOptions = {
-      intelligent: true
-      };
-      var storeOptions = {
-      filename: 'test.jpg',
-      access :'public'
-      }
-      var file = new Blob(['file:///C:/Users/dennis/Downloads/00/26038020_10215387798356617_1605819028_o.jpg'] , {type:'image/png'});
+    
       
-      filestack.upload(file,FileUploadOptions,storeOptions)
-        .then(res => {
-          this.path = res.url;
-         this.api.Users.image(this._id,'asd',res).then(image => {
-              console.log(image);
-          })
-        }).catch(err => {
-            this.path = err;
-            this.api.Users.image(this._id,'asd',err).then(image => {
-              console.log();
-          })
-          });
-      
-     /*let actionSheet = this.actionSheetCtrl.create({
+     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
@@ -122,7 +102,7 @@ export class UserEditPage {
         }
       ]
     });
-    actionSheet.present();*/
+    actionSheet.present();
   }
 
   public takePicture(sourceType){
@@ -148,18 +128,18 @@ export class UserEditPage {
       }
       this.base64.encodeFile(imageData).then((base64File: string) => {
         alert(base64);
-        filestack.upload(base64)
-        .then(res => {
-          this.path = res.url;
-         this.api.Users.image(this._id,'asd',res).then(image => {
-              console.log(image);
-          })
-        }).catch(err => {
-            this.path = err;
-            this.api.Users.image(this._id,'asd',err).then(image => {
-              console.log();
-          })
-          });
+        // filestack.upload(base64)
+        // .then(res => {
+        //   this.path = res.url;
+        //  this.api.Users.image(this._id,'asd',res).then(image => {
+        //       console.log(image);
+        //   })
+        // }).catch(err => {
+        //     this.path = err;
+        //     this.api.Users.image(this._id,'asd',err).then(image => {
+        //       console.log();
+        //   })
+        //   });
       }, (err) => {
         console.log(err);
       });
