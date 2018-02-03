@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login';
 import {FeedbackPage} from '../pages/feedback/feedback';
-
+import firebase from 'firebase';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -25,7 +25,16 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-
+      const firebaseConfig = {
+            apiKey: "AIzaSyBH_hBgUME25UVzGYE7sani2eYrgGiyh4M",
+            authDomain: "test-6148c.firebaseapp.com",
+            databaseURL: "https://test-6148c.firebaseio.com",
+            projectId: "test-6148c",
+            storageBucket: "test-6148c.appspot.com",
+            messagingSenderId: "469373891917"
+          };
+      
+      firebase.initializeApp(firebaseConfig);
     });
 
      this.storage.get('user').then(user=>{
