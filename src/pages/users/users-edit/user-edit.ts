@@ -158,22 +158,24 @@ export class UserEditPage {
     //   }, (err) => {
     //     console.log(err);
     //   });
-    //  if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-    //   this.filePath.resolveNativePath(imageData).then( filePath=>{
-    //       let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
-    //       let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-    //       this.path = filePath;
-    //       this.img_name = imageData;
-    //   }).catch(err =>{
-    //       console.log('test');
-    //   })
-    //  }else{
-    //       let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
-    //       let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
-    //       this.path = filePath;
-    //       this.img_name = imageData;
-    //        // alert('running here else');
-    //  }
+     if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
+      this.filePath.resolveNativePath(base64Image).then( filePath=>{
+          alert(filePath)
+          let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
+          alert(correctPath)
+          let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+          this.path = filePath;
+          this.img_name = imageData;
+      }).catch(err =>{
+          console.log('test');
+      })
+     }else{
+          let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
+          let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
+          this.path = filePath;
+          this.img_name = imageData;
+           // alert('running here else');
+     }
     
     // }, (err) => {
     //   alert(err)

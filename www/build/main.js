@@ -427,6 +427,7 @@ var UserEditPage = (function () {
         actionSheet.present();
     };
     UserEditPage.prototype.takePicture = function (sourceType) {
+        var _this = this;
         var options = {
             quality: 100,
             destinationType: this.camera.DestinationType.FILE_URI,
@@ -464,22 +465,25 @@ var UserEditPage = (function () {
             //   }, (err) => {
             //     console.log(err);
             //   });
-            //  if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-            //   this.filePath.resolveNativePath(imageData).then( filePath=>{
-            //       let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
-            //       let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-            //       this.path = filePath;
-            //       this.img_name = imageData;
-            //   }).catch(err =>{
-            //       console.log('test');
-            //   })
-            //  }else{
-            //       let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
-            //       let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
-            //       this.path = filePath;
-            //       this.img_name = imageData;
-            //        // alert('running here else');
-            //  }
+            if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
+                _this.filePath.resolveNativePath(base64Image).then(function (filePath) {
+                    alert(filePath);
+                    var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
+                    alert(correctPath);
+                    var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
+                    _this.path = filePath;
+                    _this.img_name = imageData;
+                }).catch(function (err) {
+                    console.log('test');
+                });
+            }
+            else {
+                var correctPath = imageData.substr(0, imageData.lastIndexOf('/') + 1);
+                var currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
+                _this.path = filePath;
+                _this.img_name = imageData;
+                // alert('running here else');
+            }
             // }, (err) => {
             //   alert(err)
             //  // Handle error
