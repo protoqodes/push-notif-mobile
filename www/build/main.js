@@ -439,8 +439,8 @@ var UserEditPage = (function () {
             targetHeight: 1000
         };
         this.camera.getPicture(options).then(function (imageData) {
-            var base64Image = 'data:image/jpeg;base64,' + imageData;
-            alert(base64Image);
+            // let base64Image = 'data:image/jpeg;base64,' + imageData;
+            // alert(base64Image);
             // let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
             //   var fileOptions = {
             //   intelligent: false
@@ -466,11 +466,19 @@ var UserEditPage = (function () {
             //     console.log(err);
             //   });
             if (_this.platform.is('android') && sourceType === _this.camera.PictureSourceType.PHOTOLIBRARY) {
-                _this.filePath.resolveNativePath(base64Image).then(function (filePath) {
+                _this.filePath.resolveNativePath(imageData).then(function (filePath) {
                     alert(filePath);
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     alert(correctPath);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
+                    var asd = _this.afStorage.ref("users/" + currentName + ".jpg")
+                        .putString(imageData, 'base64', { contentType: 'image/png' })
+                        .then(function (snapshot) {
+                        alert(snapshot);
+                    })
+                        .catch(function (err) {
+                        alert(err);
+                    });
                     _this.path = filePath;
                     _this.img_name = imageData;
                 }).catch(function (err) {
@@ -514,7 +522,7 @@ var UserEditPage = (function () {
         // const storageRef: AngularFireStorageReference = this.afStorage.ref(`/images/${filename}.jpg`);
         // Create a reference to 'images/todays-date.jpg'
         // const imageRef = storageRef.child(`users/${filename}.jpg`);
-        var asd = this.afStorage.ref("users/" + filename + ".txt")
+        var asd = this.afStorage.ref("users/" + filename + ".jpg")
             .putString(this.captureDataUrl, 'data_url')
             .then(function (snapshot) {
             alert(snapshot);

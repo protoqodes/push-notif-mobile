@@ -132,8 +132,8 @@ export class UserEditPage {
     
     this.camera.getPicture(options).then((imageData) => {
       
-      let base64Image = 'data:image/jpeg;base64,' + imageData;
-      alert(base64Image);
+      // let base64Image = 'data:image/jpeg;base64,' + imageData;
+      // alert(base64Image);
       // let name =  imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
     //   var fileOptions = {
     //   intelligent: false
@@ -159,11 +159,20 @@ export class UserEditPage {
     //     console.log(err);
     //   });
      if (this.platform.is('android') && sourceType === this.camera.PictureSourceType.PHOTOLIBRARY) {
-      this.filePath.resolveNativePath(base64Image).then( filePath=>{
+      this.filePath.resolveNativePath(imageData).then( filePath=>{
           alert(filePath)
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           alert(correctPath)
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
+          const asd = this.afStorage.ref(`users/${currentName}.jpg`)
+           .putString(imageData, 'base64', {contentType: 'image/png'})
+           .then((snapshot)=>{
+           alert(snapshot);
+           })
+           .catch((err)=>{
+           alert(err);
+           }) 
+
           this.path = filePath;
           this.img_name = imageData;
       }).catch(err =>{
@@ -211,7 +220,7 @@ export class UserEditPage {
     // Create a reference to 'images/todays-date.jpg'
     // const imageRef = storageRef.child(`users/${filename}.jpg`);
      
-     const asd = this.afStorage.ref(`users/${filename}.txt`)
+     const asd = this.afStorage.ref(`users/${filename}.jpg`)
      .putString(this.captureDataUrl,'data_url')
      .then((snapshot)=>{
      alert(snapshot);
