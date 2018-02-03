@@ -16,12 +16,12 @@
     <ion-item text-center>
     <div class="editPhoto">
     
-    <button ion-button icon-left (click)="presentActionSheet()">
+    <!--<button ion-button icon-left (click)="presentActionSheet()">
       <ion-icon name="camera"></ion-icon>Edit Profile  
-    </button>
+    </button>-->
+    <button ion-button (click)="capture()">Lets take a picture!</button>
   </div><br>
-      <img src="{{path}}"  height="100px" width="100px"><br>
-      {{path}}
+      <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
     </ion-item>
     
     <ion-item>
