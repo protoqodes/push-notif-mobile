@@ -472,8 +472,9 @@ var UserEditPage = (function () {
                     alert(filePath);
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     alert(correctPath);
+                    var filename = Math.floor(Date.now() / 1000);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
-                    var asd = _this.afStorage.ref("users/" + currentName + ".jpg")
+                    var asd = _this.afStorage.ref("users/" + filename + ".jpg")
                         .putString(imageData, 'base64', { contentType: 'image/jpg' })
                         .then(function (snapshot) {
                         alert(snapshot);

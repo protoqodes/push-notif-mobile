@@ -165,8 +165,9 @@ export class UserEditPage {
           alert(filePath)
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           alert(correctPath)
+          const filename = Math.floor(Date.now() / 1000)
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          const asd = this.afStorage.ref(`users/${currentName}.jpg`)
+          const asd = this.afStorage.ref(`users/${filename}.jpg`)
            .putString(imageData, 'base64', {contentType: 'image/jpg'})
            .then((snapshot)=>{
            alert(snapshot);
