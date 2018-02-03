@@ -40,18 +40,18 @@ import { Base64 } from '@ionic-native/base64';
 import {SocketService, UtilService} from "../providers";
 
  const firebaseConfig = {
-            apiKey: "AIzaSyBH_hBgUME25UVzGYE7sani2eYrgGiyh4M",
-            authDomain: "test-6148c.firebaseapp.com",
-            databaseURL: "https://test-6148c.firebaseio.com",
-            projectId: "test-6148c",
-            storageBucket: "test-6148c.appspot.com",
-            messagingSenderId: "469373891917"
-          //   apiKey: 'AIzaSyC1tBMy-SERawwY4F5WBwrUdKajXrLkuxA',
-          // authDomain: 'pushnotification-1092d.firebaseapp.com',
-          // databaseURL: 'https://pushnotification-1092d.firebaseio.com',
-          // projectId: 'pushnotification-1092d',
-          // storageBucket: 'pushnotification-1092d.appspot.com',
-          // messagingSenderId: '134945683401'
+            // apiKey: "AIzaSyBH_hBgUME25UVzGYE7sani2eYrgGiyh4M",
+            // authDomain: "test-6148c.firebaseapp.com",
+            // databaseURL: "https://test-6148c.firebaseio.com",
+            // projectId: "test-6148c",
+            // storageBucket: "test-6148c.appspot.com",
+            // messagingSenderId: "469373891917"
+              apiKey: 'AIzaSyC1tBMy-SERawwY4F5WBwrUdKajXrLkuxA',
+              authDomain: 'pushnotification-1092d.firebaseapp.com',
+              databaseURL: 'https://pushnotification-1092d.firebaseio.com',
+              projectId: 'pushnotification-1092d',
+              storageBucket: 'pushnotification-1092d.appspot.com',
+              messagingSenderId: '134945683401'
           };
 
 @NgModule({
