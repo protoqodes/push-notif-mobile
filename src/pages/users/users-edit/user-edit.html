@@ -22,8 +22,8 @@
     <button ion-button (click)="capture()">Lets take a picture!</button>
   </div><br>
       <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
-      <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload to Firebase!</button>
-      <p *ngIf="image">{{image}}</p>
+      <button ion-button (click)="upload()">Upload to Firebase!</button>
+      <p >{{image}}</p>
     </ion-item>
     
     <ion-item>
