@@ -164,14 +164,14 @@ export class UserEditPage {
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           alert(correctPath)
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          const asd = this.afStorage.ref(`users/${currentName}.jpg`)
-           .putString(imageData, 'base64', {contentType: 'image/png'})
-           .then((snapshot)=>{
-           alert(snapshot);
-           })
-           .catch((err)=>{
-           alert(err);
-           }) 
+          // const asd = this.afStorage.ref(`users/${currentName}.jpg`)
+          //  .putString(imageData, 'base64', {contentType: 'image/png'})
+          //  .then((snapshot)=>{
+          //  alert(snapshot);
+          //  })
+          //  .catch((err)=>{
+          //  alert(err);
+          //  }) 
 
           this.path = filePath;
           this.img_name = imageData;
@@ -183,6 +183,8 @@ export class UserEditPage {
           let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
           this.path = filePath;
           this.img_name = imageData;
+          alert(correctPath)
+          alert(currentName)
            // alert('running here else');
      }
     

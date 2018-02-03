@@ -471,14 +471,14 @@ var UserEditPage = (function () {
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     alert(correctPath);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
-                    var asd = _this.afStorage.ref("users/" + currentName + ".jpg")
-                        .putString(imageData, 'base64', { contentType: 'image/png' })
-                        .then(function (snapshot) {
-                        alert(snapshot);
-                    })
-                        .catch(function (err) {
-                        alert(err);
-                    });
+                    // const asd = this.afStorage.ref(`users/${currentName}.jpg`)
+                    //  .putString(imageData, 'base64', {contentType: 'image/png'})
+                    //  .then((snapshot)=>{
+                    //  alert(snapshot);
+                    //  })
+                    //  .catch((err)=>{
+                    //  alert(err);
+                    //  }) 
                     _this.path = filePath;
                     _this.img_name = imageData;
                 }).catch(function (err) {
@@ -490,6 +490,8 @@ var UserEditPage = (function () {
                 var currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
                 _this.path = filePath;
                 _this.img_name = imageData;
+                alert(correctPath);
+                alert(currentName);
                 // alert('running here else');
             }
             // }, (err) => {
