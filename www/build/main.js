@@ -359,7 +359,7 @@ var filestack = __WEBPACK_IMPORTED_MODULE_10_filestack_js__["a" /* default */].i
     signature: 'd0643e1e7c2320fecbbe6500c2f0f7ca7146c7abf1a110363b45da46d4cb81e4'
 });
 var UserEditPage = (function () {
-    function UserEditPage(navCtrl, navParamsCtrl, storage, api, transfer, camera, file, filePath, actionSheetCtrl, afStorage, base64
+    function UserEditPage(navCtrl, navParamsCtrl, storage, api, transfer, camera, file, platform, filePath, actionSheetCtrl, afStorage, base64
         // private fcm: FCM
     ) {
         var _this = this;
@@ -370,6 +370,7 @@ var UserEditPage = (function () {
         this.transfer = transfer;
         this.camera = camera;
         this.file = file;
+        this.platform = platform;
         this.filePath = filePath;
         this.actionSheetCtrl = actionSheetCtrl;
         this.afStorage = afStorage;
@@ -567,6 +568,7 @@ var UserEditPage = (function () {
             __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */],
             __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
             __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
             __WEBPACK_IMPORTED_MODULE_9_angularfire2_storage__["a" /* AngularFireStorage */],
