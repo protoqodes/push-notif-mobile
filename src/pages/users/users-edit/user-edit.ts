@@ -165,16 +165,37 @@ export class UserEditPage {
           alert(filePath)
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           alert(correctPath)
-          const filename = Math.floor(Date.now() / 1000)
+
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
-          const asd = this.afStorage.ref(`users/${filename}.jpg`)
-           .putString(imageData, 'base64', {contentType: 'image/jpg'})
-           .then((snapshot)=>{
-           alert(snapshot);
-           })
-           .catch((err)=>{
-           alert(err);
-           }) 
+          
+            this.base64.encodeFile(imageData).then((base64File: string) => {
+              alert(base64);
+
+              const asd = this.afStorage.ref(`users/${base64File}.jpg`)
+                 .putString(imageData, 'base64', {contentType: 'image/jpg'})
+                 .then((snapshot)=>{
+                 alert(snapshot);
+                 })
+                 .catch((err)=>{
+                 alert(err);
+                 }) 
+            //   filestack.upload(base64)
+            //   .then(res => {
+            //     this.path = res.url;
+            //    this.api.Users.image(this._id,'asd',res).then(image => {
+            //         console.log(image);
+            //     })
+            //   }).catch(err => {
+            //       this.path = err;
+            //       this.api.Users.image(this._id,'asd',err).then(image => {
+            //         console.log();
+            //     })
+            //     });
+            // }, (err) => {
+            //   console.log(err);
+            });
+
+          
 
           this.path = filePath;
           this.img_name = imageData;

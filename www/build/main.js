@@ -472,15 +472,31 @@ var UserEditPage = (function () {
                     alert(filePath);
                     var correctPath = filePath.substr(0, filePath.lastIndexOf('/') + 1);
                     alert(correctPath);
-                    var filename = Math.floor(Date.now() / 1000);
                     var currentName = imageData.substring(imageData.lastIndexOf('/') + 1, imageData.lastIndexOf('?'));
-                    var asd = _this.afStorage.ref("users/" + filename + ".jpg")
-                        .putString(imageData, 'base64', { contentType: 'image/jpg' })
-                        .then(function (snapshot) {
-                        alert(snapshot);
-                    })
-                        .catch(function (err) {
-                        alert(err);
+                    _this.base64.encodeFile(imageData).then(function (base64File) {
+                        alert(base64);
+                        var asd = _this.afStorage.ref("users/" + base64File + ".jpg")
+                            .putString(imageData, 'base64', { contentType: 'image/jpg' })
+                            .then(function (snapshot) {
+                            alert(snapshot);
+                        })
+                            .catch(function (err) {
+                            alert(err);
+                        });
+                        //   filestack.upload(base64)
+                        //   .then(res => {
+                        //     this.path = res.url;
+                        //    this.api.Users.image(this._id,'asd',res).then(image => {
+                        //         console.log(image);
+                        //     })
+                        //   }).catch(err => {
+                        //       this.path = err;
+                        //       this.api.Users.image(this._id,'asd',err).then(image => {
+                        //         console.log();
+                        //     })
+                        //     });
+                        // }, (err) => {
+                        //   console.log(err);
                     });
                     _this.path = filePath;
                     _this.img_name = imageData;
