@@ -28,6 +28,7 @@ import { FeedbackThankYouPage } from '../pages/feedback_thankyou/thankyou';
 import { ApiService } from '../shared/api.service';
 import { SidebarNav } from '../shared/sidebar/sidebar';
 import { Base64 } from '@ionic-native/base64';
+import firebase from 'firebase';
 //providers
 // import { UtilService } from '../providers/utils.service';
 // import { SocketService } from '../providers/socket.service';
