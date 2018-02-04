@@ -27,7 +27,8 @@ export class ApiService {
                     password: password,
                     is_active : is_active,
                     permission: '0',
-                    is_verify : '0'
+                    is_verify : '0',
+                    is_notify : true
                   })
                     .map(response => {
                      return response.json();
@@ -158,7 +159,8 @@ export class ApiService {
                       email: email,
                       username: username,
                       password: password,
-                      is_active : is_active
+                      is_active : is_active,
+                      is_notify : true
                    })
                     .map(response => {
                       return response.json();

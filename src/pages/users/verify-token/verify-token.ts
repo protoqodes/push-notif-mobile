@@ -55,8 +55,10 @@ export class VerifyTokenPage {
                 duration: 2000
             });
             toast.present();
-
+              console.log(verify_token);
              this.storage.set('user', this.user);
+             this.storage.set('is_notify',this.user.user.is_notify);
+             
              this.navCtrl.push(HomePage, {}, {
               animate: true,
               direction: 'forward'

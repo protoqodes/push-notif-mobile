@@ -140,7 +140,7 @@ export class UserRegisterPage {
                           this.api.MobileToken.add(generateToken,this.first_name.value,this.last_name.value,this.mobile.value,this.email.value,this.username.value,this.password.value,this.is_active).then(mobile_token => {
                               console.log(mobile_token);
                               if(mobile_token.user){
-                                 this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
+                                 this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token}, {
                                   animate: true,
                                   direction: 'forward'
                                 });

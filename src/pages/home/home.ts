@@ -9,6 +9,7 @@ import { SidebarNav } from '../../shared/sidebar/sidebar';
 import {SocketService, UtilService} from "../../providers";
 import {PostViewPage} from '../post/view-post/view-post';
 import {FeedbackPage} from '../feedback/feedback';
+import { LoginPage } from '../login/login';
 
 // import { FCM } from '@ionic-native/fcm';
 @Component({
@@ -104,7 +105,7 @@ export class HomePage {
   logoutBtn(){
     this.storage.clear();
     console.log(this.storage);
-     this.navCtrl.pop();
+     this.navCtrl.setRoot(LoginPage);
   }
   notify(value){
     this.api.Users.notify(value,this.users.user._id).then(user =>{
