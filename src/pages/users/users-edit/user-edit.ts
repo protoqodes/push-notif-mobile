@@ -204,22 +204,20 @@ export class UserEditPage {
   // console.log(firebase);
     const filename = Math.floor(Date.now() / 1000);
      
-     const asd = this.afStorage.ref(`users/${filename}.txt`)
+     const asd = this.afStorage.ref(`users/${filename}.jpg`)
      .putString(this.captureDataUrl,'data_url')
      .then((snapshot)=>{
-      this.image = snapshot;
+      this.image = snapshot.metadata.downloadURLs[0];
+      filestack.storeURL(snapshot.metadata.downloadURLs[0]).then(res => {
+        this.api.Users.image(this._id,res.url).then(user =>{
+            this.storage.set('user', user);
+        })
+      });
      })
      .catch((err)=>{
      alert(err);
      }) 
-     // console.log(imageRef);
-    // imageRef.putString(file, firebase.storage.StringFormat.DATA_URL).then((snapshot)=> {
-    //  // Do something here when the data is succesfully uploaded!
-    //  console.log(snapshot);
-    //  this.image = snapshot;
-    // }).catch((err) =>{
-    //   console.log(err);
-    // })
+
 
   }
   updateUser(){
@@ -235,9 +233,8 @@ export class UserEditPage {
     this.password,
     this.path,
     this.img_name)
-    .then(post =>{
-        console.log(post);
-        console.log('update');
+    .then(user =>{
+        this.storage.set('user', user);
     });
 
     this.navCtrl.pop();
