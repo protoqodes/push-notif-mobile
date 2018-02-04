@@ -39,7 +39,6 @@ user-edit {
     // background: url("../../assets/imgs/bg-generic.jpg");
     background-position: center;
     background-size: cover;
-    overflow: hidden;
 
     .row {
       padding-bottom: 40px;
@@ -78,5 +77,23 @@ user-edit {
     padding-right: 0 !important;
 
     border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .photo-holder {
+    .item-md.item-block .item-inner,
+    .item-ios.item-block .item-inner {
+      padding-right: 0 !important;
+    }
+
+    ion-label {
+      margin: 0;
+    }
+
+    .profile-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 200px;
+      object-fit: cover;
+    }
   }
 }
