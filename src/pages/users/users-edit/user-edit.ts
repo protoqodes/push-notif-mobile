@@ -193,7 +193,6 @@ export class UserEditPage {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64:
       this.captureDataUrl = 'data:image/jpeg;base64,' + imageData;
-      alert()
     }, (err) => {
       // Handle error
     });
