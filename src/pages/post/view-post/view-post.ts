@@ -22,6 +22,7 @@ export class PostViewPage {
   constructor(
   	public navCtrl: NavController,
     public navParamsCtrl: NavParams,
+    public toastCtrl: ToastController,
   	private storage : Storage,
     private api : ApiService,
     // private fcm: FCM
@@ -48,6 +49,19 @@ export class PostViewPage {
      console.log(this);
   }
   postComment(){
+
+    console.log(this);
+
+    if(this.save_post.description == '' || Object.keys(this.save_post).length < 1 || this.save_post.description === ' '){
+      let toast = this.toastCtrl.create({
+        message: "Please add a comment",
+        duration: 2000
+      });
+
+      toast.present();
+      return;
+    }
+
     this.api.Comments.add(this.user_id,this._id,this.save_post.description,this.fullname,this.image_user)
     .then(comments =>{
         this.api.Posts.view(this._id).then(post =>{
