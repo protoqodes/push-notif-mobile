@@ -200,8 +200,6 @@ export class UserEditPage {
   }
   image : any[];
   upload() : AngularFireUploadTask {
-    // firebase.initializeApp(firebaseConfig);
-  // console.log(firebase);
     const filename = Math.floor(Date.now() / 1000);
      
      const asd = this.afStorage.ref(`users/${filename}.jpg`)
