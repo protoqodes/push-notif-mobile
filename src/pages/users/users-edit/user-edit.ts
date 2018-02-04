@@ -66,7 +66,7 @@ export class UserEditPage {
           this.email = user.user.email;
           this.username = user.user.username;
           this.password = user.user.password;
-          this.img = user.user.img;
+          this.image = user.user.img;
       }
     }) 
     

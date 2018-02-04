@@ -113,7 +113,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\home\home.html"*/`<!-- <ion-menu [content]="sidebar">\n\n  <ion-content padding>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Push Notification</ion-label>\n\n        <ion-toggle [(ngModel)]="notification" color="secondary"></ion-toggle>\n\n      </ion-item>\n\n      <ion-item>\n\n        <a class="sidebar-link">Edit Profile</a>\n\n      </ion-item>\n\n      <ion-item>\n\n        <a class="sidebar-link" (click)="toFeedBack()" >Feedback</a>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav #sidebar></ion-nav> -->\n\n\n\n<navsidebar></navsidebar>\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="logout-btn"><img src="https://cdn.filestackcontent.com/CJMyS34SVmEdMrx42D6N"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding *ngIf="hasData">\n\n  <div class="holder">\n\n    <div class="container">\n\n      <div class="row">\n\n        <div class="col-12">\n\n          <div class="heading-holder">\n\n            <h4>RECENT POSTS</h4>\n\n          </div>\n\n\n\n          <button class="filter-btn" (click)=\'filterPost()\'>Filter</button>\n\n          <div class="filter-holder">\n\n            <input type="text" [(ngModel)]="title" placeholder="by title">\n\n            <input type="text" [(ngModel)]="description" placeholder="by description">\n\n          </div>\n\n          <ion-refresher (ionRefresh)="doRefresh($event)">\n\n            <ion-refresher-content\n\n              pullingIcon="arrow-dropdown"\n\n              pullingText="Pull to refresh"\n\n              refreshingSpinner="circles"\n\n              refreshingText="Refreshing...">\n\n            </ion-refresher-content>\n\n          </ion-refresher>\n\n\n\n          <br>\n\n          <!-- <button class="filter-btn" (click)="toFeedBack()" >Feedback</button> -->\n\n          <div class="post-holder" (click)=\'selectedPost(post)\' *ngFor="let post of posts">\n\n            <div class="post-header">\n\n              <img src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn" alt="Angeles City Logo" />\n\n              <span>\n\n                <h6>{{post.title}}</h6>\n\n                <a href="#" class="date">@LungsodngAngeles  &bull; {{ post.created_at | date: format : timezone }}</a>\n\n              </span>\n\n            </div>\n\n            <img class="post-image" src="{{post.img}}" alt="" [hidden]="!post.img">\n\n            <p>\n\n              {{post.description}}\n\n            </p>\n\n            <!-- <ul>\n\n              <li><a href="#" class="date">{{ post.created_at | date: format : timezone }}</a></li>\n\n              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>\n\n              <li><a href="#" class="social">@LungsodngAngeles</a></li>\n\n            </ul> -->\n\n             <form class="comment">\n\n               <div class="form-group">\n\n                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Add a comment">\n\n                 <!-- <input type="submit" value="POST" > -->\n\n               </div>\n\n               <button ion-button round (click)=\'postComment(post)\' class="btn btn-green">Post</button>\n\n             </form>\n\n            <!-- <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">\n\n                <div>{{ comment.description }}</div>\n\n            </ion-item> -->\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n       <!-- <button ion-button (click)=\'logoutBtn()\'>Log out</button> -->\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\home\home.html"*/`<!-- <ion-menu [content]="sidebar">\n\n  <ion-content padding>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Push Notification</ion-label>\n\n        <ion-toggle [(ngModel)]="notification" color="secondary"></ion-toggle>\n\n      </ion-item>\n\n      <ion-item>\n\n        <a class="sidebar-link">Edit Profile</a>\n\n      </ion-item>\n\n      <ion-item>\n\n        <a class="sidebar-link" (click)="toFeedBack()" >Feedback</a>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav #sidebar></ion-nav> -->\n\n\n\n<navsidebar></navsidebar>\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="logout-btn">Logout</a>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding *ngIf="hasData">\n\n  <div class="holder">\n\n    <div class="container">\n\n      <div class="row">\n\n        <div class="col-12">\n\n          <div class="heading-holder">\n\n            <h4>RECENT POSTS</h4>\n\n          </div>\n\n\n\n          <button class="filter-btn" (click)=\'filterPost()\'>Filter</button>\n\n          <div class="filter-holder">\n\n            <input type="text" [(ngModel)]="title" placeholder="by title">\n\n            <input type="text" [(ngModel)]="description" placeholder="by description">\n\n          </div>\n\n          <ion-refresher (ionRefresh)="doRefresh($event)">\n\n            <ion-refresher-content\n\n              pullingIcon="arrow-dropdown"\n\n              pullingText="Pull to refresh"\n\n              refreshingSpinner="circles"\n\n              refreshingText="Refreshing...">\n\n            </ion-refresher-content>\n\n          </ion-refresher>\n\n\n\n          <br>\n\n          <!-- <button class="filter-btn" (click)="toFeedBack()" >Feedback</button> -->\n\n          <div class="post-holder" (click)=\'selectedPost(post)\' *ngFor="let post of posts">\n\n            <div class="post-header">\n\n              <img src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn" alt="Angeles City Logo" />\n\n              <span>\n\n                <h6>{{post.title}}</h6>\n\n                <a href="#" class="date">@LungsodngAngeles  &bull; {{ post.created_at | date: format : timezone }}</a>\n\n              </span>\n\n            </div>\n\n            <img class="post-image" src="{{post.img}}" alt="" [hidden]="!post.img">\n\n            <p>\n\n              {{post.description}}\n\n            </p>\n\n            <!-- <ul>\n\n              <li><a href="#" class="date">{{ post.created_at | date: format : timezone }}</a></li>\n\n              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>\n\n              <li><a href="#" class="social">@LungsodngAngeles</a></li>\n\n            </ul> -->\n\n             <form class="comment">\n\n               <div class="form-group">\n\n                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Add a comment">\n\n                 <!-- <input type="submit" value="POST" > -->\n\n               </div>\n\n               <button ion-button round (click)=\'postComment(post)\' class="btn btn-green">Send</button>\n\n             </form>\n\n            <!-- <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">\n\n                <div>{{ comment.description }}</div>\n\n            </ion-item> -->\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n       <!-- <button ion-button (click)=\'logoutBtn()\'>Log out</button> -->\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\home\home.html"*/,
             directives: [__WEBPACK_IMPORTED_MODULE_4__shared_sidebar_sidebar__["a" /* SidebarNav */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
@@ -193,7 +193,7 @@ var FeedbackPage = (function () {
     };
     FeedbackPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-feedback',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>FeedBack</h4>\n\n	<form (ngSubmit)="feedbackForm()">\n\n	<ion-item>\n\n        <ion-label floating>Title</ion-label>\n\n        <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>\n\n      </ion-item>\n\n		<ion-item>\n\n        <ion-label floating>Description</ion-label>\n\n        	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>\n\n      </ion-item>\n\n      <br>\n\n      <button ion-button type="submit" block>Send FeedBack</button>\n\n	</form>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/
+            selector: 'page-feedback',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>Feedback</h4>\n\n	<form (ngSubmit)="feedbackForm()">\n\n	<ion-item>\n\n        <ion-label floating>Title</ion-label>\n\n        <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>\n\n      </ion-item>\n\n		<ion-item>\n\n        <ion-label floating>Description</ion-label>\n\n        	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>\n\n      </ion-item>\n\n      <br>\n\n      <button ion-button type="submit" block>Send</button>\n\n	</form>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _e || Object])
     ], FeedbackPage);
@@ -386,7 +386,7 @@ var UserEditPage = (function () {
                 _this.email = user.user.email;
                 _this.username = user.user.username;
                 _this.password = user.user.password;
-                _this.img = user.user.img;
+                _this.image = user.user.img;
             }
         });
     }
@@ -901,7 +901,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\login\login.html"*/`\n\n<ion-content padding>\n\n  <div class="login-holder">\n\n    <div class="logo-holder">\n\n      <img class="ac-logo" src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn">\n\n    </div>\n\n\n\n    <form class="form-login">\n\n      <label><input type="email" name="username" placeholder="Email or Mobile number" [(ngModel)]="posts.username" /></label>\n\n      <label><input type="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" [(ngModel)]="posts.password" /></label>\n\n      <button class="btn-green" type="submit" (click)="logMeIn()">Log In</button>\n\n    </form>\n\n    <a class="description forgot-pass" (click)="goRegister()">Register</a>\n\n    <br/>\n\n    <a class="description forgot-pass" (click)="goReset()">Forgot your password?</a>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\login\login.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\login\login.html"*/`\n\n<ion-content padding>\n\n  <div class="login-holder">\n\n    <div class="logo-holder">\n\n      <img class="ac-logo" src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn">\n\n    </div>\n\n\n\n    <form class="form-login">\n\n      <label><input type="email" name="username" placeholder="Email or Mobile number" [(ngModel)]="posts.username" /></label>\n\n      <label><input type="password" name="password" placeholder="Password" [(ngModel)]="posts.password" /></label>\n\n      <button class="btn-green" type="submit" (click)="logMeIn()">Log In</button>\n\n    </form>\n\n    <a class="description forgot-pass" (click)="goReset()">Forgot your password?</a>\n\n    <br/><br/>\n\n    <a class="description forgot-pass" (click)="goRegister()">Register</a>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\login\login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */],
@@ -922,7 +922,7 @@ var LoginPage = (function () {
 
 "use strict";
 var config = {
-    //baseUrl : 'http://localhost:5016/api',
+    // baseUrl : 'http://localhost:5016/api',
     baseUrl: 'https://angeles-notif.herokuapp.com/api'
 };
 /* harmony default export */ __webpack_exports__["a"] = (config);
@@ -1257,7 +1257,7 @@ var FeedbackThankYouPage = (function () {
     };
     FeedbackThankYouPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-thank-you',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>Thank you!</h4>\n\n	<div *ngIf="is_verify == \'1\';else verify">\n\n    <p>We will read your feedback shortly</p>\n\n  </div>\n\n    <ng-template #verify>We have received your feedback. Please verify your email first. Thank you!</ng-template>\n\n    <br>\n\n  <div class="button-holder">\n\n  <button ion-button (click)="backToPost()">Back to post</button>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/
+            selector: 'page-thank-you',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn">Logout</a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>Thank you!</h4>\n\n	<div *ngIf="is_verify == \'1\';else verify">\n\n    <p>We will read your feedback shortly</p>\n\n  </div>\n\n    <ng-template #verify>We have received your feedback. Please verify your email first. Thank you!</ng-template>\n\n    <br>\n\n  <div class="button-holder">\n\n  <button ion-button (click)="backToPost()">Back to post</button>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
@@ -1309,6 +1309,7 @@ var PostViewPage = (function () {
             _this.description = post.results[0].description;
             _this.img = post.results[0].img;
             _this.comment_docs = post.results[0].comment_docs;
+            console.log(_this.comment_docs);
         });
         this.storage.get('user').then(function (user) {
             _this.user_id = user.user._id;
@@ -1341,14 +1342,12 @@ var PostViewPage = (function () {
     };
     PostViewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'view-post',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\post\view-post\view-post.html"*/`\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div class="post-holder">\n\n    <div class="post-header">\n\n      <img src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn" alt="Angeles City Logo" />\n\n      <span>\n\n        <h6>{{title}}</h6>\n\n        <a href="#" class="date">@LungsodngAngeles  &bull; {{ created_at | date: format : timezone }}</a>\n\n      </span>\n\n    </div>\n\n    <p>\n\n      {{description}}\n\n    </p>\n\n    <img class="post-image" src="{{img}}" alt="" [hidden]="!img">\n\n    <ion-item class="comment-content" *ngFor="let comment of comment_docs">\n\n      <span class="name">{{comment.fullname}}</span><span class="date">{{ comment.created_at | date: format : timezone }}</span>\n\n      <p class="content">{{ comment.description }}</p>\n\n    </ion-item>\n\n    <ion-item class="comment-field">\n\n       <form class="comment" (ngSubmit)="postComment()">\n\n         <div class="form-group">\n\n           <input class="form-control" type="text" clearInput name="post-comment" [(ngModel)]="save_post.description" placeholder="Write a comment">\n\n           <!-- <input type="submit" value="POST" > -->\n\n         </div>\n\n         <button class="btn btn-green">Post</button>\n\n       </form>\n\n    </ion-item>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\post\view-post\view-post.html"*/
+            selector: 'view-post',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\post\view-post\view-post.html"*/`\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div class="post-holder">\n\n    <div class="post-header">\n\n      <img src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn" alt="Angeles City Logo" />\n\n      <span>\n\n        <h6>{{title}}</h6>\n\n        <a href="#" class="date">@LungsodngAngeles  &bull; {{ created_at | date: format : timezone }}</a>\n\n      </span>\n\n    </div>\n\n    <p>\n\n      {{description}}\n\n    </p>\n\n    <img class="post-image" src="{{img}}" alt="" [hidden]="!img">\n\n    <ion-item class="comment-content" *ngFor="let comment of comment_docs">\n\n      <span class="name">{{comment.fullname}}</span><span class="date">{{ comment.created_at | date: format : timezone }}</span>\n\n      <p class="content">{{ comment.description }}</p>\n\n      <img src="{{ comment.img }}">\n\n    </ion-item>\n\n    <ion-item class="comment-field">\n\n       <form class="comment" (ngSubmit)="postComment()">\n\n         <div class="form-group">\n\n           <input class="form-control" type="text" clearInput name="post-comment" [(ngModel)]="save_post.description" placeholder="Write a comment">\n\n           <!-- <input type="submit" value="POST" > -->\n\n         </div>\n\n         <button class="btn btn-green">Send</button>\n\n       </form>\n\n    </ion-item>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\post\view-post\view-post.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object])
     ], PostViewPage);
     return PostViewPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=view-post.js.map
@@ -1506,20 +1505,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_users_users_add_user_add__ = __webpack_require__(485);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_users_register_user_register__ = __webpack_require__(415);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_users_users_list_user_list__ = __webpack_require__(916);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_users_users_edit_user_edit__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_users_verify_token_verify_token__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_post_view_post_view_post__ = __webpack_require__(453);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_users_forgot_pass_forgot_pass__ = __webpack_require__(454);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_feedback_feedback__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_feedback_thankyou_thankyou__ = __webpack_require__(431);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angularfire2__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2_database__ = __webpack_require__(917);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angularfire2_storage__ = __webpack_require__(437);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__shared_api_service__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__shared_sidebar_sidebar__ = __webpack_require__(417);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_base64__ = __webpack_require__(436);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_users_register_thanks_register_thanks__ = __webpack_require__(916);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_users_users_list_user_list__ = __webpack_require__(917);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_users_users_edit_user_edit__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_users_verify_token_verify_token__ = __webpack_require__(198);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_post_view_post_view_post__ = __webpack_require__(453);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_users_forgot_pass_forgot_pass__ = __webpack_require__(454);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_feedback_feedback__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_feedback_thankyou_thankyou__ = __webpack_require__(431);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angularfire2__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angularfire2_database__ = __webpack_require__(918);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26_angularfire2_storage__ = __webpack_require__(437);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__shared_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__shared_sidebar_sidebar__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_base64__ = __webpack_require__(436);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers__ = __webpack_require__(114);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1539,6 +1539,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //pages
+
 
 
 
@@ -1583,19 +1584,20 @@ var AppModule = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_27__shared_sidebar_sidebar__["a" /* SidebarNav */],
+                __WEBPACK_IMPORTED_MODULE_28__shared_sidebar_sidebar__["a" /* SidebarNav */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_users_users_add_user_add__["a" /* UserAddPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_users_users_list_user_list__["a" /* UserListPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_users_users_edit_user_edit__["a" /* UserEditPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_users_users_list_user_list__["a" /* UserListPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_users_users_edit_user_edit__["a" /* UserEditPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_users_register_user_register__["a" /* UserRegisterPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_post_view_post_view_post__["a" /* PostViewPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_users_forgot_pass_forgot_pass__["a" /* ForgotPassPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_feedback_feedback__["a" /* FeedbackPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_feedback_thankyou_thankyou__["a" /* FeedbackThankYouPage */]
+                __WEBPACK_IMPORTED_MODULE_16__pages_users_register_thanks_register_thanks__["a" /* RegisterThanks */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_post_view_post_view_post__["a" /* PostViewPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_users_forgot_pass_forgot_pass__["a" /* ForgotPassPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_feedback_feedback__["a" /* FeedbackPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_feedback_thankyou_thankyou__["a" /* FeedbackThankYouPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -1604,38 +1606,39 @@ var AppModule = (function () {
                     links: []
                 }),
                 __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_23_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_24_angularfire2_database__["a" /* AngularFireDatabaseModule */],
-                __WEBPACK_IMPORTED_MODULE_25_angularfire2_storage__["b" /* AngularFireStorageModule */]
+                __WEBPACK_IMPORTED_MODULE_24_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_25_angularfire2_database__["a" /* AngularFireDatabaseModule */],
+                __WEBPACK_IMPORTED_MODULE_26_angularfire2_storage__["b" /* AngularFireStorageModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_27__shared_sidebar_sidebar__["a" /* SidebarNav */],
+                __WEBPACK_IMPORTED_MODULE_28__shared_sidebar_sidebar__["a" /* SidebarNav */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_login_login__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_13__pages_home_home__["a" /* HomePage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_users_users_add_user_add__["a" /* UserAddPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_users_users_list_user_list__["a" /* UserListPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_users_users_edit_user_edit__["a" /* UserEditPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_users_users_list_user_list__["a" /* UserListPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_users_users_edit_user_edit__["a" /* UserEditPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_users_register_user_register__["a" /* UserRegisterPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_post_view_post_view_post__["a" /* PostViewPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_users_forgot_pass_forgot_pass__["a" /* ForgotPassPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_feedback_feedback__["a" /* FeedbackPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_feedback_thankyou_thankyou__["a" /* FeedbackThankYouPage */]
+                __WEBPACK_IMPORTED_MODULE_16__pages_users_register_thanks_register_thanks__["a" /* RegisterThanks */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_post_view_post_view_post__["a" /* PostViewPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_users_verify_token_verify_token__["a" /* VerifyTokenPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_users_forgot_pass_forgot_pass__["a" /* ForgotPassPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_feedback_feedback__["a" /* FeedbackPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_feedback_thankyou_thankyou__["a" /* FeedbackThankYouPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                __WEBPACK_IMPORTED_MODULE_26__shared_api_service__["a" /* ApiService */],
-                __WEBPACK_IMPORTED_MODULE_29__providers__["b" /* UtilService */],
-                __WEBPACK_IMPORTED_MODULE_29__providers__["a" /* SocketService */],
+                __WEBPACK_IMPORTED_MODULE_27__shared_api_service__["a" /* ApiService */],
+                __WEBPACK_IMPORTED_MODULE_30__providers__["b" /* UtilService */],
+                __WEBPACK_IMPORTED_MODULE_30__providers__["a" /* SocketService */],
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_file__["a" /* File */],
                 __WEBPACK_IMPORTED_MODULE_10__ionic_native_file_transfer__["a" /* FileTransfer */],
                 __WEBPACK_IMPORTED_MODULE_11__ionic_native_file_path__["a" /* FilePath */],
-                __WEBPACK_IMPORTED_MODULE_28__ionic_native_base64__["a" /* Base64 */],
+                __WEBPACK_IMPORTED_MODULE_29__ionic_native_base64__["a" /* Base64 */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
             ]
         })
@@ -1845,6 +1848,35 @@ var SocketService = (function () {
 /***/ }),
 
 /***/ 916:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterThanks; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+// import { HomePage } from '../../../pages/home/home';
+var RegisterThanks = (function () {
+    function RegisterThanks() {
+    }
+    RegisterThanks = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'register-thanks',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\register-thanks\register-thanks.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Thank you\n\n    </ion-title>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n    <!-- <ion-buttons end>\n\n      <button ion-button (click)=\'addUser()\'>Add</button>\n\n    </ion-buttons> -->\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <p>Thanks for registering!</p>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\register-thanks\register-thanks.html"*/
+        })
+    ], RegisterThanks);
+    return RegisterThanks;
+}());
+
+//# sourceMappingURL=register-thanks.js.map
+
+/***/ }),
+
+/***/ 917:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

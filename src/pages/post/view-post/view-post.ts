@@ -37,6 +37,7 @@ export class PostViewPage {
             this.description  = post.results[0].description;
             this.img = post.results[0].img;
             this.comment_docs = post.results[0].comment_docs;
+            console.log(this.comment_docs)
       })
     this.storage.get('user').then(user=>{
       this.user_id = user.user._id;
