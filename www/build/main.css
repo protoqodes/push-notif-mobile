@@ -26175,7 +26175,6 @@ page-home .holder .btn-green:hover {
 
 page-home .scroll-content {
   padding: 0 !important;
-  overflow: none;
   background: url("../../assets/imgs/bg-dashboard.jpg");
   background-position: center;
   background-size: cover;
@@ -26440,6 +26439,35 @@ view-post .post-holder .comment-content {
   border-bottom: 1px solid #ececec;
 }
 
+view-post .post-holder .comment-content .comment-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+view-post .post-holder .comment-content .comment-header img {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+view-post .post-holder .comment-content .comment-header span .name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #12404d;
+}
+
+view-post .post-holder .comment-content .comment-header span .date {
+  font-size: 11px;
+  color: #c1c1c1;
+  text-decoration: none;
+}
+
 view-post .post-holder .comment-content .item-inner {
   padding-left: 15px;
 }
@@ -26447,20 +26475,6 @@ view-post .post-holder .comment-content .item-inner {
 view-post .post-holder .comment-content ion-label {
   margin: 8px auto;
   white-space: unset;
-}
-
-view-post .post-holder .comment-content .name {
-  font-size: 13px;
-  font-weight: bold;
-  color: #12404d;
-}
-
-view-post .post-holder .comment-content .date {
-  margin-top: 5px;
-  float: right;
-  font-size: 11px;
-  color: #c1c1c1;
-  text-decoration: none;
 }
 
 view-post .post-holder .comment-content .content {
@@ -26874,7 +26888,6 @@ user-add .item-ios.item-block .item-inner {
 user-edit .scroll-content {
   background-position: center;
   background-size: cover;
-  overflow: hidden;
 }
 
 user-edit .scroll-content .row {
@@ -26911,6 +26924,23 @@ user-edit .item-ios, user-edit .item-md {
 user-edit .item-ios.item-block .item-inner {
   padding-right: 0 !important;
   border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
+}
+
+user-edit .photo-holder .item-md.item-block .item-inner,
+user-edit .photo-holder .item-ios.item-block .item-inner {
+  padding-right: 0 !important;
+}
+
+user-edit .photo-holder ion-label {
+  margin: 0;
+}
+
+user-edit .photo-holder .profile-img {
+  width: 170px;
+  height: 170px;
+  border-radius: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 /* header */
