@@ -1316,13 +1316,13 @@ var PostViewPage = (function () {
         this.storage.get('user').then(function (user) {
             _this.user_id = user.user._id;
             _this.fullname = user.user.first_name + ' ' + user.user.last_name;
-            _this.img = user.user.img;
+            _this.image_user = user.user.img;
         });
         console.log(this);
     };
     PostViewPage.prototype.postComment = function () {
         var _this = this;
-        this.api.Comments.add(this.user_id, this._id, this.save_post.description, this.fullname, this.img)
+        this.api.Comments.add(this.user_id, this._id, this.save_post.description, this.fullname, this.image_user)
             .then(function (comments) {
             _this.api.Posts.view(_this._id).then(function (post) {
                 _this.comment_docs = post.results[0].comment_docs;
