@@ -132,14 +132,13 @@ export class UserRegisterPage {
       if(this.userForm.valid){
               var mobile = this.mobile.toString();
            
-                this.api.Users.add(this.first_name.value,this.last_name.value,this.mobile.value,this.email.value,this.username.value,this.password.value,this.is_active)
-                  .then(post =>{
-                      console.log(post);
-
-                      if(post){
-
+                // this.api.Users.add(this.first_name.value,this.last_name.value,this.mobile.value,this.email.value,this.username.value,this.password.value,this.is_active)
+                //   .then(post =>{
+                //       console.log(post);
+                //       if(post){
                           var generateToken = UtilService.generateRandomToken();
-                          this.api.MobileToken.add(generateToken,this.first_name,this.last_name,mobile,this.email,this.username,this.password,this.is_active).then(mobile_token => {
+                          this.api.MobileToken.add(generateToken,this.first_name.value,this.last_name.value,this.mobile.value,this.email.value,this.username.value,this.password.value,this.is_active).then(mobile_token => {
+                              console.log(mobile_token);
                               if(mobile_token.user){
                                  this.navCtrl.push(VerifyTokenPage, {user_id:mobile_token.user._id, user: mobile_token.user}, {
                                   animate: true,
@@ -147,13 +146,15 @@ export class UserRegisterPage {
                                 });
                               }
 
+                          }).catch(error => {
+                            this.existUser = true;
+                            return;
                           });
-                      }
+                      // }
                 console.log('added');
-                  }).catch(error => {
-                   this.existUser = true;
-                    return;
-              });
+              //     }).catch(error => {
+                   
+              // });
 
 
       }
