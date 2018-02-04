@@ -132,13 +132,14 @@ export class ApiService {
                     return response.json();
              }).toPromise();
         },
-       add : (user_id : any , post_id : String, description : String, fullname : String) => {
+       add : (user_id : any , post_id : String, description : String, fullname : String,img : String) => {
                return this.http.post(Config.baseUrl + "/comments/add",
                     {
                      user_id : user_id,
                      post_id : post_id,
                      description : description,
-                     fullname : fullname
+                     fullname : fullname,
+                     img : img
                    })
                     .map(response => {
                       return response.json();

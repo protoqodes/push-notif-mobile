@@ -718,12 +718,13 @@ var ApiService = (function () {
                     return response.json();
                 }).toPromise();
             },
-            add: function (user_id, post_id, description, fullname) {
+            add: function (user_id, post_id, description, fullname, img) {
                 return _this.http.post(__WEBPACK_IMPORTED_MODULE_2__shared_config__["a" /* default */].baseUrl + "/comments/add", {
                     user_id: user_id,
                     post_id: post_id,
                     description: description,
-                    fullname: fullname
+                    fullname: fullname,
+                    img: img
                 })
                     .map(function (response) {
                     return response.json();
@@ -773,9 +774,10 @@ var ApiService = (function () {
     }
     ApiService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
     ], ApiService);
     return ApiService;
+    var _a;
 }());
 
 //# sourceMappingURL=api.service.js.map
@@ -1314,12 +1316,13 @@ var PostViewPage = (function () {
         this.storage.get('user').then(function (user) {
             _this.user_id = user.user._id;
             _this.fullname = user.user.first_name + ' ' + user.user.last_name;
+            _this.img = user.user.img;
         });
         console.log(this);
     };
     PostViewPage.prototype.postComment = function () {
         var _this = this;
-        this.api.Comments.add(this.user_id, this._id, this.save_post.description, this.fullname)
+        this.api.Comments.add(this.user_id, this._id, this.save_post.description, this.fullname, this.img)
             .then(function (comments) {
             _this.api.Posts.view(_this._id).then(function (post) {
                 _this.comment_docs = post.results[0].comment_docs;

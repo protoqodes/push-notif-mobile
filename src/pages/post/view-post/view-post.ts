@@ -18,6 +18,7 @@ export class PostViewPage {
   created_at : string;
   comment_docs: Array<Object>;
   user_id : string;
+  img : string;
   constructor(
   	public navCtrl: NavController,
     public navParamsCtrl: NavParams,
@@ -42,11 +43,12 @@ export class PostViewPage {
     this.storage.get('user').then(user=>{
       this.user_id = user.user._id;
       this.fullname = user.user.first_name + ' ' + user.user.last_name;
+      this.img = user.user.img;
     })
      console.log(this);
   }
   postComment(){
-    this.api.Comments.add(this.user_id,this._id,this.save_post.description,this.fullname)
+    this.api.Comments.add(this.user_id,this._id,this.save_post.description,this.fullname,this.img)
     .then(comments =>{
         this.api.Posts.view(this._id).then(post =>{
             this.comment_docs = post.results[0].comment_docs;
