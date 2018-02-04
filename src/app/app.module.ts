@@ -16,6 +16,7 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { UserAddPage } from '../pages/users/users-add/user-add';
 import { UserRegisterPage } from '../pages/users/register/user-register';
+import { RegisterThanks } from '../pages/users/register-thanks/register-thanks';
 import { UserListPage } from '../pages/users/users-list/user-list';
 import { UserEditPage } from '../pages/users/users-edit/user-edit';
 import { VerifyTokenPage } from '../pages/users/verify-token/verify-token';
@@ -64,6 +65,7 @@ import {SocketService, UtilService} from "../providers";
     UserListPage,
     UserEditPage,
     UserRegisterPage,
+    RegisterThanks,
     VerifyTokenPage,
     PostViewPage,
     VerifyTokenPage,
@@ -79,7 +81,7 @@ import {SocketService, UtilService} from "../providers";
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireStorageModule
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -91,6 +93,7 @@ import {SocketService, UtilService} from "../providers";
     UserListPage,
     UserEditPage,
     UserRegisterPage,
+    RegisterThanks,
     VerifyTokenPage,
     PostViewPage,
     VerifyTokenPage,

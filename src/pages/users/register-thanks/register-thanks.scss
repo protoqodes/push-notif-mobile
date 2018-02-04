@@ -12,6 +12,31 @@
     color: #fff;
 }
 
+
+.invalid {
+            border: 1px solid #ea6153;
+        }
+
+.exist_username {
+            border: 1px solid #ea6153;
+        }
+
+label.item.item-input:after {
+  transition: 0.15s transform ease;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: red;
+  width:100%;
+  left: 0;
+  transform: translate3d(-100%,0,0);
+}
+
+label.item.item-input.has-error:after {
+  transform: translate3d(0,0,0);
+}
+
 .bar-button-default-md,
 .bar-button-clear-md-default,
 .bar-button-md-default,
@@ -21,11 +46,6 @@
     color: #fff;
 }
 
-.button-md,
-.button-ios {
-    background: #32db64;
-}
-
 .back-btn {
   img {
     margin: 5px 10px;
@@ -33,13 +53,12 @@
   }
 }
 
-user-edit {
+register-thanks {
   .scroll-content {
     // background-color: #52bc7a;
     // background: url("../../assets/imgs/bg-generic.jpg");
     background-position: center;
     background-size: cover;
-    overflow: hidden;
 
     .row {
       padding-bottom: 40px;
@@ -48,7 +67,7 @@ user-edit {
       border-radius: 12px;
 
       ion-item {
-        padding: 0 10px !important;
+        padding: 0 16px !important;
 
         .item-input-has-focus {
           color: #52bc7a !important;
@@ -66,17 +85,10 @@ user-edit {
     }
   }
 
-  ion-label {
+  p {
     color: #12404d;
-  }
-
-  .item-ios, .item-md {
-    background: none;
-  }
-
-  .item-ios.item-block .item-inner {
-    padding-right: 0 !important;
-
-    border-bottom: 0.55px solid rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
   }
 }

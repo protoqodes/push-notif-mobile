@@ -12,15 +12,17 @@
     color: #fff;
 }
 
-
-.invalid {
-            border: 1px solid #ea6153;
-        }
-
+.invalid,
 .exist_username {
-            border: 1px solid #ea6153;
-        }
-        
+  border-bottom: 2px solid #ea6153;
+}
+
+.validation-text {
+  padding: 5px 16px 0;
+  font-size: 11px;
+  color: #ea6153;
+}
+
 label.item.item-input:after {
   transition: 0.15s transform ease;
   content: '';

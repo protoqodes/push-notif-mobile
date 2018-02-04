@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-	<h4>FeedBack</h4>
+	<h4>Feedback</h4>
 	<form (ngSubmit)="feedbackForm()">
 	<ion-item>
         <ion-label floating>Title</ion-label>
@@ -19,6 +19,6 @@
         	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>
       </ion-item>
       <br>
-      <button ion-button type="submit" block>Send FeedBack</button>
+      <button ion-button type="submit" block>Send</button>
 	</form>
 </ion-content>

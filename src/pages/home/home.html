@@ -23,7 +23,7 @@
     <ion-title>
       Push notification for A.C
     </ion-title>
-    <a (click)='logoutBtn()' class="logout-btn"><img src="https://cdn.filestackcontent.com/CJMyS34SVmEdMrx42D6N"/></a>
+    <a (click)='logoutBtn()' class="logout-btn">Logout</a>
   </ion-navbar>
 </ion-header>
 <ion-content padding *ngIf="hasData">
@@ -73,7 +73,7 @@
                  <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Add a comment">
                  <!-- <input type="submit" value="POST" > -->
                </div>
-               <button ion-button round (click)='postComment(post)' class="btn btn-green">Post</button>
+               <button ion-button round (click)='postComment(post)' class="btn btn-green">Send</button>
              </form>
             <!-- <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">
                 <div>{{ comment.description }}</div>
