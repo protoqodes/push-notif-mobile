@@ -154,6 +154,33 @@ view-post {
         background-color: #f9f9f9;
         border-bottom: 1px solid #ececec;
 
+        .comment-header {
+          display: flex;
+          padding-left: 0;
+          margin-bottom: 0;
+
+          img {
+            margin-right: 15px;
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+          }
+
+          span {
+            .name {
+              font-size: 12px;
+              font-weight: bold;
+              color: #12404d;
+            }
+
+            .date {
+              font-size: 11px;
+              color: #c1c1c1;
+              text-decoration: none;
+            }
+          }
+        }
+
         .item-inner {
           padding-left: 15px;
         }
@@ -162,21 +189,6 @@ view-post {
           margin: 8px auto;
 
           white-space: unset;
-        }
-
-        .name {
-          font-size: 13px;
-          font-weight: bold;
-          color: #12404d;
-        }
-
-        .date {
-          margin-top: 5px;
-          float: right;
-
-          font-size: 11px;
-          color: #c1c1c1;
-          text-decoration: none;
         }
 
         .content {

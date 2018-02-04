@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="main">
     <ion-title text-center>
-     
+
       <button ion-button (click)='updateUser()'>Save</button>
     </ion-title>
     <ion-buttons end>
@@ -12,20 +12,15 @@
 
 <ion-content padding>
   <ion-row>
-    <!-- <img class="addPhoto" src="assets/images/medicine_logo.png"> -->
-    <ion-item text-center>
+    <ion-item text-center class="photo-holder">
     <div class="editPhoto">
-    
-    <!--<button ion-button icon-left (click)="presentActionSheet()">
-      <ion-icon name="camera"></ion-icon>Edit Profile  
-    </button>-->
     <button ion-button (click)="capture()">Lets take a picture!</button>
-  </div><br>
-      <img [src]="image" *ngIf="image"/>
+    </div><br>
+      <img [src]="image" *ngIf="image" class="profile-img"/>
+      <br>
       <button ion-button (click)="upload()">Upload</button>
-      <p >{{image}}</p>
     </ion-item>
-    
+
     <ion-item>
       <ion-label color="main" floating>First Name</ion-label>
       <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>

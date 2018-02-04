@@ -22,9 +22,16 @@
     </p>
     <img class="post-image" src="{{img}}" alt="" [hidden]="!img">
     <ion-item class="comment-content" *ngFor="let comment of comment_docs">
-      <span class="name">{{comment.fullname}}</span><span class="date">{{ comment.created_at | date: format : timezone }}</span>
+      <div class="comment-header">
+        <img src="{{ comment.img }}" class="comment-img">
+        <span>
+          <span class="name">{{comment.fullname}}</span>
+          <br>
+          <span class="date">{{ comment.created_at | date: format : timezone }}</span>
+        </span>
+      </div>
+
       <p class="content">{{ comment.description }}</p>
-      <img src="{{ comment.img }}">
     </ion-item>
     <ion-item class="comment-field">
        <form class="comment" (ngSubmit)="postComment()">
