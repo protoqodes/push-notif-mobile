@@ -184,8 +184,13 @@ var HomePage = (function () {
         var _this = this;
         this.storage.get('user')
             .then(function (user) {
+            if (user.user.is_verify != 1) {
+                console.log('test');
+            }
             _this.users = user;
         });
+        //if(this.users){
+        //}
         this.page = "1";
         this.pageSize = "10";
         this.title = "";
@@ -628,44 +633,55 @@ var UserEditPage = (function () {
     };
     UserEditPage.prototype.capture = function () {
         var _this = this;
-        //setup camera options
-        var cameraOptions = {
-            quality: 50,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE,
-        };
-        this.camera.getPicture(cameraOptions).then(function (imageData) {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64:
-            _this.captureDataUrl = 'data:image/jpeg;base64,' + imageData;
-        }, function (err) {
-            // Handle error
+        filestack.pick().then(function (image) {
+            var image = image.filesUploaded[0].url;
+            _this.api.Users.image(_this._id, image).then(function (user) {
+                _this.storage.set('user', user);
+            });
         });
+        //setup camera options
+        /*const cameraOptions: CameraOptions = {
+          quality: 50,
+          destinationType: this.camera.DestinationType.DATA_URL,
+          encodingType: this.camera.EncodingType.JPEG,
+          mediaType: this.camera.MediaType.PICTURE,
+        };
+        this.camera.getPicture(cameraOptions).then((imageData) => {
+          // imageData is either a base64 encoded string or a file URI
+          // If it's base64:
+          this.captureDataUrl = 'data:image/jpeg;base64,' + imageData;
+        }, (err) => {
+          // Handle error
+        });*/
     };
     UserEditPage.prototype.upload = function () {
-        var _this = this;
-        var filename = Math.floor(Date.now() / 1000);
-        var asd = this.afStorage.ref("users/" + filename + ".jpg")
-            .putString(this.captureDataUrl, 'data_url')
-            .then(function (snapshot) {
-            _this.image = snapshot.metadata.downloadURLs[0];
-            filestack.storeURL(snapshot.metadata.downloadURLs[0]).then(function (res) {
-                _this.api.Users.image(_this._id, res.url).then(function (user) {
-                    _this.storage.set('user', user);
-                });
-            });
-        })
-            .catch(function (err) {
-            alert(err);
-        });
+        /* const filename = Math.floor(Date.now() / 1000);
+          
+          const asd = this.afStorage.ref(`users/${filename}.jpg`)
+          .putString(this.captureDataUrl,'data_url')
+          .then((snapshot)=>{
+           this.image = snapshot.metadata.downloadURLs[0];
+           filestack.storeURL(snapshot.metadata.downloadURLs[0]).then(res => {
+             this.api.Users.image(this._id,res.url).then(user =>{
+                 this.storage.set('user', user);
+             })
+           });
+          })
+          .catch((err)=>{
+          alert(err);
+          }) */
     };
     UserEditPage.prototype.updateUser = function () {
         var _this = this;
         //   this.is_active = 0;
         this.api.Users.edit(this._id, this.first_name, this.last_name, this.mobile, this.email, this.username, this.password, this.path, this.img_name)
             .then(function (user) {
-            _this.storage.set('user', user);
+            _this.api.Users.view(_this._id).then(function (user) {
+                var user = {
+                    user: user
+                };
+                _this.storage.set('user', user);
+            });
         });
         this.navCtrl.pop();
     };
@@ -943,7 +959,7 @@ var ApiService = (function () {
 
 "use strict";
 var config = {
-    // baseUrl : 'http://localhost:5016/api',
+    //baseUrl : 'http://localhost:5016/api',
     baseUrl: 'https://angeles-notif.herokuapp.com/api'
 };
 /* harmony default export */ __webpack_exports__["a"] = (config);
