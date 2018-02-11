@@ -43,8 +43,14 @@ export class HomePage {
   ionViewWillEnter(){
   	this.storage.get('user')
   	.then(user => {
-  		this.users = <Array<Object>> user;
-  	})
+      if(user.user.is_verify != 1){
+        console.log('test');
+      }
+  		this.users =  user;
+  	});
+    //if(this.users){
+    
+    //}
     this.page = "1";
     this.pageSize = "10";
     this.title = "";
@@ -79,10 +85,10 @@ export class HomePage {
    doRefresh(refresher) {
     // console.log('Begin async operation', refresher);
 
-    // setTimeout(() => {
-    //   console.log('Async operation has ended');
-    //   refresher.complete();
-    // }, 2000);
+     setTimeout(() => {
+      console.log('Async operation has ended');
+       refresher.complete();
+     }, 2000);
 // console.log(socketService.connect());
   }
 

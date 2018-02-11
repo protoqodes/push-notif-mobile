@@ -49,8 +49,13 @@ var HomePage = (function () {
         var _this = this;
         this.storage.get('user')
             .then(function (user) {
+            if (user.user.is_verify != 1) {
+                console.log('test');
+            }
             _this.users = user;
         });
+        //if(this.users){
+        //}
         this.page = "1";
         this.pageSize = "10";
         this.title = "";
@@ -80,10 +85,10 @@ var HomePage = (function () {
     };
     HomePage.prototype.doRefresh = function (refresher) {
         // console.log('Begin async operation', refresher);
-        // setTimeout(() => {
-        //   console.log('Async operation has ended');
-        //   refresher.complete();
-        // }, 2000);
+        setTimeout(function () {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
         // console.log(socketService.connect());
     };
     HomePage.prototype.postComment = function (post) {
@@ -118,13 +123,10 @@ var HomePage = (function () {
             selector: 'page-home',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\home\home.html"*/`<!-- <ion-menu [content]="sidebar">\n\n  <ion-content padding>\n\n    <ion-list>\n\n      <ion-item>\n\n        <ion-label>Push Notification</ion-label>\n\n        <ion-toggle [(ngModel)]="notification" color="secondary"></ion-toggle>\n\n      </ion-item>\n\n      <ion-item>\n\n        <a class="sidebar-link">Edit Profile</a>\n\n      </ion-item>\n\n      <ion-item>\n\n        <a class="sidebar-link" (click)="toFeedBack()" >Feedback</a>\n\n      </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n</ion-menu>\n\n<ion-nav #sidebar></ion-nav> -->\n\n\n\n<navsidebar></navsidebar>\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="logout-btn">Logout</a>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding *ngIf="hasData">\n\n  <div class="holder">\n\n    <div class="container">\n\n      <div class="row">\n\n        <div class="col-12">\n\n          <div class="heading-holder">\n\n            <h4>RECENT POSTS</h4>\n\n          </div>\n\n\n\n          <button class="filter-btn" (click)=\'filterPost()\'>Filter</button>\n\n          <div class="filter-holder">\n\n            <input type="text" [(ngModel)]="title" placeholder="by title">\n\n            <input type="text" [(ngModel)]="description" placeholder="by description">\n\n          </div>\n\n          <ion-refresher (ionRefresh)="doRefresh($event)">\n\n            <ion-refresher-content\n\n              pullingIcon="arrow-dropdown"\n\n              pullingText="Pull to refresh"\n\n              refreshingSpinner="circles"\n\n              refreshingText="Refreshing...">\n\n            </ion-refresher-content>\n\n          </ion-refresher>\n\n\n\n          <br>\n\n          <!-- <button class="filter-btn" (click)="toFeedBack()" >Feedback</button> -->\n\n          <div class="post-holder" (click)=\'selectedPost(post)\' *ngFor="let post of posts">\n\n            <div class="post-header">\n\n              <img src="https://cdn.filestackcontent.com/VPkdgPyoT8KDCLJEk9Xn" alt="Angeles City Logo" />\n\n              <span>\n\n                <h6>{{post.title}}</h6>\n\n                <a href="#" class="date">@LungsodngAngeles  &bull; {{ post.created_at | date: format : timezone }}</a>\n\n              </span>\n\n            </div>\n\n            <img class="post-image" src="{{post.img}}" alt="" [hidden]="!post.img">\n\n            <p>\n\n              {{post.description}}\n\n            </p>\n\n            <!-- <ul>\n\n              <li><a href="#" class="date">{{ post.created_at | date: format : timezone }}</a></li>\n\n              <li><a href="#" class="website">www.angelescity.gov.ph</a></li>\n\n              <li><a href="#" class="social">@LungsodngAngeles</a></li>\n\n            </ul> -->\n\n             <form class="comment">\n\n               <div class="form-group">\n\n                 <input class="form-control" type="text" clearInput name="post-comment-{{ i }}" [(ngModel)]="post.field" placeholder="Add a comment">\n\n                 <!-- <input type="submit" value="POST" > -->\n\n               </div>\n\n               <button ion-button round (click)=\'postComment(post)\' class="btn btn-green">Send</button>\n\n             </form>\n\n            <!-- <ion-item class="comment-content" *ngFor="let comment of post.comment_docs">\n\n                <div>{{ comment.description }}</div>\n\n            </ion-item> -->\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n       <!-- <button ion-button (click)=\'logoutBtn()\'>Log out</button> -->\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\home\home.html"*/,
             directives: [__WEBPACK_IMPORTED_MODULE_4__shared_sidebar_sidebar__["a" /* SidebarNav */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_5__providers__["a" /* SocketService */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__providers__["a" /* SocketService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers__["a" /* SocketService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* MenuController */]) === "function" && _e || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -197,10 +199,13 @@ var FeedbackPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-feedback',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>Feedback</h4>\n\n	<form (ngSubmit)="feedbackForm()">\n\n	<ion-item>\n\n        <ion-label floating>Title</ion-label>\n\n        <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>\n\n      </ion-item>\n\n		<ion-item>\n\n        <ion-label floating>Description</ion-label>\n\n        	<ion-textarea [(ngModel)]="feedback.description" name="description"></ion-textarea>\n\n      </ion-item>\n\n      <br>\n\n      <button ion-button type="submit" block>Send</button>\n\n	</form>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback\feedback.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_4__providers__["a" /* SocketService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
     ], FeedbackPage);
     return FeedbackPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=feedback.js.map
@@ -371,7 +376,8 @@ var LoginPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_api_service__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -384,6 +390,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+// import { UtilService } from '../../../providers/utils.service';
 
 
 var VerifyTokenPage = (function () {
@@ -418,7 +426,7 @@ var VerifyTokenPage = (function () {
                 console.log(verify_token);
                 _this.storage.set('user', _this.user);
                 _this.storage.set('is_notify', _this.user.user.is_notify);
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], {}, {
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */], {}, {
                     animate: true,
                     direction: 'forward'
                 });
@@ -433,7 +441,7 @@ var VerifyTokenPage = (function () {
         });
     };
     VerifyTokenPage.prototype.backLogin = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */], {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* LoginPage */], {
             animate: true,
             direction: 'backward'
         });
@@ -442,13 +450,10 @@ var VerifyTokenPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'verify-token',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\verify-token\verify-token.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n     Verify\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <!-- <button ion-button (click)=\'addUser()\'>Add</button> -->\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Verify with This</ion-label>\n\n      <ion-input type="text" [(ngModel)]="verify_token" text-left></ion-input>\n\n    </ion-item>\n\n  </ion-row>\n\n  <button ion-button round full (click)=\'verifyUser()\'>Verify</button>\n\n  <button ion-button round full (click)=\'backLogin()\'>Back to Login</button>\n\n</ion-content>`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\verify-token\verify-token.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _e || Object])
     ], VerifyTokenPage);
     return VerifyTokenPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=verify-token.js.map
@@ -684,10 +689,21 @@ var UserEditPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'user-edit',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\users-edit\user-edit.html"*/`<ion-header>\n\n  <ion-navbar color="main">\n\n    <ion-title text-center>\n\n\n\n      <button ion-button (click)=\'updateUser()\'>Save</button>\n\n    </ion-title>\n\n    <ion-buttons end>\n\n    <a (click)=\'goBack()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-row>\n\n    <ion-item text-center class="photo-holder">\n\n    <div class="editPhoto">\n\n    <button ion-button (click)="capture()">Profile Picture</button>\n\n    </div><br>\n\n      <img [src]="image" *ngIf="image" class="profile-img"/>\n\n      <br>\n\n      <!--<button ion-button (click)="upload()">Upload</button>-->\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label color="main" floating>First Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="first_name" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Last Name</ion-label>\n\n      <ion-input type="text" [(ngModel)]="last_name" text-left></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label color="main" floating>Phone</ion-label>\n\n      <ion-input type="text" [(ngModel)]="mobile" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Email</ion-label>\n\n      <ion-input type="email" [(ngModel)]="email" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Username</ion-label>\n\n      <ion-input type="text" [(ngModel)]="username" text-left></ion-input>\n\n    </ion-item>\n\n     <ion-item>\n\n      <ion-label color="main" floating>Password</ion-label>\n\n      <ion-input type="password" [(ngModel)]="password" text-left></ion-input>\n\n    </ion-item>\n\n\n\n\n\n  </ion-row>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\users\users-edit\user-edit.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9_angularfire2_storage__["a" /* AngularFireStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9_angularfire2_storage__["a" /* AngularFireStorage */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_base64__["a" /* Base64 */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_base64__["a" /* Base64 */]) === "function" && _l || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_3__shared_api_service__["a" /* ApiService */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_file_transfer__["a" /* FileTransfer */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_file__["a" /* File */],
+            __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_path__["a" /* FilePath */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_9_angularfire2_storage__["a" /* AngularFireStorage */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_native_base64__["a" /* Base64 */]
+            // private fcm: FCM
+        ])
     ], UserEditPage);
     return UserEditPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
 }());
 
 //# sourceMappingURL=user-edit.js.map
@@ -940,8 +956,7 @@ var ApiService = (function () {
 
 "use strict";
 var config = {
-    // baseUrl : 'http://localhost:5016/api',
-    baseUrl: 'https://angeles-notif.herokuapp.com/api'
+    baseUrl: 'http://localhost:5016/api',
 };
 /* harmony default export */ __webpack_exports__["a"] = (config);
 //# sourceMappingURL=config.js.map
@@ -1277,7 +1292,7 @@ var FeedbackThankYouPage = (function () {
     };
     FeedbackThankYouPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-thank-you',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn">Logout</a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>Thank you!</h4>\n\n	<div *ngIf="is_verify == \'1\';else verify">\n\n    <p>We will read your feedback shortly</p>\n\n  </div>\n\n    <ng-template #verify>We have received your feedback. Please verify your email first. Thank you!</ng-template>\n\n    <br>\n\n  <div class="button-holder">\n\n  <button ion-button (click)="backToPost()">Back to post</button>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/
+            selector: 'page-thank-you',template:/*ion-inline-start:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/`<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Push notification for A.C\n\n    </ion-title>\n\n    <a (click)=\'logoutBtn()\' class="back-btn"><img src="https://cdn.filestackcontent.com/EBEl5OK0TKmGOOjWI1Kw"/></a>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n	<h4>Thank you!</h4>\n\n	<div *ngIf="is_verify == \'1\';else verify">\n\n    <p>We will read your feedback shortly</p>\n\n  </div>\n\n    <ng-template #verify>We have received your feedback. Please verify your email first. Thank you!</ng-template>\n\n    <br>\n\n  <div class="button-holder">\n\n  <button ion-button (click)="backToPost()">Back to post</button>\n\n  </div>\n\n</ion-content>\n\n`/*ion-inline-end:"G:\projects\push-notif-folder\push-notif-mobile\src\pages\feedback_thankyou\thankyou.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],

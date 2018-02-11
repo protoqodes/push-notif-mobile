@@ -72,14 +72,13 @@ export class VerifyTokenPage {
             toast.present();
 
         }
-        
-         
+                
       });
     
 
   }
   backLogin(){
-    this.navCtrl.push(HomePage, {
+    this.navCtrl.push(LoginPage, {
       animate: true,
       direction: 'backward'
     });
