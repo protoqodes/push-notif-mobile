@@ -182,8 +182,14 @@ export class UserEditPage {
   }
   captureDataUrl: string;
   capture() {
+    filestack.pick().then(image =>{
+    var image = image.filesUploaded[0].url;
+      this.api.Users.image(this._id,image).then(user =>{
+            this.storage.set('user', user);
+        })
+    })  
     //setup camera options
-    const cameraOptions: CameraOptions = {
+    /*const cameraOptions: CameraOptions = {
       quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
@@ -195,11 +201,11 @@ export class UserEditPage {
       this.captureDataUrl = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
       // Handle error
-    });
+    });*/
   }
   image : any[];
   upload() : AngularFireUploadTask {
-    const filename = Math.floor(Date.now() / 1000);
+   /* const filename = Math.floor(Date.now() / 1000);
      
      const asd = this.afStorage.ref(`users/${filename}.jpg`)
      .putString(this.captureDataUrl,'data_url')
@@ -213,7 +219,7 @@ export class UserEditPage {
      })
      .catch((err)=>{
      alert(err);
-     }) 
+     }) */
 
 
   }
@@ -231,7 +237,12 @@ export class UserEditPage {
     this.path,
     this.img_name)
     .then(user =>{
-        this.storage.set('user', user);
+        this.api.Users.view(this._id).then(user =>{
+          var user = {
+            user : user
+          };
+          this.storage.set('user', user);
+        })
     });
 
     this.navCtrl.pop();
