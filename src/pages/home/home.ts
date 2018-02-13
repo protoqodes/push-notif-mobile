@@ -23,6 +23,7 @@ export class HomePage {
   page: string;
   pageSize: string;
   title: string;
+  no_result_found: false;
   description: string;
   // date_filter : string = new Date().toISOString();
    date_filter : string;
@@ -60,6 +61,7 @@ export class HomePage {
     this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
       console.log(posts)
       this.posts = posts.results
+      this.no_result_found = false;
       this.hasData = true
     })
   }
@@ -71,6 +73,9 @@ export class HomePage {
     console.log(this.date_filter);
     this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
       console.log(posts)
+      if(posts.results.length === 0){
+        this.no_result_found = true;
+      }
       this.posts = posts.results
       this.hasData = true
     })
@@ -100,7 +105,10 @@ export class HomePage {
     .then(comments =>{
         console.log(comments);
         console.log('added');
+
     });
+
+    post.field = '';
 
   }
   toFeedBack(){

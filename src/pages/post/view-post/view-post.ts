@@ -70,6 +70,8 @@ export class PostViewPage {
         
     });
 
+    this.save_post.description = '';
+
   }
 
 
