@@ -15,7 +15,7 @@ import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  directives: [SidebarNav]
+  directives: [SidebarNav],
 })
 export class HomePage {
   posts : string[];

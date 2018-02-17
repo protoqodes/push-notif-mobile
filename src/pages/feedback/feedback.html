@@ -9,7 +9,7 @@
 
 <ion-content padding>
 	<h4>Feedback</h4>
-	<form (ngSubmit)="feedbackForm()">
+	<form #form="ngForm"  class="add-forms" (ngSubmit)="feedbackForm(form.value)">
 	<ion-item>
         <ion-label floating>Title</ion-label>
         <ion-input type="text" [(ngModel)]="feedback.title" name="title"></ion-input>

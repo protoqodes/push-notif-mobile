@@ -65,12 +65,15 @@ page-home {
 
       input {
         padding: 10px;
-        width: 50%;
+        width: 125%;
 
         border: 1px solid transparent;
 
         &:nth-child(2) {
           border-left: 1px solid #d4d4d4;
+        }
+        .filter-btn{
+          width: 10%;
         }
       }
     }
@@ -83,7 +86,6 @@ page-home {
 
       font-size: 14px;
       color: #fff;
-
       background: #05512a;
       border: 2px solid #05512a;
       border-radius: 0;
@@ -109,10 +111,10 @@ page-home {
     .post-holder {
         position: relative;
         overflow: hidden;
-
+        
         padding: 10px 5px 0;
         margin-bottom: 30px;
-
+        cursor: pointer;
         // text-align: center;
 
         background: #fff;
@@ -125,7 +127,7 @@ page-home {
         .post-header {
           display: flex;
           align-items: center;
-
+          
           margin-bottom: 15px;
 
           img {

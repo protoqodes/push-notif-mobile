@@ -22,9 +22,16 @@ export class FeedbackPage {
     private api : ApiService
   	) {
   }
-
-  feedbackForm(){
-
+ // addPost(data :any){
+ //   console.log(data);
+ //   console.log(this.file_url)
+ //   this.api.Posts.add(data.title,data.description,this.file_url)
+ //   .then(post => {
+ //     console.log(post)
+ //     this.router.navigate(['/dashboard'])
+ //   })
+ // }
+  feedbackForm(feedback :any){
 
     if(Object.keys(this.feedback).length <2){
        let toast = this.toastCtrl.create({
@@ -39,8 +46,8 @@ export class FeedbackPage {
         this.storage.get('user').then(data =>{
           
           this.api.Feedback.add(
-          this.feedback.title,
-          this.feedback.description,
+          feedback.title,
+          feedback.description,
           data.user._id,
           data.user.is_verify,
           data.user.email

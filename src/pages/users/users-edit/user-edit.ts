@@ -75,9 +75,6 @@ export class UserEditPage {
 
   ionViewWillEnter(){
 
-      
- 
- 
   }
 
   ionViewDidEnter() {    
@@ -160,6 +157,7 @@ export class UserEditPage {
           let correctPath = filePath.substr(0,filePath.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/')+ 1, imageData.lastIndexOf('?'));
           this.path = filePath;
+          this.image = filePath;
           this.img_name = imageData;
       }).catch(err =>{
           console.log('test');
@@ -168,6 +166,7 @@ export class UserEditPage {
           let correctPath = imageData.substr(0,imageData.lastIndexOf('/') + 1);
           let currentName = imageData.substring(imageData.lastIndexOf('/') + 1);
           this.path = filePath;
+          this.image = filePath;
           this.img_name = imageData;
            // alert('running here else');
      }
@@ -186,6 +185,7 @@ export class UserEditPage {
     var image = image.filesUploaded[0].url;
       this.api.Users.image(this._id,image).then(user =>{
             this.storage.set('user', user);
+            this.image = image;
         })
     })  
     //setup camera options
