@@ -71,6 +71,7 @@ export class HomePage {
     console.log(this.date_filter);
     this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
       console.log(posts)
+     
       this.posts = posts.results
       this.hasData = true
     })
@@ -100,6 +101,7 @@ export class HomePage {
     .then(comments =>{
         console.log(comments);
         console.log('added');
+
     });
 
   }
