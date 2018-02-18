@@ -18,7 +18,6 @@
 <ion-header>
   <ion-navbar color="main">
     <ion-title text-center>
-
       <button ion-button (click)='updateUser()'>Save</button>
     </ion-title>
     <ion-buttons end>
@@ -31,7 +30,7 @@
   <ion-row>
     <ion-item text-center class="photo-holder">
     <div class="editPhoto">
-    <button ion-button (click)="capture()">Lets take a picture!</button>
+    <button ion-button (click)="presentActionSheet()">Lets take a picture!</button>
     </div><br>
       <img [src]="image" *ngIf="image" class="profile-img"/>
       <br>

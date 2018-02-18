@@ -75,9 +75,7 @@ export class UserEditPage {
 
   ionViewWillEnter(){
 
-      
- 
- 
+    
   }
 
   ionViewDidEnter() {    
@@ -86,26 +84,19 @@ export class UserEditPage {
   }
   presentActionSheet() {
      
-     var fileOptions = {
-      intelligent: true
-      };
-      var storeOptions = {
-      filename: 'test.jpg',
-      access :'public'
-      }
-     /*let actionSheet = this.actionSheetCtrl.create({
+     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
       buttons: [
         {
           text: 'Load from Library',
           handler: () => {
-            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
+            this.capture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
         {
           text: 'Use Camera',
           handler: ( ) => {
-            this.takePicture(this.camera.PictureSourceType.CAMERA);
+            this.capture(this.camera.PictureSourceType.CAMERA);
           }
         },
         {
@@ -114,7 +105,7 @@ export class UserEditPage {
         }
       ]
     });
-    actionSheet.present();*/
+    actionSheet.present();
   }
 
   public takePicture(sourceType){
@@ -207,6 +198,7 @@ export class UserEditPage {
       this.image = snapshot.metadata.downloadURLs[0];
       filestack.storeURL(snapshot.metadata.downloadURLs[0]).then(res => {
         this.api.Users.image(this._id,res.url).then(user =>{
+
             this.storage.set('user', user);
         })
       });
@@ -231,6 +223,7 @@ export class UserEditPage {
     this.path,
     this.img_name)
     .then(user =>{
+    console.log(user.user);
         this.storage.set('user', user);
     });
 
