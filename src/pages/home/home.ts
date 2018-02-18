@@ -25,6 +25,7 @@ export class HomePage {
   title: string;
   no_result_found: false;
   description: string;
+  is_notify: boolean = false;
   // date_filter : string = new Date().toISOString();
    date_filter : string;
   user_comment : Array<Object>;
@@ -39,6 +40,10 @@ export class HomePage {
     private api : ApiService,
     public menuCtrl: MenuController
   	) {
+     this.storage.get('user').then(user =>{
+    console.log(user.user.is_notify)
+      this.is_notify = user.user.is_notify;
+    })
   }
 
   ionViewWillEnter(){
@@ -123,4 +128,15 @@ export class HomePage {
   console.log('hello');
    this.menuCtrl.open();
  }
+ notify(value){
+     this.storage.get('user')
+    .then(user => {
+      this.api.Users.notify(value,user.user._id).then(user =>{
+        this.storage.remove('user');
+        this.storage.set('user',user);
+
+      })
+    })
+
+  }
 }
