@@ -40,6 +40,8 @@ export class UserEditPage {
   img : string;
   path : string;
   img_name : string;
+
+  captureDataUrl: string;
   constructor(
     public navCtrl: NavController, 
     public navParamsCtrl: NavParams,
@@ -67,6 +69,8 @@ export class UserEditPage {
           this.username = user.user.username;
           this.password = user.user.password;
           this.image = user.user.img;
+
+          this.captureDataUrl = user.user.img;
       }
     }) 
     

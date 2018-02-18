@@ -560,6 +560,7 @@ var UserEditPage = (function () {
                 _this.username = user.user.username;
                 _this.password = user.user.password;
                 _this.image = user.user.img;
+                _this.captureDataUrl = user.user.img;
             }
         });
     }
