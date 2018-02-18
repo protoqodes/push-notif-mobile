@@ -15,7 +15,7 @@ import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  directives: [SidebarNav],
+  directives: [SidebarNav]
 })
 export class HomePage {
   posts : string[];
@@ -23,7 +23,9 @@ export class HomePage {
   page: string;
   pageSize: string;
   title: string;
+  no_result_found: false;
   description: string;
+  is_notify: boolean = false;
   // date_filter : string = new Date().toISOString();
    date_filter : string;
   user_comment : Array<Object>;
@@ -31,35 +33,33 @@ export class HomePage {
   hasData : boolean = false;
   is_notify: boolean = false;
   constructor(
-  	public navCtrl: NavController,
-  	private storage : Storage,
+    public navCtrl: NavController,
+    private storage : Storage,
     public socketService: SocketService,
     // private fcm: FCM
     private api : ApiService,
     public menuCtrl: MenuController
-  	) {
+    ) {
+    this.storage.get('user').then(user =>{
+    console.log(user.user.is_notify)
+      this.is_notify = user.user.is_notify;
+    })
   }
 
   ionViewWillEnter(){
-  	this.storage.get('user')
-  	.then(user => {
-      if(user.user.is_verify != 1){
-        console.log('test');
-      }
-  		this.users =  user;
-  	});
-    //if(this.users){
-    
-    //}
+    this.storage.get('user')
+    .then(user => {
+      this.users = <Array<Object>> user;
+    })
     this.page = "1";
     this.pageSize = "10";
     this.title = "";
     this.description = "";
     // this.date_filter = new Date(this.date_filter);
-
     this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
       console.log(posts)
       this.posts = posts.results
+      this.no_result_found = false;
       this.hasData = true
     })
   }
@@ -71,7 +71,9 @@ export class HomePage {
     console.log(this.date_filter);
     this.api.Posts.list(this.page,this.pageSize,this.title,this.description,this.date_filter).then(posts =>{
       console.log(posts)
-     
+      if(posts.results.length === 0){
+        this.no_result_found = true;
+      }
       this.posts = posts.results
       this.hasData = true
     })
@@ -85,9 +87,8 @@ export class HomePage {
   }
    doRefresh(refresher) {
     // console.log('Begin async operation', refresher);
-
      setTimeout(() => {
-      console.log('Async operation has ended');
+       console.log('Async operation has ended');
        refresher.complete();
      }, 2000);
 // console.log(socketService.connect());
@@ -101,9 +102,9 @@ export class HomePage {
     .then(comments =>{
         console.log(comments);
         console.log('added');
-
     });
 
+    post.field = '';
   }
   toFeedBack(){
     this.navCtrl.push(FeedbackPage, {
@@ -122,6 +123,18 @@ export class HomePage {
     })
   }
   openMenu() {
-   this.menuCtrl.open('#sidebar');
+  console.log('hello');
+   this.menuCtrl.open();
  }
+ notify(value){
+     this.storage.get('user')
+    .then(user => {
+      this.api.Users.notify(value,user.user._id).then(user =>{
+        this.storage.remove('user');
+        this.storage.set('user',user);
+
+      })
+    })
+
+  }
 }
