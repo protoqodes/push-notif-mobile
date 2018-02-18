@@ -172,13 +172,14 @@ export class UserEditPage {
 
   }
   captureDataUrl: string;
-  capture() {
+  capture(sourceType) {
     //setup camera options
     const cameraOptions: CameraOptions = {
       quality: 50,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE,
+      sourceType : sourceType
     };
     this.camera.getPicture(cameraOptions).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
@@ -192,7 +193,7 @@ export class UserEditPage {
   upload() : AngularFireUploadTask {
     const filename = Math.floor(Date.now() / 1000);
      
-     const asd = this.afStorage.ref(`users/${filename}.jpg`)
+     this.afStorage.ref(`users/${filename}.jpg`)
      .putString(this.captureDataUrl,'data_url')
      .then((snapshot)=>{
       this.image = snapshot.metadata.downloadURLs[0];

@@ -32,7 +32,7 @@
     <div class="editPhoto">
     <button ion-button (click)="presentActionSheet()">Lets take a picture!</button>
     </div><br>
-      <img [src]="image" *ngIf="image" class="profile-img"/>
+      <img [src]="captureDataUrl" *ngIf="captureDataUrl" class="profile-img"/>
       <br>
       <button ion-button (click)="upload()">Upload</button>
     </ion-item>
