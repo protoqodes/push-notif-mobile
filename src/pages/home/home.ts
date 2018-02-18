@@ -120,6 +120,7 @@ export class HomePage {
     })
   }
   openMenu() {
-   this.menuCtrl.open('#sidebar');
+  console.log('hello');
+   this.menuCtrl.open();
  }
 }
