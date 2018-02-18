@@ -10,6 +10,7 @@ import {SocketService, UtilService} from "../../providers";
 import {PostViewPage} from '../post/view-post/view-post';
 import {FeedbackPage} from '../feedback/feedback';
 import { LoginPage } from '../login/login';
+import { UserEditPage } from '../users/users-edit/user-edit';
 
 // import { FCM } from '@ionic-native/fcm';
 @Component({
@@ -125,7 +126,6 @@ export class HomePage {
     })
   }
   openMenu() {
-  console.log('hello');
    this.menuCtrl.open();
  }
  notify(value){
@@ -138,5 +138,13 @@ export class HomePage {
       })
     })
 
+  }
+  toFeedBack(){
+    this.navCtrl.push(FeedbackPage, {
+      test : 'test'
+    });
+  }
+  toEdit(){
+    this.navCtrl.push(UserEditPage);
   }
 }

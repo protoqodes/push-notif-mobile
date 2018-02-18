@@ -6,8 +6,9 @@
         <ion-toggle (ionChange)="notify(is_notify)" [(ngModel)]="is_notify" color="secondary"></ion-toggle>
       </ion-item>
       <ion-item>
-        <a class="sidebar-link">Edit Profile</a>
+        <a class="sidebar-link" (click)="toEdit()">Edit Profile</a>
       </ion-item>
+
       <ion-item>
         <a class="sidebar-link" (click)="toFeedBack()" >Feedback</a>
       </ion-item>
