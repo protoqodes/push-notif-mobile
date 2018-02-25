@@ -28,7 +28,7 @@
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Email</ion-label>
-      <ion-input type="email" formControlName="email" [class.invalid]="!userForm.controls.email.valid && (userForm.controls.email.dirty || submitAttempt)" text-left></ion-input>
+      <ion-input type="email" formControlName="email" [class.invalid]="userForm.controls.email.valid && (userForm.controls.email.dirty || submitAttempt)" text-left></ion-input>
     </ion-item>
      <ion-item>
       <ion-label color="main" floating>Username</ion-label>

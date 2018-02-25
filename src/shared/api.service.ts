@@ -163,6 +163,7 @@ export class ApiService {
                       is_notify : true
                    })
                     .map(response => {
+                    
                       return response.json();
                }).toPromise();
            },

@@ -59,10 +59,19 @@ export class LoginPage {
     })
     .catch(error => {
       console.log(error);
-       let toast = this.toastCtrl.create({
+      let toast;
+      if(error.status == 0){
+       toast = this.toastCtrl.create({
+        message: 'connection lost',
+        duration: 2000
+      });
+      }
+      else{
+        toast = this.toastCtrl.create({
         message: error._body,
         duration: 2000
       });
+      }
 
       toast.present();
       console.log(error)

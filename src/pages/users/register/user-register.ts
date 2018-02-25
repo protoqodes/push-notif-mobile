@@ -105,7 +105,10 @@ export class UserRegisterPage {
   //   });
 
   // }
-
+  validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
   addUser(){
      this.is_active = 0;
     // console.log(MobileValidator.checkMobile);
@@ -113,6 +116,15 @@ export class UserRegisterPage {
     //   mobile : this.mobile,
     //   first_name : this.first_name
     // }
+    if(!this.validateEmail(this.email.value)){
+       let toast = this.toastCtrl.create({
+            message: "Email Invalid",
+            duration: 2000
+        });
+        toast.present();
+ 
+         return false;
+    }
     this.submitAttempt = true;
     // if(!this.validateField(field)){
     //     return
